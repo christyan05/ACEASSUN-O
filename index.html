@@ -123,7 +123,7 @@
             { id: 2, dia: "02/06 (Ter)", status: "disponivel", disciplina: "Português", tema: "Compreensão e Interpretação de Textos", tipo: "teoria" },
             { id: 3, dia: "03/06 (Qua)", status: "disponivel", disciplina: "Conhecimentos Específicos", tema: "Leishmaniose Visceral e Tegumentar", tipo: "teoria" },
             { id: 4, dia: "04/06 (Qui)", status: "disponivel", disciplina: "Informática", tema: "Hardware e Software (Básico)", tipo: "teoria" },
-            { id: 5, dia: "05/06 (Sex)", status: "disponivel", disciplina: "Legislação/Município", tema: "História e Geografia de Assunção", tipo: "teoria" },
+            { id: 5, dia: "05/06 (Sex)", status: "disponivel", disciplina: "Legislação/Município", tema: "Lei Orgânica do Município - Título I ao III", tipo: "teoria" },
             { id: 6, dia: "06/06 (Sáb)", status: "disponivel", disciplina: "Revisão Geral", tema: "Active Recall - Semana 1", tipo: "revisao" },
             { id: 7, dia: "07/06 (Dom)", status: "disponivel", disciplina: "Simulado", tema: "Simulado 01 (50 Questões Padrão Ápice)", tipo: "simulado" },
             { id: 8, dia: "08/06 (Seg)", status: "disponivel", disciplina: "Conhecimentos Específicos", tema: "Doença de Chagas e Esquistossomose", tipo: "teoria" },
@@ -340,10 +340,1655 @@
                         ]
                     }
                 ]
-            }
-            // Mocks de outras aulas poderiam ser adicionados aqui
-        };
+            },
+            2: {
+                disciplina: "Português",
+                tema: "Compreensão e Interpretação de Textos",
+                progresso: 10,
+                teoria: `
+                    <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>A prova de Português da Ápice Consultoria exige, antes de tudo, que você saiba diferenciar <span class="hl-concept">Compreensão</span> de <span class="hl-concept">Interpretação</span>. Embora pareçam sinônimos no dia a dia, para a banca são habilidades distintas. Compreender um texto é entender o que está <strong>escrito nele</strong>, na superfície. Interpretar é inferir o que está <strong>nas entrelinhas</strong>, o que o autor quis dizer.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Compreensão Textual (O que está no texto)</h3>
+                        <p>A compreensão foca na informação objetiva. A banca usa comandos no enunciado como: "Segundo o texto...", "O autor afirma que...", "De acordo com o texto...". A resposta <strong>deve estar literalmente escrita</strong> ou parafraseada no texto. Se você ler com atenção, vai apontar o dedo para a resposta no parágrafo.</p>
 
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Interpretação Textual (O que está além do texto)</h3>
+                        <p>A interpretação exige que você tire conclusões, faça deduções (inferências) a partir do que leu. A banca usa comandos como: "Infere-se do texto que...", "O texto sugere que...", "Conclui-se que...". A resposta <strong>não estará escrita com todas as letras</strong>, mas o texto te dá pistas seguras para chegar àquela conclusão. O cuidado aqui é não "extrapolar" ou "viajar" e achar coisas que o texto não suporta.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Erros Clássicos na Interpretação</h3>
+                        <p>As bancas criam alternativas falsas usando três estratégias principais:</p>
+                        <ul class="list-disc pl-8 space-y-2 mt-4">
+                            <li><span class="font-bold text-red-600">Extrapolação:</span> A alternativa diz mais do que o texto. Você adiciona informações que não estão lá.</li>
+                            <li><span class="font-bold text-red-600">Redução:</span> A alternativa foca em apenas um detalhe ou uma exceção e trata como se fosse a ideia central de todo o texto.</li>
+                            <li><span class="font-bold text-red-600">Contradição:</span> A alternativa diz exatamente o oposto do que o texto defende, muitas vezes mudando apenas uma palavra (como "não", "nunca", "sempre").</li>
+                        </ul>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>Atenção ao Comando da Questão:</strong> Antes de ler as alternativas, leia o enunciado. Se ele disser "Segundo o texto", não procure deduções. Se ele disser "Infere-se", prepare-se para deduzir.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>Palavras Restritivas e Universalizadoras:</strong> Desconfie de alternativas com palavras como: <em>sempre, nunca, todos, nenhum, somente, apenas, exclusivamente</em>. Na maioria das vezes, elas tornam a alternativa falsa, a menos que o texto seja muito radical.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Leia o trecho: 'O aumento de casos de dengue no município foi expressivo, apesar das campanhas de conscientização.' Segundo o texto, é correto afirmar que:",
+                        opcoes: [
+                            { texto: "As campanhas de conscientização não foram realizadas.", correta: false, explicacao: "O texto diz 'apesar das campanhas', ou seja, elas ocorreram." },
+                            { texto: "Houve um crescimento notável no número de pessoas com dengue.", correta: true, explicacao: "Correto. 'Aumento expressivo' é sinônimo de 'crescimento notável'. É uma questão de compreensão (paráfrase)." },
+                            { texto: "A dengue é a doença mais grave do município.", correta: false, explicacao: "Extrapolação. O texto não fala sobre a gravidade relativa da doença." },
+                            { texto: "O aumento de casos ocorreu devido à falta de campanhas.", correta: false, explicacao: "Contradição. O texto diz que os casos aumentaram 'apesar' (mesmo com) as campanhas." },
+                            { texto: "O município erradicou a dengue.", correta: false, explicacao: "Contradição clara." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Quando a questão pede para assinalar a alternativa que apresenta uma informação que se pode 'inferir' do texto, o candidato deve procurar:",
+                        opcoes: [
+                            { texto: "A resposta exata e literal, copiada do texto.", correta: false, explicacao: "Isso é compreensão, não inferência." },
+                            { texto: "Uma dedução lógica baseada nas pistas do texto.", correta: true, explicacao: "Correto. Inferir é deduzir a partir de premissas apresentadas no texto." },
+                            { texto: "Um erro gramatical cometido pelo autor.", correta: false, explicacao: "Incorreto." },
+                            { texto: "A opinião pessoal do candidato sobre o tema.", correta: false, explicacao: "Nunca coloque sua opinião pessoal. Atenha-se ao texto." },
+                            { texto: "Apenas um detalhe irrelevante citado no último parágrafo.", correta: false, explicacao: "Isso seria redução." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Ao se deparar com a expressão 'De acordo com o texto', o candidato deve:",
+                        opcoes: [
+                            { texto: "Ater-se estritamente às informações explícitas apresentadas pelo autor.", correta: true, explicacao: "Correto. É um comando de compreensão." },
+                            { texto: "Fazer suposições sobre o que o autor poderia ter dito.", correta: false, explicacao: "Suposições vão além do que está explícito." },
+                            { texto: "Ignorar o texto e basear-se em conhecimentos gerais.", correta: false, explicacao: "A resposta deve estar baseada no texto." },
+                            { texto: "Procurar contradições lógicas na argumentação.", correta: false, explicacao: "O comando pede informações do texto, não críticas à sua lógica." },
+                            { texto: "Tirar conclusões que não estão diretamente no texto.", correta: false, explicacao: "Isso é interpretação." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Qual das opções abaixo representa um erro comum de interpretação textual conhecido como 'Extrapolação'?",
+                        opcoes: [
+                            { texto: "Focar em um aspecto secundário e ignorar a ideia principal.", correta: false, explicacao: "Isso é Redução." },
+                            { texto: "Compreender o sentido oposto do que foi afirmado.", correta: false, explicacao: "Isso é Contradição." },
+                            { texto: "Inserir no texto informações ou conclusões que não estão presentes nele.", correta: true, explicacao: "Correto. Extrapolar é ir além dos limites do texto." },
+                            { texto: "Identificar corretamente a ideia principal do autor.", correta: false, explicacao: "Isso é um acerto, não um erro." },
+                            { texto: "Ler apenas o título do texto.", correta: false, explicacao: "Isso é falta de atenção, mas não define a 'Extrapolação'." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Palavras como 'sempre', 'nunca', 'todos' e 'nenhum' em alternativas de interpretação devem ser tratadas com:",
+                        opcoes: [
+                            { texto: "Desconfiança, pois tendem a tornar a afirmação falsa ao generalizar demais.", correta: true, explicacao: "Correto. São palavras extremas que frequentemente invalidam a alternativa." },
+                            { texto: "Certeza, pois costumam indicar a resposta correta.", correta: false, explicacao: "Incorreto. É o contrário." },
+                            { texto: "Indiferença, pois não alteram o sentido da frase.", correta: false, explicacao: "Elas alteram significativamente o sentido." },
+                            { texto: "Aprovação, caso o texto seja longo.", correta: false, explicacao: "O tamanho do texto não justifica o uso dessas palavras." },
+                            { texto: "Falta de atenção.", correta: false, explicacao: "Elas exigem muita atenção." }
+                        ]
+                    },
+                    // MEDIAS
+                     {
+                        dificuldade: "Média",
+                        texto: "Leia o trecho: 'João estudou muito para o concurso. Ele estava confiante, mas sabia que a concorrência era alta.' Infere-se desse trecho que:",
+                        opcoes: [
+                            { texto: "João passou no concurso.", correta: false, explicacao: "Não há como garantir que ele passou, apenas que estudou." },
+                            { texto: "João não estava preocupado com os outros candidatos.", correta: false, explicacao: "Contradição, o texto diz que ele 'sabia que a concorrência era alta'." },
+                            { texto: "João compreende a dificuldade do certame que vai enfrentar.", correta: true, explicacao: "Correto. Se ele sabe que a concorrência é alta, deduz-se que ele entende a dificuldade." },
+                            { texto: "João era o candidato mais preparado.", correta: false, explicacao: "Extrapolação." },
+                            { texto: "A concorrência o fez desistir de estudar.", correta: false, explicacao: "Contradição, o texto diz que ele estudou muito." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "A diferença principal entre Compreensão e Interpretação de texto é que a primeira:",
+                        opcoes: [
+                            { texto: "Exige que o leitor adivinhe as intenções do autor.", correta: false, explicacao: "Isso se aproxima mais da interpretação." },
+                            { texto: "Baseia-se no que está explícito e materializado no texto.", correta: true, explicacao: "Correto. Compreensão é sobre o que está escrito." },
+                            { texto: "Depende de conhecimentos externos ao texto para ser realizada.", correta: false, explicacao: "Geralmente a interpretação exige mais repertório." },
+                            { texto: "Envolve a identificação de figuras de linguagem complexas.", correta: false, explicacao: "Isso é análise estilística." },
+                            { texto: "É sempre mais difícil que a interpretação.", correta: false, explicacao: "Geralmente é considerada mais fácil, pois a resposta está no texto." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Ao analisar a alternativa: 'O texto prova, sem sombra de dúvidas, que todos os problemas de saúde pública são causados pela falta de verbas', e o texto original apenas sugeria que o subfinanciamento é 'um dos fatores' de agravamento, comete-se o erro de:",
+                        opcoes: [
+                            { texto: "Redução.", correta: false, explicacao: "Não está reduzindo, está exagerando." },
+                            { texto: "Contradição.", correta: false, explicacao: "Não é o oposto, mas é um exagero." },
+                            { texto: "Ambiguidade.", correta: false, explicacao: "Não há duplo sentido." },
+                            { texto: "Extrapolação, potencializada por palavras generalistas ('sem sombra de dúvidas', 'todos').", correta: true, explicacao: "Correto. O texto dizia 'um dos fatores', a alternativa afirma ser a causa de 'todos' os problemas." },
+                            { texto: "Paráfrase exata.", correta: false, explicacao: "Não é exata." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Qual tipo de leitura é mais adequado para responder a uma questão de 'Compreensão Textual'?",
+                        opcoes: [
+                            { texto: "Leitura crítica e filosófica.", correta: false, explicacao: "Muito aprofundada para apenas compreender." },
+                            { texto: "Leitura atenta em busca de informações literais e pontuais.", correta: true, explicacao: "Correto. Busca-se a informação onde ela está escrita." },
+                            { texto: "Leitura dinâmica focada apenas nos títulos.", correta: false, explicacao: "Insuficiente." },
+                            { texto: "Leitura com foco exclusivo na gramática normativa.", correta: false, explicacao: "Isso é para questões de gramática." },
+                            { texto: "Leitura que ignora os detalhes do texto.", correta: false, explicacao: "Detalhes são importantes na compreensão." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Um texto afirma: 'A educação financeira, embora não seja panaceia, mitiga significativamente o endividamento familiar'. Uma questão pede a paráfrase correta. Qual é?",
+                        opcoes: [
+                            { texto: "A educação financeira é a solução para todos os problemas de dívidas.", correta: false, explicacao: "O texto diz que 'não é panaceia' (remédio para tudo)." },
+                            { texto: "O endividamento familiar não sofre impacto da educação financeira.", correta: false, explicacao: "Contradição." },
+                            { texto: "Apesar de não resolver todos os problemas, a educação financeira diminui bastante as dívidas das famílias.", correta: true, explicacao: "Correto. É uma reescrita (paráfrase) mantendo o sentido original." },
+                            { texto: "As famílias endividadas ignoram a educação financeira.", correta: false, explicacao: "Extrapolação." },
+                            { texto: "A panaceia financeira é o único caminho para as famílias.", correta: false, explicacao: "Incorreto e fora de contexto." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "O autor escreve: 'A complexidade da burocracia estatal não raramente asfixia o ímpeto do pequeno empreendedor, que, enredado em teias de exigências, opta pela informalidade'. Infere-se que:",
+                        opcoes: [
+                            { texto: "A informalidade é a escolha principal e desejada de todo pequeno empreendedor.", correta: false, explicacao: "Extrapolação ('todo' e 'desejada'). O texto diz que eles 'optam', sugerindo ser uma fuga, não um desejo inicial." },
+                            { texto: "A burocracia foi criada com o objetivo de destruir pequenas empresas.", correta: false, explicacao: "O texto fala do efeito (asfixia), não da intenção da criação da burocracia." },
+                            { texto: "A simplificação de processos governamentais poderia ser um incentivo à formalização de negócios.", correta: true, explicacao: "Correto. Se a burocracia complexa leva à informalidade, a lógica infere que simplificar ajudaria a formalizar." },
+                            { texto: "O Estado prefere que os empreendedores fiquem na informalidade.", correta: false, explicacao: "Extrapolação." },
+                            { texto: "Empreendedores não têm capacidade para lidar com exigências legais.", correta: false, explicacao: "Extrapolação; o problema é a 'teia de exigências', não a capacidade do empreendedor." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Leia: 'Não é que as redes sociais tenham criado a polarização; elas apenas amplificaram os ecos de divisões que já repousavam latentes no tecido social.' Qual o erro da alternativa que afirma: 'O texto aponta as redes sociais como a causa raiz da atual divisão da sociedade.'?",
+                        opcoes: [
+                            { texto: "O erro é de Contradição, pois o texto afirma explicitamente que elas 'não' criaram a polarização.", correta: true, explicacao: "Correto. O texto nega que sejam a causa (não criaram), e a alternativa diz que são a causa raiz." },
+                            { texto: "O erro é de Redução, por focar apenas nas redes sociais.", correta: false, explicacao: "É contradição." },
+                            { texto: "O erro é de Extrapolação, pois adiciona dados históricos.", correta: false, explicacao: "É contradição." },
+                            { texto: "A alternativa está correta, não há erro.", correta: false, explicacao: "Há erro." },
+                            { texto: "O erro é focar em 'polarização' em vez de 'divisões'.", correta: false, explicacao: "Polarização e divisões são tratadas como sinônimos no contexto." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Quando uma questão da banca Ápice traz o enunciado 'Depreende-se da leitura do último parágrafo que...', ela está exigindo que você:",
+                        opcoes: [
+                            { texto: "Localize a informação exata no primeiro parágrafo.", correta: false, explicacao: "Pede no último, e pede dedução." },
+                            { texto: "Faça um resumo de todo o texto.", correta: false, explicacao: "Pede foco no último parágrafo." },
+                            { texto: "Realize um processo de inferência focado exclusivamente nas informações do último parágrafo.", correta: true, explicacao: "Correto. 'Depreender' é o mesmo que inferir, e o comando delimita o escopo ao último parágrafo." },
+                            { texto: "Aponte a alternativa que contradiz o texto inteiro.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Identifique a classe gramatical predominante no trecho.", correta: false, explicacao: "Isso é gramática, não interpretação." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "O autor diz: 'A aprovação na lei, se não foi o golpe de misericórdia, representou um avanço significativo, conquanto tímido, na proteção dos mananciais'. Assinale a correta sobre o posicionamento do autor.",
+                        opcoes: [
+                            { texto: "O autor considera a lei o golpe final e definitivo para resolver o problema.", correta: false, explicacao: "Contradição ('se não foi o golpe')." },
+                            { texto: "O autor despreza a nova lei, considerando-a inútil.", correta: false, explicacao: "Contradição ('avanço significativo')." },
+                            { texto: "O autor tem uma visão nuançada: reconhece o progresso trazido pela lei, mas admite suas limitações.", correta: true, explicacao: "Correto. Ele diz que é um 'avanço significativo' (progresso), mas 'conquanto tímido' (com limitações)." },
+                            { texto: "A lei resolveu todos os problemas dos mananciais.", correta: false, explicacao: "Extrapolação." },
+                            { texto: "O autor prefere que a lei seja revogada.", correta: false, explicacao: "Extrapolação." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Ao se deparar com a alternativa: 'O autor defende, prioritariamente, a extinção do modelo econômico atual', e no texto o autor usa expressões como 'reformar as bases', 'reavaliar o modelo' e 'ajustar as métricas', o candidato deve marcar essa alternativa como falsa devido ao erro de:",
+                        opcoes: [
+                            { texto: "Redução.", correta: false, explicacao: "Não reduz." },
+                            { texto: "Contradição literal.", correta: false, explicacao: "Ele quer mudar, mas não extinguir." },
+                            { texto: "Extrapolação do nível de radicalidade da proposta (de reformar para extinguir).", correta: true, explicacao: "Correto. Ele vai além (extrapola) a ideia do texto, tornando uma reforma em uma extinção." },
+                            { texto: "Falta de coesão textual.", correta: false, explicacao: "Não tem relação." },
+                            { texto: "Ambiguidade semântica.", correta: false, explicacao: "Não tem relação." }
+                        ]
+                    }
+                ]
+            },
+            3: {
+                disciplina: "Conhecimentos Específicos",
+                tema: "Leishmaniose Visceral e Tegumentar",
+                progresso: 15,
+                teoria: `
+                     <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>A Leishmaniose é uma das doenças negligenciadas de maior impacto no Brasil, sendo dividida em duas formas clínicas principais que você, futuro ACE, precisa dominar: a <span class="hl-word">Leishmaniose Visceral (LV)</span>, também chamada de Calazar, e a <span class="hl-word">Leishmaniose Tegumentar Americana (LTA)</span>. Ambas são causadas por protozoários do gênero <em>Leishmania</em> e transmitidas pela picada de insetos flebotomíneos, conhecidos popularmente como <span class="hl-concept">mosquito-palha, tatuquira ou birigui</span>.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Vetor: Lutzomyia longipalpis</h3>
+                        <p>Diferente do <em>Aedes aegypti</em>, o mosquito-palha (principal espécie no Brasil: <em>Lutzomyia longipalpis</em> para LV) não se desenvolve na água. Suas fêmeas põem os ovos em locais <span class="font-bold">úmidos, sombreados e ricos em matéria orgânica em decomposição</span>, como frestas de pedras, troncos de árvores, folhas secas no chão e, muito importante no ambiente periurbano, em <span class="hl-concept">galinheiros, chiqueiros e canis</span>. São insetos muito pequenos, de voo curto e silencioso, mais ativos no <span class="hl-word">crepúsculo e à noite</span>.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Leishmaniose Visceral (Calazar)</h3>
+                        <p>A LV é a forma mais grave. O agente etiológico principal é a <em>Leishmania infantum</em>. Ela ataca os órgãos internos (visceras), principalmente <span class="font-bold">fígado, baço e medula óssea</span>. A tríade clássica de sintomas é: febre de longa duração, emagrecimento e <span class="hl-concept">hepatoesplenomegalia</span> (aumento do fígado e do baço, deixando o abdômen distendido). O grande desafio epidemiológico da LV no ambiente urbano é o <span class="hl-word">cão</span>, que atua como o principal reservatório do parasito. Um cão infectado pode estar assintomático ou apresentar emagrecimento, queda de pelo, feridas crônicas e crescimento exagerado das unhas (onicogrifose).</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Leishmaniose Tegumentar Americana (LTA)</h3>
+                        <p>A LTA afeta a pele e as mucosas (nariz, boca). Diversas espécies de <em>Leishmania</em> podem causá-la (ex: <em>L. braziliensis</em>). O sinal clínico inicial clássico é a "úlcera de Bauru" ou "ferida brava", uma <span class="hl-concept">ferida na pele com bordas elevadas (moldura) e fundo avermelhado/granuloso</span>, geralmente indolor. Meses ou anos após a cicatrizazção, podem surgir lesões destrutivas nas mucosas, principalmente no septo nasal. O reservatório da LTA é mais silvestre (roedores, marsupiais, preguiças), mas cães e equídeos podem se infectar (hospedeiros acidentais).</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Prevenção e Controle</h3>
+                        <p>O foco do ACE é o controle do vetor e do reservatório (na LV). A <span class="hl-word">limpeza de quintais e terrenos</span> (manejo ambiental) recolhendo folhas, fezes de animais e restos de comida é vital, pois elimina os criadouros do mosquito-palha. A posse responsável de cães, o uso de coleiras repelentes e a realização de inquéritos sorológicos caninos são estratégias importantes contra a LV. Diferente da Dengue, a eutanásia de cães positivos para LV é uma recomendação em saúde pública, dado o risco de transmissão.</p>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>Cuidado com o Criadouro:</strong> O Aedes gosta de água limpa e parada. O Flebotomíneo (Mosquito-palha) gosta de <strong>TERRA/MATÉRIA ORGÂNICA úmida e sombreada</strong>. Não se usa larvicida na água para combater Leishmaniose!</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>Diferença de Sinais Clínicos:</strong><br>LV (Visceral) = Hepatomegalia e Esplenomegalia (barriga d'água/crescida).<br>LTA (Tegumentar) = Ferida na pele com borda elevada (úlcera de Bauru) e lesão no nariz.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-drop text-blue-500 text-2xl mt-1"></i>
+                            <div><strong>O papel do Cão:</strong> Na LTA, o cão é vítima (hospedeiro acidental). Na LV, o cão é o <strong>principal reservatório</strong> no ambiente urbano, sendo a fonte de infecção para o mosquito que picará o humano.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                     {
+                        dificuldade: "Fácil",
+                        texto: "O inseto transmissor da Leishmaniose, conhecido popularmente como 'mosquito-palha', pertence à subfamília dos flebotomíneos. Qual é o nome científico do principal vetor da Leishmaniose Visceral no Brasil?",
+                        opcoes: [
+                            { texto: "Aedes aegypti.", correta: false, explicacao: "Transmite Dengue, Zika e Chikungunya." },
+                            { texto: "Anopheles darlingi.", correta: false, explicacao: "Transmite Malária." },
+                            { texto: "Culex quinquefasciatus.", correta: false, explicacao: "É o pernilongo comum." },
+                            { texto: "Lutzomyia longipalpis.", correta: true, explicacao: "Correto! É o principal vetor da LV." },
+                            { texto: "Triatoma infestans.", correta: false, explicacao: "É o barbeiro, vetor da Doença de Chagas." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "O trabalho do Agente de Combate às Endemias na prevenção da Leishmaniose envolve o manejo ambiental. Onde as fêmeas do mosquito-palha depositam seus ovos?",
+                        opcoes: [
+                            { texto: "Em água limpa e parada.", correta: false, explicacao: "Isso é característica do Aedes." },
+                            { texto: "Em locais úmidos, sombreados e com acúmulo de matéria orgânica.", correta: true, explicacao: "Correto! Eles precisam de terra úmida e matéria em decomposição (fezes, folhas)." },
+                            { texto: "Apenas em pneus velhos.", correta: false, explicacao: "Pneus acumulam água (Aedes)." },
+                            { texto: "Flutuando na água suja de esgotos.", correta: false, explicacao: "O pernilongo (Culex) prefere água suja." },
+                            { texto: "Nos pelos dos cães.", correta: false, explicacao: "O inseto adulto pica o cão, mas não põe ovos nele." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Um morador relata ao ACE que seu cão apresenta crescimento exagerado das unhas (onicogrifose), emagrecimento, apatia e descamação da pele. Esses sinais são um alerta para possível infecção por:",
+                        opcoes: [
+                            { texto: "Leishmaniose Visceral (LV).", correta: true, explicacao: "Correto! Estes são sinais clássicos da LV canina." },
+                            { texto: "Dengue.", correta: false, explicacao: "Cães não são reservatórios relevantes nem apresentam esses sinais para dengue." },
+                            { texto: "Doença de Chagas.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Malária.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Esquistossomose.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Qual é a principal diferença clínica observada em humanos entre a Leishmaniose Tegumentar Americana (LTA) e a Leishmaniose Visceral (LV)?",
+                        opcoes: [
+                            { texto: "A LTA causa aumento do fígado, e a LV causa febre baixa.", correta: false, explicacao: "A LV é que causa hepatomegalia." },
+                            { texto: "A LTA causa feridas na pele e mucosas, enquanto a LV afeta órgãos internos como baço e medula óssea.", correta: true, explicacao: "Correto! LTA (pele/mucosa), LV (órgãos internos)." },
+                            { texto: "A LV é transmitida pelo Aedes, e a LTA pelo mosquito-palha.", correta: false, explicacao: "Ambas são pelo mosquito-palha." },
+                            { texto: "A LTA só afeta cães, e a LV só afeta humanos.", correta: false, explicacao: "Ambas podem afetar humanos." },
+                            { texto: "Não há diferença, são nomes diferentes para a mesma manifestação.", correta: false, explicacao: "São manifestações clínicas muito diferentes." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "A 'Úlcera de Bauru' é uma lesão clássica de qual das seguintes doenças?",
+                        opcoes: [
+                            { texto: "Leishmaniose Visceral.", correta: false, explicacao: "A LV afeta órgãos internos." },
+                            { texto: "Leishmaniose Tegumentar Americana (LTA).", correta: true, explicacao: "Correto! É a ferida com bordas elevadas característica da LTA." },
+                            { texto: "Hanseníase.", correta: false, explicacao: "Hanseníase causa manchas com perda de sensibilidade." },
+                            { texto: "Sífilis.", correta: false, explicacao: "Sífilis causa o cancro duro." },
+                            { texto: "Doença de Chagas.", correta: false, explicacao: "Chagas tem o sinal de Romaña." }
+                        ]
+                    },
+                    // MEDIAS
+                    {
+                        dificuldade: "Média",
+                        texto: "Diferentemente do vetor da Dengue, o combate ao vetor da Leishmaniose exige medidas específicas. Assinale a ação do ACE mais adequada para o controle do flebotomíneo no ambiente periurbano:",
+                        opcoes: [
+                            { texto: "Tampar caixas d'água e vedar ralos.", correta: false, explicacao: "Isso é para o Aedes." },
+                            { texto: "Aplicar larvicida biológico (BTI) em lagoas e rios.", correta: false, explicacao: "Os flebotomíneos não se criam em corpos d'água." },
+                            { texto: "Realizar o manejo ambiental (limpeza de quintais, retirada de folhas e fezes de animais).", correta: true, explicacao: "Correto! Elimina a matéria orgânica que serve de alimento para as larvas do flebotomíneo." },
+                            { texto: "Aplicar Fumacê (UBV) diariamente ao meio-dia.", correta: false, explicacao: "Fumacê não é diário e o mosquito é crepuscular/noturno." },
+                            { texto: "Distribuir peixes larvófagos para a comunidade.", correta: false, explicacao: "Isso é para vetores que criam em água." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Sobre o papel do cão na cadeia de transmissão das Leishmanioses no Brasil, é correto afirmar:",
+                        opcoes: [
+                            { texto: "O cão é o principal reservatório urbano da Leishmaniose Visceral, sendo fundamental no controle da doença.", correta: true, explicacao: "Correto! Na LV urbana, o cão é a principal fonte de infecção para o vetor." },
+                            { texto: "O cão é o único vetor da LTA e da LV.", correta: false, explicacao: "O vetor é o mosquito, o cão é reservatório." },
+                            { texto: "Cães doentes não transmitem a doença para o mosquito, apenas cães assintomáticos.", correta: false, explicacao: "Ambos podem transmitir." },
+                            { texto: "Na Leishmaniose Tegumentar, o cão é o principal reservatório silvestre.", correta: false, explicacao: "Na LTA, roedores e outros animais silvestres são os principais reservatórios." },
+                            { texto: "A vacinação canina em massa substitui a necessidade de limpeza dos quintais.", correta: false, explicacao: "Não substitui." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Um paciente chega à unidade de saúde apresentando febre irregular e prolongada há mais de um mês, palidez severa (anemia) e inchaço visível e endurecido no lado esquerdo do abdômen, sugerindo esplenomegalia. Ele relata morar próximo a uma área de mata com muitos cães de rua. Qual é a suspeita?",
+                        opcoes: [
+                            { texto: "Leishmaniose Tegumentar Americana.", correta: false, explicacao: "LTA causa feridas na pele." },
+                            { texto: "Leishmaniose Visceral.", correta: true, explicacao: "Correto! Febre longa + esplenomegalia + histórico epidemiológico apontam fortemente para LV." },
+                            { texto: "Dengue Hemorrágica.", correta: false, explicacao: "A dengue é uma doença aguda (curta duração), não febre por mais de um mês." },
+                            { texto: "Zika Vírus.", correta: false, explicacao: "Zika tem febre baixa ou ausente." },
+                            { texto: "Esquistossomose aguda.", correta: false, explicacao: "Falta contato com água doce/caramujos no relato." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "A respeito dos hábitos do vetor Lutzomyia longipalpis, é CORRETO afirmar que:",
+                        opcoes: [
+                            { texto: "Possuem hábito estritamente diurno, preferindo picar ao meio-dia.", correta: false, explicacao: "Eles são noturnos/crepusculares." },
+                            { texto: "Têm grande capacidade de voo, percorrendo dezenas de quilômetros por dia.", correta: false, explicacao: "O voo é curto e saltitante." },
+                            { texto: "As fêmeas são hematófagas e mais ativas no crepúsculo e à noite.", correta: true, explicacao: "Correto! A fêmea precisa de sangue e tem hábitos noturnos." },
+                            { texto: "Macho e fêmea alimentam-se exclusivamente de néctar e seiva de plantas.", correta: false, explicacao: "A fêmea é hematófaga." },
+                            { texto: "São insetos de grande porte e voo ruidoso, facilmente detectáveis.", correta: false, explicacao: "São muito pequenos e de voo silencioso." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Na avaliação de um foco de Leishmaniose Visceral, o ACE deve atentar prioritariamente para a presença de:",
+                        opcoes: [
+                            { texto: "Pneus com água acumulada.", correta: false, explicacao: "Foco de Aedes." },
+                            { texto: "Caixas d'água destampadas.", correta: false, explicacao: "Foco de Aedes." },
+                            { texto: "Cães com aspecto doentio e quintais com acúmulo de matéria orgânica.", correta: true, explicacao: "Correto! Cão = Reservatório, Matéria orgânica = Criadouro." },
+                            { texto: "Rios poluídos cortando a cidade.", correta: false, explicacao: "Foco de Culex." },
+                            { texto: "Presença exclusiva de gatos.", correta: false, explicacao: "Cães são mais relevantes para a LV." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "De acordo com o Ministério da Saúde, em áreas com transmissão de Leishmaniose Visceral, uma das estratégias de controle dirigidas ao reservatório canino é:",
+                        opcoes: [
+                            { texto: "O tratamento obrigatório e gratuito com medicamentos humanos para todos os cães infectados.", correta: false, explicacao: "É proibido o tratamento de cães com drogas humanas para LV, por risco de resistência." },
+                            { texto: "A realização de inquéritos sorológicos para identificação e eutanásia de cães soropositivos.", correta: true, explicacao: "Correto! O controle tradicional da MS envolve a eutanásia dos positivos." },
+                            { texto: "A vacinação compulsória anual que garante 100% de imunidade e interrompe a transmissão.", correta: false, explicacao: "A vacina existe, mas não é 100% eficaz nem é a medida prioritária em saúde pública." },
+                            { texto: "A aplicação de Fumacê (UBV) diretamente nos animais para matar os parasitas na pele.", correta: false, explicacao: "UBV é inseticida para ambiente, não para passar em animais." },
+                            { texto: "Apenas o uso de coleiras repelentes, dispensando o exame de sangue.", correta: false, explicacao: "As coleiras ajudam, mas o exame (inquérito) é fundamental." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "A patogênese da Leishmaniose Tegumentar Americana envolve não apenas a pele, mas em alguns casos, as mucosas. Qual é o agente etiológico mais frequentemente associado à forma mucosa destrutiva no Brasil?",
+                        opcoes: [
+                            { texto: "Leishmania infantum.", correta: false, explicacao: "Causa a Visceral." },
+                            { texto: "Leishmania amazonensis.", correta: false, explicacao: "Causa LTA, mas menos frequentemente a forma mucosa grave." },
+                            { texto: "Leishmania braziliensis.", correta: true, explicacao: "Correto! É a principal causadora de LTA e com maior potencial de lesões em mucosas (nariz, palato)." },
+                            { texto: "Trypanosoma cruzi.", correta: false, explicacao: "Causa Chagas." },
+                            { texto: "Plasmodium falciparum.", correta: false, explicacao: "Causa Malária." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "A respeito das características dos ovos do vetor da Leishmaniose (Lutzomyia sp.), assinale a afirmação correta que difere radicalmente do Aedes aegypti:",
+                        opcoes: [
+                            { texto: "Eles são postos diretamente na água e não resistem à dessecação prolongada.", correta: false, explicacao: "O Aedes também não põe direto na água, mas sim na parede. Nenhum dos dois faz isso." },
+                            { texto: "Eles precisam ser postos em substrato sólido úmido rico em matéria orgânica, e as larvas não são aquáticas.", correta: true, explicacao: "Correto! As larvas do flebótomo são terrestres (solo úmido), diferente das larvas do Aedes que são aquáticas." },
+                            { texto: "Eles podem resistir a mais de um ano em ambiente totalmente seco.", correta: false, explicacao: "Essa é a característica do ovo do Aedes, não do flebotomíneo." },
+                            { texto: "Eles eclodem apenas em contato com sangue humano.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Eles são depositados em folhas secas, mas precisam cair na água para eclodir.", correta: false, explicacao: "Não necessitam cair na água." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Em uma campanha educativa, o ACE precisa orientar sobre as formas de transmissão da Leishmaniose Visceral. Qual afirmativa é estritamente VERDADEIRA?",
+                        opcoes: [
+                            { texto: "A transmissão ocorre pelo contato direto com a saliva ou fezes de cães infectados.", correta: false, explicacao: "O contato direto não transmite a doença." },
+                            { texto: "A doença é transmitida de pessoa a pessoa através de espirros e tosse.", correta: false, explicacao: "Não há transmissão por gotículas respiratórias." },
+                            { texto: "A transmissão vetorial é a regra, mas há relatos raros de transmissão vertical (congênita) e transfusional em humanos.", correta: true, explicacao: "Correto! A regra é a picada, mas excepcionalmente pode ocorrer via placenta ou sangue." },
+                            { texto: "O consumo de carne de animais silvestres mal cozida é a principal via de infecção da LTA.", correta: false, explicacao: "Isso se aplica à toxoplasmose, não à LTA." },
+                            { texto: "A picada do carrapato-estrela é responsável pela forma visceral grave.", correta: false, explicacao: "Carrapato transmite Febre Maculosa." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Para o controle químico do vetor da Leishmaniose em um município endêmico, a estratégia de Borrifação Residual Intradomiciliar (BRI) consiste em aplicar o inseticida nas paredes internas das casas. Essa técnica baseia-se em qual comportamento do flebotomíneo?",
+                        opcoes: [
+                            { texto: "O inseto voa constantemente durante o dia dentro de casa.", correta: false, explicacao: "Eles repousam de dia." },
+                            { texto: "O inseto costuma pousar e repousar nas paredes antes e após o repasto sanguíneo (alimentação).", correta: true, explicacao: "Correto! Ao pousar na parede com inseticida residual, ele se contamina e morre." },
+                            { texto: "O inseto deposita seus ovos na pintura das paredes.", correta: false, explicacao: "Põe ovos no solo/matéria orgânica." },
+                            { texto: "O inseticida atrai o mosquito pelo cheiro forte de sangue.", correta: false, explicacao: "O inseticida não atrai por cheiro de sangue." },
+                            { texto: "O inseto morre apenas se for atingido diretamente no ar durante o voo.", correta: false, explicacao: "Isso seria o UBV (fumacê espacial). A BRI é para ele pousar." }
+                        ]
+                    }
+                ]
+            },
+            4: {
+                disciplina: "Informática",
+                tema: "Hardware e Software (Básico)",
+                progresso: 20,
+                teoria: `
+                     <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>No estudo da Informática Básica para concursos, a primeira distinção fundamental é entender de que é feito um computador. A máquina é dividida em duas grandes partes inseparáveis: o <span class="hl-word">Hardware</span> (a parte física, dura, que você pode tocar e chutar) e o <span class="hl-concept">Software</span> (a parte lógica, os programas, que você não toca, mas vê na tela).</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Hardware: Componentes e Periféricos</h3>
+                        <p>O cérebro do computador é o <span class="font-bold">Processador (CPU - Central Processing Unit)</span>, responsável por calcular e executar as ordens. Ele se apoia nas memórias: a <span class="hl-word">Memória RAM</span>, que é a mesa de trabalho do processador (volátil, apaga tudo quando desliga), e a <span class="hl-concept">Memória ROM</span> (já vem de fábrica, não volátil). Para guardar seus arquivos (fotos, edital, planilhas), você usa a Memória Secundária ou de Massa, como o <span class="font-bold">Disco Rígido (HD) ou o SSD</span>.</p>
+                        
+                        <p>Os aparelhos conectados ao computador são chamados de <span class="font-bold">Periféricos</span>. Eles são classificados por como a informação viaja:</p>
+                        <ul class="list-disc pl-8 space-y-2 mt-2">
+                            <li><strong>Entrada (Input):</strong> A informação vai do usuário para a máquina (Teclado, Mouse, Scanner, Microfone).</li>
+                            <li><strong>Saída (Output):</strong> A informação vai da máquina para o usuário (Monitor, Impressora, Caixa de som).</li>
+                            <li><strong>Híbridos (Mistos):</strong> Fazem as duas vias (Pen drive, Tela sensível ao toque - Touchscreen, Modem).</li>
+                        </ul>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Software: O Espírito da Máquina</h3>
+                        <p>Softwares são os programas. O principal deles é o <span class="hl-word">Sistema Operacional (SO)</span> (ex: Windows, Linux, Android). O SO é o gerente do computador, ele controla o hardware e permite que os outros programas funcionem. Sem ele, o computador é só sucata inútil.</p>
+                        <p>Temos também os <span class="hl-concept">Softwares Aplicativos</span>, que são aqueles usados para tarefas específicas do dia a dia (ex: Word para textos, Excel para planilhas, Google Chrome para navegar na internet, WhatsApp).</p>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>Pegadinha Clássica: Memória RAM x HD.</strong> A banca diz que a RAM guarda seus arquivos para sempre. <strong>FALSO!</strong> A RAM é volátil, apagou o PC, perdeu. O que guarda para sempre é o HD, SSD ou Pendrive.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>Scanner é Entrada!</strong> Muita gente acha que scanner é saída porque parece impressora. O scanner "lê" o papel físico e joga para dentro (entrada) do PC. A impressora pega o arquivo de dentro e joga para fora (saída). As Multifuncionais (que fazem os dois) são dispositivos de Entrada e Saída (Híbridos).</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Na área da informática, como é definida a parte física do computador, ou seja, os componentes que podemos tocar?",
+                        opcoes: [
+                            { texto: "Software.", correta: false, explicacao: "Software é a parte lógica (programas)." },
+                            { texto: "Hardware.", correta: true, explicacao: "Correto! Hardware é toda a estrutura física (teclado, placa, monitor)." },
+                            { texto: "Sistema Operacional.", correta: false, explicacao: "É o software principal." },
+                            { texto: "Aplicativo.", correta: false, explicacao: "É um tipo de software." },
+                            { texto: "Nuvem.", correta: false, explicacao: "É um serviço de armazenamento online." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Assinale a alternativa que apresenta apenas equipamentos (periféricos) de SAÍDA de dados:",
+                        opcoes: [
+                            { texto: "Teclado e Mouse.", correta: false, explicacao: "Ambos são de entrada." },
+                            { texto: "Monitor e Impressora.", correta: true, explicacao: "Correto! O monitor mostra a imagem (saída) e a impressora solta o papel (saída)." },
+                            { texto: "Scanner e Microfone.", correta: false, explicacao: "Ambos são de entrada." },
+                            { texto: "Pen drive e Teclado.", correta: false, explicacao: "Pen drive é misto, teclado é entrada." },
+                            { texto: "Caixa de som e Mouse.", correta: false, explicacao: "Caixa de som é saída, mas mouse é entrada." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Qual é o software fundamental de um computador, responsável por gerenciar os recursos de hardware e prover a interface para o usuário e os demais aplicativos?",
+                        opcoes: [
+                            { texto: "Microsoft Word.", correta: false, explicacao: "É um aplicativo de texto." },
+                            { texto: "Google Chrome.", correta: false, explicacao: "É um navegador de internet." },
+                            { texto: "Sistema Operacional (Ex: Windows).", correta: true, explicacao: "Correto! O SO é a base lógica do computador." },
+                            { texto: "Antivírus.", correta: false, explicacao: "É um software utilitário/segurança." },
+                            { texto: "Placa-Mãe.", correta: false, explicacao: "É hardware, não software." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "O principal 'cérebro' do computador, onde os cálculos e as instruções dos programas são executados, é o(a):",
+                        opcoes: [
+                            { texto: "Processador (CPU).", correta: true, explicacao: "Correto! A CPU (Unidade Central de Processamento) é o cérebro." },
+                            { texto: "Memória RAM.", correta: false, explicacao: "É a mesa de trabalho, não o cérebro que calcula." },
+                            { texto: "Disco Rígido (HD).", correta: false, explicacao: "Serve para guardar arquivos permanentemente." },
+                            { texto: "Placa de Vídeo.", correta: false, explicacao: "Processa imagens." },
+                            { texto: "Fonte de alimentação.", correta: false, explicacao: "Apenas fornece energia." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Um Pen Drive é classificado como qual tipo de dispositivo?",
+                        opcoes: [
+                            { texto: "Apenas de entrada.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Apenas de saída.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Dispositivo misto (Entrada e Saída).", correta: true, explicacao: "Correto! Você pode gravar dados nele (saída) e ler dados dele (entrada)." },
+                            { texto: "Dispositivo exclusivo de rede.", correta: false, explicacao: "Não serve para rede." },
+                            { texto: "Apenas de processamento.", correta: false, explicacao: "Não processa nada, só armazena." }
+                        ]
+                    },
+                    // MEDIAS
+                     {
+                        dificuldade: "Média",
+                        texto: "Sobre as memórias do computador, assinale a afirmativa correta:",
+                        opcoes: [
+                            { texto: "A memória ROM é volátil e seu conteúdo é perdido ao desligar o PC.", correta: false, explicacao: "A ROM é NÃO volátil (Read Only Memory)." },
+                            { texto: "O Disco Rígido (HD) é a memória mais rápida do computador.", correta: false, explicacao: "A memória Cache e os registradores da CPU são muito mais rápidos." },
+                            { texto: "A memória RAM é volátil, servindo como espaço de trabalho temporário para o processador enquanto o computador está ligado.", correta: true, explicacao: "Correto! RAM perde tudo sem energia (volátil) e é a área de trabalho." },
+                            { texto: "Um arquivo salvo em um Pen Drive é perdido se ele for removido do computador.", correta: false, explicacao: "Pen drive é armazenamento flash não volátil." },
+                            { texto: "A CPU usa o HD como memória principal e não precisa da RAM.", correta: false, explicacao: "A CPU precisa da RAM para ter agilidade." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Um scanner é considerado um periférico de:",
+                        opcoes: [
+                            { texto: "Saída, pois envia o documento para impressão.", correta: false, explicacao: "Quem faz a saída para impressão é a impressora." },
+                            { texto: "Misto, pois digitaliza e imprime ao mesmo tempo.", correta: false, explicacao: "Apenas se for uma multifuncional. O scanner puro não imprime." },
+                            { texto: "Entrada, pois digitaliza documentos físicos transferindo a imagem para o computador.", correta: true, explicacao: "Correto! A informação entra da vida real para o mundo digital." },
+                            { texto: "Processamento, pois edita as imagens.", correta: false, explicacao: "Quem edita é o software de imagem e o processador." },
+                            { texto: "Comunicação, pois envia as imagens via internet.", correta: false, explicacao: "Ele não envia pela internet, apenas joga para o PC." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Qual das opções a seguir apresenta um exemplo de Hardware e um de Software, respectivamente?",
+                        opcoes: [
+                            { texto: "Windows 10 e Monitor.", correta: false, explicacao: "A ordem está invertida (Software, Hardware)." },
+                            { texto: "Teclado e Microsoft Excel.", correta: true, explicacao: "Correto! Teclado é físico (Hardware), Excel é programa (Software)." },
+                            { texto: "Mouse e Placa-Mãe.", correta: false, explicacao: "Ambos são Hardware." },
+                            { texto: "Google Chrome e Antivírus.", correta: false, explicacao: "Ambos são Software." },
+                            { texto: "Memória RAM e Disco Rígido.", correta: false, explicacao: "Ambos são Hardware." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "As telas sensíveis ao toque (Touchscreens), muito comuns em tablets e tótens de autoatendimento, são classificadas como dispositivos de:",
+                        opcoes: [
+                            { texto: "Entrada exclusiva.", correta: false, explicacao: "Elas também mostram imagem (saída)." },
+                            { texto: "Saída exclusiva.", correta: false, explicacao: "Elas recebem o toque do dedo (entrada)." },
+                            { texto: "Entrada e Saída simultaneamente.", correta: true, explicacao: "Correto! O display mostra a imagem (saída) e a camada tátil capta o toque (entrada)." },
+                            { texto: "Armazenamento.", correta: false, explicacao: "A tela não armazena." },
+                            { texto: "Processamento.", correta: false, explicacao: "A tela não processa." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Um usuário está digitando um relatório no Word. De repente, acaba a energia e o computador desliga. Ao religar, ele percebe que perdeu o último parágrafo que não havia sido 'salvo'. Isso ocorreu porque, antes de ser salvo, o texto estava armazenado na:",
+                        opcoes: [
+                            { texto: "Memória ROM.", correta: false, explicacao: "A ROM é apenas leitura e de fábrica." },
+                            { texto: "Memória RAM.", correta: true, explicacao: "Correto! A RAM é volátil. Ao clicar em 'Salvar', o texto vai da RAM para o HD." },
+                            { texto: "Placa de Vídeo.", correta: false, explicacao: "Não armazena texto." },
+                            { texto: "Disco Rígido (HD).", correta: false, explicacao: "Se estivesse no HD, não teria sido perdido." },
+                            { texto: "Nuvem (Cloud).", correta: false, explicacao: "Não havia sido salvo." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Dentre os componentes de Hardware, os HDs (Hard Disk Drives) tradicionais vêm sendo substituídos por unidades SSD (Solid State Drives). A principal diferença tecnológica que garante a maior velocidade do SSD em relação ao HD é que o SSD:",
+                        opcoes: [
+                            { texto: "Possui discos magnéticos que giram mais rápido.", correta: false, explicacao: "Isso se aplicaria a um HD melhor, mas SSD não tem discos girando." },
+                            { texto: "Usa fita magnética de alta densidade.", correta: false, explicacao: "Fita magnética é tecnologia antiga para backup lento." },
+                            { texto: "Não possui partes móveis ou mecânicas, utilizando chips de memória flash (semelhantes aos pendrives).", correta: true, explicacao: "Correto! O SSD é puramente eletrônico (chips flash), o que o torna muito mais rápido." },
+                            { texto: "Opera exclusivamente armazenando dados na nuvem através de antena Wi-Fi acoplada.", correta: false, explicacao: "O SSD é local." },
+                            { texto: "É uma memória volátil acoplada diretamente no processador.", correta: false, explicacao: "O SSD é memória secundária, não volátil." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "O que é o processo conhecido como 'Boot' (ou Booting) em um computador?",
+                        opcoes: [
+                            { texto: "É o processo de desligamento forçado da máquina em caso de travamento.", correta: false, explicacao: "Isso é reinicialização forçada." },
+                            { texto: "É a varredura completa feita por um software antivírus no HD.", correta: false, explicacao: "Isso é um 'scan'." },
+                            { texto: "É o processo de inicialização do sistema, onde as instruções da ROM são lidas para carregar o Sistema Operacional na RAM.", correta: true, explicacao: "Correto! Dar o 'Boot' é ligar o PC, acordando o hardware e chamando o Windows/Linux para trabalhar." },
+                            { texto: "É a formatação do disco rígido apagando todos os dados.", correta: false, explicacao: "Isso é formatação." },
+                            { texto: "É a conexão do computador a uma rede Wi-Fi externa.", correta: false, explicacao: "Isso é conexão de rede." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Assinale a alternativa que descreve corretamente a função da 'Placa-Mãe' (Motherboard):",
+                        opcoes: [
+                            { texto: "É o software principal que controla o computador.", correta: false, explicacao: "É hardware, não software." },
+                            { texto: "É uma memória ultra-rápida usada apenas pela placa de vídeo.", correta: false, explicacao: "Incorreto." },
+                            { texto: "É a placa de circuito principal que interliga todos os componentes físicos (processador, memórias, periféricos) permitindo a comunicação entre eles.", correta: true, explicacao: "Correto! Ela é o 'chassi' onde tudo se encaixa e conversa." },
+                            { texto: "É a fonte de energia que converte a tensão da tomada para os componentes.", correta: false, explicacao: "Essa é a Fonte de Alimentação (Power Supply)." },
+                            { texto: "É um dispositivo periférico externo usado para expandir o armazenamento.", correta: false, explicacao: "É interna e não armazena dados próprios." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Um computador trava frequentemente ao abrir muitas abas no navegador Google Chrome e editar uma planilha pesada ao mesmo tempo. Ao olhar o sistema, percebe-se o HD sendo lido constantemente (paginação/memória virtual). Qual upgrade de hardware resolveria primariamente e de forma mais barata esse gargalo de multitarefa?",
+                        opcoes: [
+                            { texto: "Trocar o monitor por um com maior resolução.", correta: false, explicacao: "O monitor não afeta o travamento lógico." },
+                            { texto: "Comprar um mouse mais moderno.", correta: false, explicacao: "Irrelevante." },
+                            { texto: "Adicionar mais Memória RAM.", correta: true, explicacao: "Correto! A RAM é a mesa de trabalho. Se a mesa é pequena (pouca RAM), abrir muitas coisas obriga o PC a usar o HD lento como rascunho (paginação), causando lentidão." },
+                            { texto: "Comprar um novo leitor de DVD.", correta: false, explicacao: "Obsoleto e irrelevante." },
+                            { texto: "Instalar um segundo Sistema Operacional.", correta: false, explicacao: "Não melhora o hardware." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Em arquitetura de computadores, o que é o 'Clock' do processador (medido geralmente em Gigahertz - GHz)?",
+                        opcoes: [
+                            { texto: "A quantidade de gigabytes que a CPU consegue armazenar.", correta: false, explicacao: "Clock é frequência, não capacidade de armazenamento." },
+                            { texto: "A velocidade da ventoinha (cooler) que resfria a máquina.", correta: false, explicacao: "Cooler é medido em RPM." },
+                            { texto: "A frequência ou o ritmo em que o processador executa as instruções, determinando a velocidade básica de processamento.", correta: true, explicacao: "Correto! Quanto maior o clock (em GHz), mais ciclos/instruções o processador realiza por segundo." },
+                            { texto: "A bateria interna da placa-mãe que mantém a hora certa.", correta: false, explicacao: "Essa é a bateria CMOS (CR2032)." },
+                            { texto: "O tempo que o computador leva para ligar.", correta: false, explicacao: "Isso é tempo de boot." }
+                        ]
+                    }
+                ]
+            },
+            5: {
+                disciplina: "Legislação/Município",
+                tema: "Lei Orgânica do Município - Título I ao III",
+                progresso: 25,
+                teoria: `
+                    <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>O servidor municipal não pode iniciar sua jornada sem conhecer a "Constituição" de sua cidade: a <span class="hl-word">Lei Orgânica Municipal (LOM)</span>. O edital de Assunção cobra o domínio desta lei. Segundo o Art. 1º, Assunção é uma entidade pública dotada de autonomia política, administrativa e financeira. Os poderes do Município são o Legislativo e o Executivo, sendo independentes e <span class="hl-concept">colaborativos (harmônicos)</span> entre si.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Poder Legislativo (Câmara Municipal)</h3>
+                        <p>O Poder Legislativo em Assunção é exercido pela Câmara Municipal, composta por <span class="font-bold text-red-600">09 (nove) Vereadores</span>. É vital lembrar dos impedimentos: desde a expedição do diploma, o vereador não pode firmar contratos com a administração pública municipal, salvo com cláusulas uniformes. A Câmara tem a função principal de legislar (tributos, orçamento, código de obras) e fiscalizar o Executivo. A <span class="hl-word">iniciativa popular</span> de projetos de lei exige a manifestação de pelo menos <span class="font-bold">5% do eleitorado</span> interessado.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Processo Legislativo e o Prefeito</h3>
+                        <p>A Lei Orgânica só pode ser alterada pelo voto de <span class="hl-concept">2/3 dos membros da Câmara</span>. Já os projetos de lei comuns precisam ser sancionados (aprovados) ou vetados pelo Prefeito. Se o Prefeito vetar, a Câmara pode rejeitar esse veto com o voto da <span class="font-bold">maioria absoluta</span>. Atenção exclusiva: projetos de lei que criam cargos na Prefeitura, aumentam salários ou falam do regime dos servidores (como você) são de <span class="hl-word">iniciativa exclusiva do Prefeito</span>. Nenhum vereador pode propor isso.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Plebiscito</h3>
+                        <p>Uma ferramenta forte de democracia participativa é o Plebiscito (Art. 40). Questões relevantes (como mudar o nome da cidade) podem ir à votação popular se <span class="hl-concept">2/5 dos vereadores ou 5% dos eleitores</span> propuserem, e for aprovado por 2/3 da Câmara. O resultado do plebiscito <span class="font-bold">vincula</span> o poder público, ou seja, o Prefeito tem que obedecer.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Poder Executivo e as Infrações Político-Administrativas</h3>
+                        <p>O Prefeito e o Vice são eleitos para 4 anos e precisam tomar posse até 10 dias da data fixada, ou perdem o cargo. Se ambos faltarem, quem assume é o <span class="hl-word">Presidente da Câmara</span>. Se a vacância ocorrer nos últimos 1/4 do mandato, o Presidente da Câmara completa o mandato. O Prefeito pode ser julgado pelo Tribunal de Justiça em crimes comuns, e pela <span class="hl-concept">Câmara Municipal</span> em infrações político-administrativas (ex: não publicar leis, não prestar contas). A cassação exige o voto de <span class="font-bold">2/3 dos vereadores</span>.</p>
+                    </div>
+                `,
+                perolas: `
+                     <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>A Pegadinha dos Quóruns:</strong> Guarde estes números! Emenda à Lei Orgânica = <strong>2/3</strong>. Cassação de Prefeito = <strong>2/3</strong>. Derrubar o Veto do Prefeito = <strong>Maioria Absoluta</strong>. Aprovar lei normal = Maioria dos votos presentes (Maioria Simples).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>Afastamento do Prefeito:</strong> O Prefeito e o Vice <strong>não podem</strong> ausentar-se do município por prazo superior a <strong>15 (quinze) dias</strong> sem licença da Câmara Municipal, sob pena de perda do mandato.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-drop text-blue-500 text-2xl mt-1"></i>
+                            <div><strong>Número de Vereadores:</strong> O Art. 5º da LOM crava: A Câmara de Assunção compõe-se de <strong>09 (nove) Vereadores</strong>. Isso é questão dada em prova de legislação.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Conforme a Lei Orgânica do Município de Assunção - PB, a Câmara Municipal compõe-se de quantos vereadores?",
+                        opcoes: [
+                            { texto: "11 Vereadores.", correta: false, explicacao: "Incorreto." },
+                            { texto: "15 Vereadores.", correta: false, explicacao: "Incorreto." },
+                            { texto: "09 Vereadores.", correta: true, explicacao: "Correto! O Art. 5º define expressamente 09 vereadores." },
+                            { texto: "07 Vereadores.", correta: false, explicacao: "Incorreto." },
+                            { texto: "13 Vereadores.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "A Lei Orgânica estabelece os Poderes do Município. Quais são eles e como se relacionam?",
+                        opcoes: [
+                            { texto: "Legislativo e Executivo, independentes e colaborativos entre si.", correta: true, explicacao: "Correto! Art. 2º da LOM: Legislativo e Executivo, independentes e colaborativos." },
+                            { texto: "Executivo e Judiciário, dependentes e hierarquizados.", correta: false, explicacao: "O Município não possui Poder Judiciário próprio." },
+                            { texto: "Legislativo, Executivo e Judiciário, independentes e harmônicos.", correta: false, explicacao: "O Município não possui Poder Judiciário." },
+                            { texto: "Câmara Municipal e Ministério Público.", correta: false, explicacao: "Ministério Público não é Poder Municipal." },
+                            { texto: "Apenas o Executivo (Prefeitura), pois a Câmara é órgão do Estado.", correta: false, explicacao: "A Câmara é o Poder Legislativo Municipal." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "De acordo com a LOM de Assunção, o Prefeito e o Vice-Prefeito NÃO podem se ausentar do município sem a licença da Câmara Municipal por período superior a:",
+                        opcoes: [
+                            { texto: "05 (cinco) dias.", correta: false, explicacao: "Incorreto." },
+                            { texto: "10 (dez) dias.", correta: false, explicacao: "Incorreto." },
+                            { texto: "15 (quinze) dias.", correta: true, explicacao: "Correto! Art. 49 da LOM estipula o prazo de 15 dias." },
+                            { texto: "20 (vinte) dias.", correta: false, explicacao: "Incorreto." },
+                            { texto: "30 (trinta) dias.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Caso os cargos de Prefeito e Vice-Prefeito fiquem vagos simultaneamente (vacância dupla), quem é o primeiro na linha sucessória para assumir o exercício da chefia do Executivo?",
+                        opcoes: [
+                            { texto: "O Juiz da Comarca local.", correta: false, explicacao: "Juiz não entra na linha de sucessão do Executivo Municipal." },
+                            { texto: "O Secretário Municipal de Administração.", correta: false, explicacao: "Secretários não assumem a Prefeitura em caso de vacância." },
+                            { texto: "O Presidente da Câmara Municipal.", correta: true, explicacao: "Correto! Conforme o Art. 46, Parágrafo Único: assumem sucessivamente o Presidente, o Vice-Presidente e o Primeiro Secretário da Câmara." },
+                            { texto: "O Governador do Estado.", correta: false, explicacao: "Incorreto. Fere a autonomia municipal." },
+                            { texto: "O Procurador Geral do Município.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Para garantir a transparência da vida pública, a LOM de Assunção exige que o Vereador, o Prefeito e o Vice-Prefeito, até 10 dias após a posse e no final do mandato, apresentem:",
+                        opcoes: [
+                            { texto: "Uma carta de recomendação de partido político.", correta: false, explicacao: "Não há essa exigência." },
+                            { texto: "A declaração de seus bens, a qual será publicada no órgão oficial.", correta: true, explicacao: "Correto! Arts. 8º e 45 da LOM exigem a declaração de bens para coibir enriquecimento ilícito." },
+                            { texto: "A renúncia de todos os cargos em empresas privadas.", correta: false, explicacao: "Existem regras de impedimento, mas não renúncia genérica na posse dessa forma." },
+                            { texto: "O diploma de ensino superior completo.", correta: false, explicacao: "Não é exigência legal para os cargos do Executivo/Legislativo." },
+                            { texto: "Apenas um exame médico de sanidade.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    // MEDIAS
+                    {
+                        dificuldade: "Média",
+                        texto: "Um grupo de cidadãos de Assunção deseja propor um projeto de lei. Segundo a Lei Orgânica Municipal, a iniciativa popular de projeto de lei de interesse específico do Município dependerá da manifestação de pelo menos qual percentual do eleitorado interessado?",
+                        opcoes: [
+                            { texto: "1% (um por cento).", correta: false, explicacao: "Incorreto." },
+                            { texto: "2% (dois por cento).", correta: false, explicacao: "Incorreto." },
+                            { texto: "5% (cinco por cento).", correta: true, explicacao: "Correto! O Art. 33 estipula 5% do eleitorado para a iniciativa popular." },
+                            { texto: "10% (dez por cento).", correta: false, explicacao: "Incorreto." },
+                            { texto: "20% (vinte por cento).", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "A Lei Orgânica de Assunção (que funciona como a Constituição do Município) é rígida e exige um rito especial para ser alterada. Para aprovar uma modificação (Emenda) na LOM, é exigida votação por:",
+                        opcoes: [
+                            { texto: "Maioria simples dos membros da Câmara.", correta: false, explicacao: "LOM exige quórum qualificado." },
+                            { texto: "Maioria absoluta (metade mais um de todos os vereadores).", correta: false, explicacao: "Absoluta é para outras leis (ex: derrubar veto)." },
+                            { texto: "Aprovação unânime de todos os 9 vereadores.", correta: false, explicacao: "Unanimidade raramente é exigida no direito brasileiro." },
+                            { texto: "Aprovação pela maioria de 2/3 (dois terços) dos membros da Câmara.", correta: true, explicacao: "Correto! O Art. 27 fixa o quórum qualificado de 2/3 para alterar a Lei Orgânica." },
+                            { texto: "Aprovação do Prefeito exclusivamente, sem passar pela Câmara.", correta: false, explicacao: "O Prefeito não altera LOM sozinho." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "O Prefeito de Assunção decide vetar um projeto de lei aprovado pela Câmara Municipal por considerá-lo inconstitucional. Qual é a regra sobre o veto do Prefeito, segundo o Art. 36 da LOM?",
+                        opcoes: [
+                            { texto: "O veto é definitivo e não pode ser derrubado pela Câmara.", correta: false, explicacao: "O veto pode ser rejeitado (derrubado)." },
+                            { texto: "O veto parcial pode abranger apenas uma única palavra do texto.", correta: false, explicacao: "O veto parcial deve abranger o texto integral de artigo, parágrafo, inciso ou alínea." },
+                            { texto: "A Câmara Municipal aprecia o veto e pode rejeitá-lo pelo voto da maioria absoluta dos Vereadores.", correta: true, explicacao: "Correto! O poder Legislativo tem a última palavra se conseguir a maioria absoluta (Art. 36, § 4º)." },
+                            { texto: "O Prefeito tem 30 dias úteis para sancionar ou vetar o projeto.", correta: false, explicacao: "O prazo é de 15 dias úteis (Art. 36, § 1º)." },
+                            { texto: "O silêncio do Prefeito (não se manifestar) gera o arquivamento automático do projeto.", correta: false, explicacao: "O silêncio importa em sanção (aprovação) tácita." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Um Vereador recém-eleito decide apresentar um projeto de lei criando novos cargos na Prefeitura e aumentando o salário dos servidores públicos da Administração direta. Segundo a LOM, esse projeto:",
+                        opcoes: [
+                            { texto: "Pode ser votado normalmente, pois qualquer vereador pode criar despesas.", correta: false, explicacao: "Vereador não pode criar cargos no Executivo." },
+                            { texto: "É inconstitucional por vício de iniciativa, pois essa matéria é de iniciativa exclusiva do Prefeito.", correta: true, explicacao: "Correto! Art. 31, II, define que criar cargos ou aumentar salários de servidores do Executivo é papel exclusivo do Prefeito." },
+                            { texto: "Só pode tramitar se tiver o apoio de 5% do eleitorado.", correta: false, explicacao: "Mesmo a iniciativa popular não pode invadir competência exclusiva do Prefeito." },
+                            { texto: "Deve ser aprovado apenas pelas comissões, sem ir ao Plenário.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Depende de autorização do Governador do Estado.", correta: false, explicacao: "Fere autonomia." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "A cassação do mandato do Prefeito de Assunção por infrações político-administrativas exige o voto de qual quórum na Câmara Municipal?",
+                        opcoes: [
+                            { texto: "Maioria simples dos presentes.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Maioria absoluta.", correta: false, explicacao: "Incorreto." },
+                            { texto: "2/3 (dois terços) dos membros da Câmara Municipal.", correta: true, explicacao: "Correto! O Art. 54, III, prevê a cassação de mandato por 2/3 da Câmara." },
+                            { texto: "3/5 (três quintos) dos vereadores.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Votação em plebiscito popular.", correta: false, explicacao: "A cassação ocorre via processo legislativo, não plebiscito." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Ocorrendo a vacância definitiva dos cargos de Prefeito e Vice-Prefeito, o Art. 47 determina que se faça nova eleição. No entanto, o parágrafo único cria uma exceção. Qual é ela?",
+                        opcoes: [
+                            { texto: "Se a vacância ocorrer no último ano do mandato, as eleições serão canceladas e o município anexado a outra cidade.", correta: false, explicacao: "Isso não existe." },
+                            { texto: "Ocorrendo a vacância após cumpridos 3/4 (três quartos) do mandato, o Presidente da Câmara completará o período.", correta: true, explicacao: "Correto! Essa é a regra excepcional para não haver eleição na reta final do mandato." },
+                            { texto: "Se ocorrer vacância a qualquer tempo, o Governador nomeia um interventor.", correta: false, explicacao: "A regra é eleição ou o Presidente da Câmara." },
+                            { texto: "Ocorrendo no segundo ano, o eleito cumprirá um mandato cheio de mais 4 anos.", correta: false, explicacao: "O eleito só completa o mandato (tampão)." },
+                            { texto: "Sempre que ocorrer a vacância, independente da data, faz-se eleição indireta pelos vereadores.", correta: false, explicacao: "Não há essa previsão explícita na LOM para todos os casos." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "A Lei Orgânica trata das infrações político-administrativas do Prefeito. Qual das ações abaixo configura claramente um motivo para a cassação do Prefeito, segundo o Art. 57?",
+                        opcoes: [
+                            { texto: "Solicitar informações à Câmara sobre orçamento do Legislativo.", correta: false, explicacao: "Isso é legal." },
+                            { texto: "Vetar parcialmente um projeto de lei dos vereadores.", correta: false, explicacao: "É prerrogativa do Prefeito." },
+                            { texto: "Retardar a publicação ou deixar de publicar leis e atos sujeitos a essa formalidade.", correta: true, explicacao: "Correto! É a infração descrita no Art. 57, inciso V (fere o princípio da publicidade)." },
+                            { texto: "Ausentar-se do município por 10 dias sem licença da Câmara.", correta: false, explicacao: "A licença só é exigida para mais de 15 dias." },
+                            { texto: "Nomear Secretários Municipais que não residam na cidade.", correta: false, explicacao: "A LOM não proíbe isso como infração político-administrativa." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Sobre o Plebiscito municipal, ferramenta presente no Art. 40 da LOM, assinale a opção INCORRETA:",
+                        opcoes: [
+                            { texto: "Pode ser submetida a plebiscito questão relevante de interesse local, inclusive a denominação do município.", correta: false, explicacao: "Afirmativa correta." },
+                            { texto: "Cada consulta plebiscitária admitirá até 2 (duas) proposições.", correta: false, explicacao: "Afirmativa correta." },
+                            { texto: "O resultado do plebiscito, proclamado pela Câmara Municipal, vincula o Poder Público.", correta: false, explicacao: "Afirmativa correta (o poder público tem que acatar)." },
+                            { texto: "O Plebiscito pode ser proposto por apenas 1% (um por cento) dos eleitores inscritos.", correta: true, explicacao: "A afirmativa está incorreta e é o gabarito. O Art. 40 exige 5% dos eleitores (ou 2/5 dos vereadores)." },
+                            { texto: "É vedada a sua realização nos quatro meses que antecedem eleição nacional, estadual ou municipal.", correta: false, explicacao: "Afirmativa correta." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "De acordo com o Art. 25, as Comissões Parlamentares de Inquérito (CPI) na Câmara de Assunção possuem poderes específicos para investigar a administração. Sobre o relatório final da CPI, a LOM determina que:",
+                        opcoes: [
+                            { texto: "O relatório condena automaticamente o Prefeito à perda do cargo, sem necessidade de votação no plenário.", correta: false, explicacao: "A CPI não julga, apenas investiga e relata." },
+                            { texto: "A CPI deve arquivar o relatório em sigilo total por 10 anos.", correta: false, explicacao: "Fere a publicidade." },
+                            { texto: "O Presidente da Câmara deverá remeter cópia ao Ministério Público se concluir pela existência de infração apurável.", correta: true, explicacao: "Correto! A CPI encaminha (via Presidente da Câmara) os indícios de crime ao MP." },
+                            { texto: "A CPI só pode ser instalada com aprovação unânime de todos os vereadores.", correta: false, explicacao: "Basta 1/3 (um terço) dos vereadores." },
+                            { texto: "O relatório da CPI deve ser julgado apenas pelo Tribunal de Contas do Estado.", correta: false, explicacao: "O MP e o Plenário da Câmara são os destinatários principais, dependendo do teor." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Em relação ao processo de Cassação de Mandato (Prefeito ou Vereador), o Art. 54 da LOM define o prazo para a conclusão do processo administrativo no âmbito da Câmara. Se esse prazo expirar, qual a consequência imediata?",
+                        opcoes: [
+                            { texto: "A denúncia é arquivada automaticamente por decurso de prazo (prescrição).", correta: false, explicacao: "A LOM prevê o trancamento da pauta, não arquivamento." },
+                            { texto: "A conclusão do processo deve ocorrer em até 90 dias; findo o prazo, o processo será incluído na ordem do dia, sobrestando as demais matérias.", correta: true, explicacao: "Correto! O processo tranca a pauta da Câmara até ser votado." },
+                            { texto: "O processo é enviado ao Tribunal de Justiça para julgamento.", correta: false, explicacao: "A cassação político-administrativa é votada na própria Câmara." },
+                            { texto: "O Prefeito é automaticamente afastado até a votação ocorrer.", correta: false, explicacao: "O afastamento preventivo tem regras próprias, não decorre do fim do prazo final." },
+                            { texto: "A Câmara sofre intervenção estadual.", correta: false, explicacao: "Não há previsão constitucional para isso." }
+                        ]
+                    }
+                ]
+            },
+            6: {
+                disciplina: "Revisão Geral",
+                tema: "Active Recall - Semana 1",
+                progresso: 30,
+                teoria: `
+                    <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>Neste sábado, o foco não é aprender conteúdo novo, mas sim consolidar o que foi estudado na Semana 1. A ciência da aprendizagem mostra que reler textos de forma passiva gera uma falsa sensação de fluência. A técnica mais poderosa para a aprovação é o <span class="hl-word">Active Recall</span> (Recordação Ativa), que força o seu cérebro a "puxar" a informação da memória antes de ver a resposta.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Ciclo do Aedes aegypti e Leishmaniose</h3>
+                        <p>O mosquito da dengue põe seus ovos nas <span class="font-bold">paredes dos recipientes</span>, não na água. O ovo resiste mais de um ano. A pupa <span class="hl-concept">não se alimenta</span>. Apenas a fêmea pica. Já o vetor da Leishmaniose, o mosquito-palha, precisa de <span class="hl-word">terra úmida e matéria orgânica</span> (fezes, folhas). A Leishmaniose Visceral afeta órgãos internos (esplenomegalia) e tem o <span class="font-bold text-red-600">cão</span> como principal reservatório urbano. A Leishmaniose Tegumentar afeta pele (úlcera) e mucosas.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Informática: Hardware e Memórias</h3>
+                        <p>Hardware é a peça física. <span class="font-bold">RAM</span> é a memória volátil (perde tudo se desligar), funciona como área de trabalho. O disco rígido (<span class="hl-concept">HD</span>) ou SSD é a memória não-volátil (armazena os dados). O processador (<span class="hl-word">CPU</span>) calcula. Scanners são periféricos de <span class="font-bold">entrada</span>; monitores, de <span class="font-bold">saída</span>. Pen drives são <span class="font-bold">mistos</span>. Softwares são os programas; o <span class="hl-concept">Sistema Operacional</span> é o mais importante.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Português: Compreensão x Interpretação</h3>
+                        <p>Compreender é entender o que está <span class="font-bold">escrito na superfície</span> ("Segundo o texto"). Interpretar é deduzir o que está nas <span class="hl-word">entrelinhas</span> ("Infere-se que"). Cuidado com extrapolações (ir além do texto), reduções (focar no irrelevante) e contradições (marcar o oposto). Desconfie de palavras absolutas ("sempre", "nunca").</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Legislação: Lei Orgânica</h3>
+                        <p>A Câmara de Assunção possui <span class="font-bold text-red-600">09 vereadores</span>. Emendas à LOM e cassações exigem <span class="hl-concept">2/3 dos votos</span>. Projetos para criar cargos no executivo são de iniciativa <span class="hl-word">exclusiva do Prefeito</span>. O Prefeito não pode se ausentar por mais de <span class="font-bold">15 dias</span> sem licença. Se ele e o vice faltarem, quem assume é o <span class="font-bold">Presidente da Câmara</span>.</p>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>Desafio Mental Rápido:</strong> Tente responder sem olhar o texto acima: Qual o reservatório urbano da Leishmaniose Visceral? Quantos vereadores tem Assunção? RAM ou ROM, qual perde os dados se faltar luz?</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>Dica de Elite:</strong> Use as questões a seguir não como uma prova para se punir, mas como um mapa dos buracos no seu aprendizado. Onde você errar hoje, é onde você deve voltar na teoria durante a semana de revisão final.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "REVISÃO ESP: Onde a fêmea do mosquito Aedes aegypti prefere depositar seus ovos?",
+                        opcoes: [
+                            { texto: "No meio da coluna d'água.", correta: false, explicacao: "Não flutua e não afunda." },
+                            { texto: "Na terra úmida de chiqueiros.", correta: false, explicacao: "Isso é o Flebotomíneo." },
+                            { texto: "Nas paredes internas dos recipientes artificiais, um pouco acima da linha da água.", correta: true, explicacao: "Correto! Na parede, esperando a água subir." },
+                            { texto: "No esgoto poluído.", correta: false, explicacao: "Prefere água razoavelmente limpa." },
+                            { texto: "Diretamente nas plantas aquáticas.", correta: false, explicacao: "Não usa vegetação." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "REVISÃO LOM: Quantos vereadores compõem a Câmara Municipal de Assunção - PB?",
+                        opcoes: [
+                            { texto: "11.", correta: false, explicacao: "Incorreto." },
+                            { texto: "07.", correta: false, explicacao: "Incorreto." },
+                            { texto: "09.", correta: true, explicacao: "Correto! Memorizou bem o Art. 5º." },
+                            { texto: "15.", correta: false, explicacao: "Incorreto." },
+                            { texto: "21.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "REVISÃO INFO: O equipamento que digitaliza um documento em papel transferindo-o para o computador é chamado de:",
+                        opcoes: [
+                            { texto: "Impressora.", correta: false, explicacao: "Ela faz o caminho inverso." },
+                            { texto: "Monitor.", correta: false, explicacao: "Exibe a imagem." },
+                            { texto: "Scanner, um dispositivo de entrada.", correta: true, explicacao: "Correto! Ele capta a imagem do papel (entra no PC)." },
+                            { texto: "Processador.", correta: false, explicacao: "É o cérebro (hardware interno)." },
+                            { texto: "Modem.", correta: false, explicacao: "Para conexão de internet." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "REVISÃO ESP: O principal reservatório do parasito causador da Leishmaniose Visceral no ambiente urbano brasileiro é:",
+                        opcoes: [
+                            { texto: "O gato.", correta: false, explicacao: "Incomum." },
+                            { texto: "A galinha.", correta: false, explicacao: "Aves não contraem, apenas servem de sangue para o mosquito." },
+                            { texto: "O cão doméstico.", correta: true, explicacao: "Correto! O cão é a fonte de infecção (reservatório)." },
+                            { texto: "O rato.", correta: false, explicacao: "Rato é mais ligado à leptospirose." },
+                            { texto: "O morcego.", correta: false, explicacao: "Ligado à raiva." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "REVISÃO PORT: Quando a banca solicita uma inferência com base no texto, ela quer que o candidato:",
+                        opcoes: [
+                            { texto: "Ache a resposta escrita literalmente.", correta: false, explicacao: "Isso é compreensão." },
+                            { texto: "Faça uma dedução lógica das pistas fornecidas pelo texto.", correta: true, explicacao: "Correto! Inferir é ler as entrelinhas." },
+                            { texto: "Contradiga a ideia do autor.", correta: false, explicacao: "Você deve seguir a lógica do autor." },
+                            { texto: "Escreva uma redação sobre o tema.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Corrija a ortografia do texto.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    // MEDIAS
+                    {
+                        dificuldade: "Média",
+                        texto: "REVISÃO LOM: Se o Prefeito e o Vice-Prefeito precisarem se ausentar juntos do município para uma viagem ao exterior, por mais de 15 dias, e não houver solicitação de licença à Câmara, a consequência prevista é:",
+                        opcoes: [
+                            { texto: "Apenas desconto no salário dos dias não trabalhados.", correta: false, explicacao: "A punição é muito mais severa." },
+                            { texto: "Intervenção federal.", correta: false, explicacao: "A intervenção não se aplica diretamente assim." },
+                            { texto: "Infração político-administrativa e possível perda de mandato.", correta: true, explicacao: "Correto! A LOM é rigorosa sobre ausências maiores que 15 dias sem autorização (Art. 49)." },
+                            { texto: "O governador nomear um substituto provisório.", correta: false, explicacao: "A substituição é pela linha sucessória local (Presidente da Câmara)." },
+                            { texto: "Multa pecuniária ao partido do Prefeito.", correta: false, explicacao: "Não há essa previsão." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "REVISÃO INFO: O usuário notou que o computador perdeu a data e a hora após ficar muito tempo desligado da tomada. Qual memória é a área de trabalho volátil do computador que perde todos os arquivos abertos quando a energia cai?",
+                        opcoes: [
+                            { texto: "Memória ROM.", correta: false, explicacao: "A ROM é não-volátil." },
+                            { texto: "Disco Rígido (HD).", correta: false, explicacao: "O HD guarda para sempre." },
+                            { texto: "Memória RAM.", correta: true, explicacao: "Correto! A RAM é a área de trabalho volátil e instantânea." },
+                            { texto: "Memória Cache.", correta: false, explicacao: "A cache perde, mas a 'área de trabalho' dos programas principais é a RAM." },
+                            { texto: "SSD.", correta: false, explicacao: "O SSD guarda para sempre." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "REVISÃO ESP: O fumacê (aplicação espacial UBV) é muito cobrado em provas. Segundo os protocolos de controle da Dengue, o fumacê deve ser utilizado:",
+                        opcoes: [
+                            { texto: "Como medida preventiva diária antes do período das chuvas.", correta: false, explicacao: "Não é preventivo." },
+                            { texto: "Apenas para matar as larvas nos bueiros e terrenos.", correta: false, explicacao: "Ele mata a forma adulta voadora, não a larva." },
+                            { texto: "Exclusivamente em situações de bloqueio de surtos e epidemias para cortar a cadeia de transmissão do mosquito adulto.", correta: true, explicacao: "Correto! É a última arma, usada apenas em surtos (emergência) contra adultos." },
+                            { texto: "Em substituição à limpeza mecânica (manejo ambiental).", correta: false, explicacao: "Não substitui. A base é o manejo." },
+                            { texto: "Diluído na caixa d'água das residências.", correta: false, explicacao: "Isso é veneno/larvicida, não fumacê." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "REVISÃO PORT: 'O programa de combate a vetores logrou sucesso apenas em 30% da cidade'. Se uma alternativa afirmar que 'A maior parte da cidade fracassou no combate', comete-se erro de:",
+                        opcoes: [
+                            { texto: "Extrapolação.", correta: false, explicacao: "Não é adição de informação." },
+                            { texto: "Redução.", correta: false, explicacao: "Não reduz." },
+                            { texto: "Nenhum erro. É uma paráfrase correta do sentido do texto (inferência lógica matemática).", correta: true, explicacao: "Correto. Se logrou sucesso em 30%, fracassou em 70%. Como 70% é a maior parte, a inferência é válida e não há erro de interpretação." },
+                            { texto: "Contradição.", correta: false, explicacao: "Não contradiz, reafirma de outra forma." },
+                            { texto: "Subjetividade.", correta: false, explicacao: "É objetivo matemático." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "REVISÃO ESP: A tríade clássica do Zika Vírus nos primeiros dias de manifestação difere sutilmente da Dengue. Ela inclui febre baixa ou ausente e quais outros dois achados marcantes?",
+                        opcoes: [
+                            { texto: "Dores articulares severas e vômitos.", correta: false, explicacao: "Isso é mais Chikungunya e Dengue Grave." },
+                            { texto: "Exantema (manchas) precoce e hiperemia conjuntival (olho vermelho).", correta: true, explicacao: "Correto! Essa é a marca registrada do Zika nos primeiros dias." },
+                            { texto: "Icterícia (pele amarela) e urina escura.", correta: false, explicacao: "Sinais de Febre Amarela / Hepatite." },
+                            { texto: "Tosse produtiva e falta de ar.", correta: false, explicacao: "Sintomas respiratórios." },
+                            { texto: "Sangramento nasal espontâneo imediato.", correta: false, explicacao: "Isso pode ocorrer na Dengue mais avançada." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "REVISÃO LOM: De acordo com a LOM, a iniciativa de um Projeto de Lei que visa conceder aumento de salário para os servidores do quadro da Prefeitura de Assunção compete a quem?",
+                        opcoes: [
+                            { texto: "À Mesa Diretora da Câmara.", correta: false, explicacao: "Eles cuidam dos servidores da Câmara." },
+                            { texto: "Ao Prefeito, por meio de iniciativa exclusiva.", correta: true, explicacao: "Correto! O Art. 31, II define que criar cargos ou aumentar salário no Executivo é exclusividade do Prefeito." },
+                            { texto: "A um mínimo de 5% do eleitorado.", correta: false, explicacao: "Iniciativa popular não altera salário do Executivo." },
+                            { texto: "A qualquer vereador, em qualquer tempo.", correta: false, explicacao: "Vereador não pode criar despesa/salário no executivo." },
+                            { texto: "Apenas ao Sindicato dos Servidores.", correta: false, explicacao: "Sindicato não legisla." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "REVISÃO INFO: SSDs (Solid State Drives) são consideravelmente mais rápidos que os HDDs (Hard Disk Drives). Qual a principal razão arquitetural para essa diferença de desempenho?",
+                        opcoes: [
+                            { texto: "SSDs possuem discos de platina que giram acima de 10.000 RPM, enquanto HDDs giram a 5400 RPM.", correta: false, explicacao: "SSDs não possuem partes móveis/giratórias." },
+                            { texto: "SSDs são soldados diretamente no processador como memória Cache L1.", correta: false, explicacao: "Eles são periféricos de armazenamento secundário." },
+                            { texto: "SSDs armazenam dados puramente em memória flash (chips de silício), eliminando o atraso mecânico dos braços de leitura sobre discos magnéticos dos HDDs.", correta: true, explicacao: "Correto! A ausência de mecânica (motor e discos giratórios) faz o SSD encontrar o dado eletronicamente quase de imediato." },
+                            { texto: "SSDs funcionam exclusivamenet através da porta USB 3.0 externa.", correta: false, explicacao: "Eles são predominantemente internos (SATA, NVMe)." },
+                            { texto: "SSDs não gravam permanentemente os arquivos, funcionando apenas como expansão da memória RAM volátil.", correta: false, explicacao: "Eles gravam permanentemente." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "REVISÃO ESP: O ciclo evolutivo do Aedes aegypti possui características peculiares que fundamentam as ações mecânicas do ACE. Qual afirmativa define com precisão a fase de Pupa e o alvo preferencial das ações do Agente?",
+                        opcoes: [
+                            { texto: "A pupa é a fase de maior voracidade, alimentando-se intensamente; o alvo do agente é aplicar inseticida sobre elas.", correta: false, explicacao: "A pupa NÃO se alimenta." },
+                            { texto: "A pupa é a fase de transição (não se alimenta e não é afetada por muitos larvicidas); a ação preferencial do ACE é mecânica: eliminação do criadouro (ovo/larva).", correta: true, explicacao: "Correto! Como a pupa não come, veneno intestinal de larvicida não funciona bem. O ideal é o combate mecânico do criadouro." },
+                            { texto: "A larva deposita os ovos, a pupa se desenvolve no seco e o adulto eclode. O alvo do agente é pulverizar as paredes externas.", correta: false, explicacao: "Ciclo todo confuso. Fêmea adulta põe ovo." },
+                            { texto: "O ovo do Aedes eclode em minutos no seco; o agente deve varrer folhas secas.", correta: false, explicacao: "O ovo precisa de imersão na água para eclodir." },
+                            { texto: "A fase alada não tem importância epidemiológica; o foco são as caixas d'água.", correta: false, explicacao: "A fase alada transmite a doença." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "REVISÃO LOM: Se o Prefeito vetar um projeto e a Câmara conseguir derrubar esse veto (com maioria absoluta), quem deve promulgar a lei se o Prefeito se recusar a fazê-lo em 48 horas?",
+                        opcoes: [
+                            { texto: "O projeto é arquivado, prevalecendo a vontade do Prefeito.", correta: false, explicacao: "A Câmara já derrubou o veto." },
+                            { texto: "A sanção será suprida pelo Governador do Estado.", correta: false, explicacao: "Fere autonomia." },
+                            { texto: "O Presidente da Câmara Municipal (e, se este falhar, o Vice-Presidente).", correta: true, explicacao: "Correto! O Art. 36, § 7º prevê que o Presidente do Legislativo assuma essa função (Promulgação)." },
+                            { texto: "A Justiça Eleitoral.", correta: false, explicacao: "Incorreto." },
+                            { texto: "Um referendo popular será convocado.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "REVISÃO PORT/INTERP: Se o comando de uma questão diz 'As ideias veiculadas no texto convergem para o entendimento de que...', o candidato não pode:",
+                        opcoes: [
+                            { texto: "Reconhecer que o autor admite exceções.", correta: false, explicacao: "Isso é interpretar bem." },
+                            { texto: "Buscar a conclusão lógica do argumento principal.", correta: false, explicacao: "Isso é interpretar bem." },
+                            { texto: "Confundir um contra-argumento citado (para ser refutado) com a tese defendida pelo autor (erro de contradição).", correta: true, explicacao: "Correto! Muitas vezes o autor cita uma ideia oposta só para destruí-la em seguida. Marcar essa ideia oposta como tese do autor é erro de contradição." },
+                            { texto: "Identificar palavras que limitam o escopo da afirmação.", correta: false, explicacao: "Isso é interpretar bem." },
+                            { texto: "Atentar para as premissas colocadas nos primeiros parágrafos.", correta: false, explicacao: "Isso é interpretar bem." }
+                        ]
+                    }
+                ]
+            },
+            8: {
+                disciplina: "Conhecimentos Específicos",
+                tema: "Doença de Chagas e Esquistossomose",
+                progresso: 40,
+                teoria: `
+                    <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>Iniciando a segunda semana, o ACE deve mergulhar em duas endemias clássicas brasileiras, intimamente ligadas a moradias precárias e falta de saneamento: a <span class="hl-word">Doença de Chagas</span> e a <span class="hl-concept">Esquistossomose</span>. Ambas possuem ciclos de transmissão complexos que envolvem vetores e hospedeiros intermediários específicos.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Doença de Chagas (Tripanossomíase Americana)</h3>
+                        <p>O agente causador é o protozoário <span class="font-bold">Trypanosoma cruzi</span>. O principal vetor no Brasil é o inseto triatomíneo, conhecido como <span class="hl-concept">barbeiro, chupança ou chupão</span> (gêneros *Triatoma*, *Panstrongylus*, etc.). O barbeiro esconde-se em frestas de paredes de pau a pique, casas de taipa, ninhos de aves e palmeiras (açaí, babaçu). Ele possui hábitos <span class="hl-word">noturnos e hematófagos</span> em ambos os sexos e em todas as fases evolutivas.</p>
+                        <p><strong>A transmissão clássica NÃO É PELA PICADA!</strong> O barbeiro pica o rosto da pessoa dormindo, suga o sangue, enche a barriga e <span class="hl-word">defeca próximo ao local da picada</span>. As fezes contêm o parasita. A pessoa coça o local e esfrega as fezes na ferida ou nas mucosas (olho, boca), infectando-se. Outras vias cruciais hoje são a transmissão <span class="hl-concept">oral (ingestão de caldo de cana ou açaí moído com o inseto)</span> e a congênita (mãe para filho).</p>
+                        <p>Sintomas: A fase aguda pode ter febre e inchaço no olho onde houve a infecção (Sinal de Romaña). A fase crônica, que pode durar décadas, afeta gravemente o <span class="font-bold text-red-600">coração (cardiomegalia e arritmias) e o sistema digestivo (megacólon e megaesôfago)</span>.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Esquistossomose (Xistose ou Barriga d'Água)</h3>
+                        <p>Causada pelo platelminto (verme) <span class="font-bold">Schistosoma mansoni</span>. A transmissão está ligada ao <span class="hl-concept">ciclo da água e falta de esgoto</span>. A pessoa infectada libera ovos nas fezes. Se não houver saneamento, essas fezes chegam aos rios e lagos doces (coleções hídricas de pouca correnteza). Na água, o ovo eclode e libera o miracídio, que penetra obrigatóriamente em um hospedeiro intermediário: o <span class="hl-word">caramujo do gênero Biomphalaria</span> (planorbídeos).</p>
+                        <p>Dentro do caramujo, ele se multiplica e sai para a água na forma de <span class="font-bold">cercária</span>. A cercária <span class="hl-concept">penetra ATIVAMENTE na pele íntegra</span> de pessoas que tomam banho, lavam roupas ou brincam nessas águas (não precisa picar, nem de ferida, ela perfura a pele). Sintomas crônicos incluem fibrose hepática, hipertensão portal, sangue nas fezes e a ascite gigante (barriga d'água).</p>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>A Pegadinha da Picada (Chagas):</strong> A banca vai dizer que a saliva ou a picada do barbeiro injeta o Trypanosoma. <strong>ERRADO!</strong> É a <strong>FEZES</strong> contaminada que penetra na ferida ou mucosa quando a vítima coça.</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>A Pegadinha da Ingestão (Esquistossomose):</strong> A banca dirá que se pega Esquistossomose bebendo água suja. <strong>ERRADO!</strong> A infecção principal é pela <strong>PENETRAÇÃO ATIVA</strong> da cercária na pele humana ao entrar no lago. Beber pode infectar mucosas, mas a rota principal é o banho (pele).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-drop text-blue-500 text-2xl mt-1"></i>
+                            <div><strong>Palavras-chave Visuais:</strong> Doença de Chagas -> Megacoração / Parede de Taipa / Açaí. Esquistossomose -> Rio Doce / Caramujo Biomphalaria / Barriga d'Água.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Qual é o nome popular do inseto transmissor da Doença de Chagas e onde ele costuma se abrigar em ambientes rurais ou periurbanos?",
+                        opcoes: [
+                            { texto: "Mosquito-palha; em locais úmidos e matéria orgânica.", correta: false, explicacao: "Mosquito-palha transmite Leishmaniose." },
+                            { texto: "Aedes aegypti; em pneus e caixas d'água.", correta: false, explicacao: "Transmite Dengue." },
+                            { texto: "Barbeiro (Triatomíneo); em frestas de paredes de pau a pique e telhados de palha.", correta: true, explicacao: "Correto! É o chupança/barbeiro que vive em moradias rústicas e palmeiras." },
+                            { texto: "Caramujo; em lagos de água doce.", correta: false, explicacao: "É o hospedeiro da Esquistossomose." },
+                            { texto: "Mosquito Anopheles; em matas fechadas.", correta: false, explicacao: "Transmite Malária." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "O ciclo da Esquistossomose envolve a eliminação de ovos nas fezes do doente, que contaminam coleções de água doce. Para que o ciclo continue, qual animal atua como hospedeiro intermediário obrigatório na água?",
+                        opcoes: [
+                            { texto: "O mosquito Culex.", correta: false, explicacao: "Não participa da esquistossomose." },
+                            { texto: "O peixe beta.", correta: false, explicacao: "Não é hospedeiro." },
+                            { texto: "O caramujo do gênero Biomphalaria (planorbídeo).", correta: true, explicacao: "Correto! O caramujo aquático é essencial para o desenvolvimento do miracídio em cercária." },
+                            { texto: "O carrapato aquático.", correta: false, explicacao: "Não existe carrapato aquático nesse ciclo." },
+                            { texto: "A larva do Aedes aegypti.", correta: false, explicacao: "Não participa do ciclo." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Como ocorre a principal e mais clássica forma de infecção humana pela Doença de Chagas no ambiente domiciliar?",
+                        opcoes: [
+                            { texto: "Através da penetração de larvas pela planta dos pés ao andar descalço.", correta: false, explicacao: "Isso se refere à Ancilostomose ou Bicho Geográfico." },
+                            { texto: "Pela saliva injetada no momento em que o barbeiro morde a pele.", correta: false, explicacao: "Não é pela saliva." },
+                            { texto: "Ao coçar o local da picada, esfregando as fezes contaminadas do barbeiro na pele machucada ou nas mucosas (olho/boca).", correta: true, explicacao: "Correto! As fezes (onde está o T. cruzi) penetram quando a pessoa coça." },
+                            { texto: "Nadando em lagoas com caramujos doentes.", correta: false, explicacao: "Esquistossomose." },
+                            { texto: "Pelo consumo de água tratada com cloro.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Na fase aguda, um paciente que foi infectado no olho pelo barbeiro pode apresentar um inchaço palpebral muito característico da Doença de Chagas. Qual o nome desse sinal?",
+                        opcoes: [
+                            { texto: "Úlcera de Bauru.", correta: false, explicacao: "Leishmaniose Tegumentar." },
+                            { texto: "Sinal de Romaña.", correta: true, explicacao: "Correto! O edema bipalpebral unilateral e indolor é o sinal de Romaña." },
+                            { texto: "Mancha de Koplik.", correta: false, explicacao: "Sarampo." },
+                            { texto: "Cancro Duro.", correta: false, explicacao: "Sífilis." },
+                            { texto: "Eritema migratório.", correta: false, explicacao: "Doença de Lyme." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "O nome popular da Esquistossomose no Brasil faz alusão ao inchaço abdominal provocado pelo acúmulo de líquido (ascite), resultante dos danos no fígado. Qual é esse nome?",
+                        opcoes: [
+                            { texto: "Calazar.", correta: false, explicacao: "Leishmaniose Visceral." },
+                            { texto: "Febre Maculosa.", correta: false, explicacao: "Doença de carrapato." },
+                            { texto: "Barriga d'Água (ou Xistose).", correta: true, explicacao: "Correto! O aumento abdominal crônico é a marca do nome popular." },
+                            { texto: "Amarelão.", correta: false, explicacao: "Ancilostomose." },
+                            { texto: "Elefantíase.", correta: false, explicacao: "Filariose." }
+                        ]
+                    },
+                    // MEDIAS
+                    {
+                        dificuldade: "Média",
+                        texto: "O combate à Doença de Chagas passou por uma mudança de perfil. Atualmente, a transmissão vetorial domiciliar caiu, e uma nova via tem causado microepidemias alarmantes no Norte do Brasil (e outras regiões). Assinale a via e o alimento envolvido mais famoso:",
+                        opcoes: [
+                            { texto: "Transmissão respiratória por contato com morcegos no açaí.", correta: false, explicacao: "Morcegos passam raiva (mordida), não chagas respiratório." },
+                            { texto: "Transmissão hídrica, bebendo água de lagoas ricas em caramujos.", correta: false, explicacao: "Misturou com a Esquistossomose." },
+                            { texto: "Transmissão oral, frequentemente ligada à ingestão do caldo de cana ou açaí moídos junto com barbeiros infectados.", correta: true, explicacao: "Correto! O inseto é triturado vivo na máquina, contaminando o suco que é bebido sem pasteurização." },
+                            { texto: "Transmissão cutânea pela carne de porco crua.", correta: false, explicacao: "Misturou com cisticercose." },
+                            { texto: "Transmissão sexual, a principal via atual.", correta: false, explicacao: "Pode haver via congênita e sangue, sexual não é via documentada como relevante." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "O mecanismo de penetração da forma infectante da Esquistossomose no ser humano (cercária) requer que:",
+                        opcoes: [
+                            { texto: "O ser humano engula o caramujo acidentalmente ao nadar.", correta: false, explicacao: "A infecção não exige a ingestão do caramujo." },
+                            { texto: "A cercária penetre ativamente pela pele ou mucosa, geralmente nas pernas de quem anda ou nada em águas doces contaminadas (coceira do nadador).", correta: true, explicacao: "Correto! A cercária livre na água fura a pele íntegra do ser humano em contato com a água." },
+                            { texto: "O caramujo rasteje sobre a pessoa enquanto dorme.", correta: false, explicacao: "Isso não ocorre." },
+                            { texto: "O ser humano coma peixe cru do rio contaminado.", correta: false, explicacao: "A cercária está livre na água, não encistada no músculo do peixe (isso seria difilobotríase)." },
+                            { texto: "Um inseto aquático pique a pessoa após sugar o caramujo.", correta: false, explicacao: "Não há inseto vetor. É direto da água para a pele." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Para evitar a propagação do Schistosoma mansoni e, consequentemente, da Esquistossomose, a medida preventiva PRIMÁRIA e DEFINITIVA que cabe ao Estado executar é:",
+                        opcoes: [
+                            { texto: "Matar todos os caramujos dos rios com moluscicidas pesados.", correta: false, explicacao: "Isso destrói o ecossistema, não é a solução definitiva." },
+                            { texto: "Instalar redes de saneamento básico e tratamento de esgoto para impedir que as fezes cheguem aos rios.", correta: true, explicacao: "Correto! Corta a raiz do problema: se o ovo não chega na água, o caramujo não se infecta." },
+                            { texto: "Fornecer repelente de insetos para a comunidade ribeirinha.", correta: false, explicacao: "Não é doença de inseto." },
+                            { texto: "Realizar o Fumacê sobre as lagoas infestadas.", correta: false, explicacao: "Fumacê mata mosquito adulto." },
+                            { texto: "Proibir o consumo de açaí nas regiões endêmicas.", correta: false, explicacao: "Açaí tem a ver com Chagas." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Quais são as principais complicações crônicas irreversiveis da Doença de Chagas que podem surgir até 20 anos após a infecção inicial?",
+                        opcoes: [
+                            { texto: "Cegueira total e surdez neurológica.", correta: false, explicacao: "Não afeta predominantemente esses sentidos." },
+                            { texto: "Fibrose no fígado e crescimento do baço (hepatoesplenomegalia maciça).", correta: false, explicacao: "Isso é Leishmaniose Visceral ou Esquistossomose avançada." },
+                            { texto: "Acometimento cardíaco grave (arritmias e aumento do coração) e crescimento do tubo digestivo (megacólon e megaesôfago).", correta: true, explicacao: "Correto! O T. cruzi destrói a inervação dos músculos do coração e do intestino/esôfago, que ficam flácidos e gigantes." },
+                            { texto: "Microcefalia e retardamento mental.", correta: false, explicacao: "Zika." },
+                            { texto: "Insuficiência renal aguda e amputação de membros.", correta: false, explicacao: "Não são marcas de Chagas." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Sobre o inseto barbeiro e seu controle, um ACE depara-se com focos dentro de uma casa (intradomicílio). Qual o comportamento do vetor e o que deve ser orientado?",
+                        opcoes: [
+                            { texto: "São diurnos; deve-se dormir de luz acesa.", correta: false, explicacao: "Eles fogem da luz (fotofobia)." },
+                            { texto: "Alimentam-se de lixo; deve-se recolher restos de comida da casa.", correta: false, explicacao: "São hematófagos estritos (sangue)." },
+                            { texto: "São fotofóbicos (odeiam luz) e hematófagos noturnos; as melhorias habitacionais (rebocar buracos e frestas nas paredes de barro) são essenciais.", correta: true, explicacao: "Correto! Acabar com o esconderijo do barbeiro dentro de casa rebocando as frestas é a ação de engenharia principal." },
+                            { texto: "Voam dezenas de quilômetros; deve-se aplicar larvicida nos rios ao redor.", correta: false, explicacao: "Não cruzam em água." },
+                            { texto: "Morrem sozinhos no calor; fechar as janelas durante o dia resolve.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "A respeito do diagnóstico da Doença de Chagas aguda (ex: suspeita após ingestão de açaí contaminado), qual deve ser a abordagem inicial nos postos de saúde ou hospitais?",
+                        opcoes: [
+                            { texto: "Realizar exames sorológicos (IGg) que dão positivo no primeiro dia de infecção.", correta: false, explicacao: "Sorologia demora semanas para positivar (imunidade). Na fase aguda usa-se exame parasitológico direto." },
+                            { texto: "Realizar o exame parasitológico direto (gota espessa ou esfregaço de sangue) para procurar o parasita nadando no sangue.", correta: true, explicacao: "Correto! Na fase aguda, há muita 'parasitemia' (parasitas no sangue), fáceis de ver no microscópio." },
+                            { texto: "Isolar o paciente em quarto de pressão negativa, pois o contágio aéreo é altíssimo.", correta: false, explicacao: "Não há contágio aéreo de pessoa a pessoa." },
+                            { texto: "Tratar empiricamente para Esquistossomose, devido à semelhança dos sintomas.", correta: false, explicacao: "Os tratamentos são toxicos e específicos." },
+                            { texto: "Inspecionar as fezes do paciente em busca de ovos do Tripanossoma.", correta: false, explicacao: "O tripanossoma não põe ovos nas fezes humanas (é um protozoário no sangue/tecido)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "No que se refere ao controle da Esquistossomose em uma área endêmica que já possui alto número de doentes e onde as obras de saneamento demorarão anos, qual estratégia combinada (além da educação em saúde) é mais eficaz a curto prazo para baixar a carga da doença?",
+                        opcoes: [
+                            { texto: "Aplicação exclusiva de moluscicida nos rios, matando a flora e fauna junto.", correta: false, explicacao: "Não é viável nem ecológico como medida exclusiva." },
+                            { texto: "Realização do exame de fezes (Kato-Katz) em massa na população escolar e tratamento farmacológico de todos os positivos (quimioterapia preventiva).", correta: true, explicacao: "Correto! Ao tratar quem tem verme, você para de enviar ovos para o rio, quebrando o ciclo e protegendo a pessoa tratada de danos crônicos." },
+                            { texto: "Vacinação anual de toda a população ribeirinha.", correta: false, explicacao: "Não há vacina aprovada e disponível em massa." },
+                            { texto: "Proibição da pesca local e distribuição de filtros de barro.", correta: false, explicacao: "Filtro não impede banho/contato na pele." },
+                            { texto: "Instalação de mosquiteiros e telas nas janelas ribeirinhas.", correta: false, explicacao: "Protege contra insetos, não caramujos." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Sobre o Trypanosoma cruzi, agente da Doença de Chagas, ele sofre mudanças de forma durante seu ciclo de vida. A forma infectante presente nas fezes do barbeiro e a forma encontrada nos tecidos do coração humano (onde se reproduz e destrói o músculo) são, respectivamente:",
+                        opcoes: [
+                            { texto: "Epimastigota e Promastigota.", correta: false, explicacao: "Nomes de formas, mas não nessas etapas." },
+                            { texto: "Amastigota e Tripomastigota.", correta: false, explicacao: "Ordem invertida." },
+                            { texto: "Cercária e Miracídio.", correta: false, explicacao: "São da esquistossomose." },
+                            { texto: "Tripomastigota metacíclica e Amastigota.", correta: true, explicacao: "Correto! Tripomastigota (tem flagelo, nada na corrente sanguínea/fezes do barbeiro). Ao invadir a célula do coração, vira Amastigota (sem flagelo) e se multiplica escondida." },
+                            { texto: "Ovo e Larva.", correta: false, explicacao: "Protozoários não têm ovo/larva." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Um morador pergunta ao ACE: 'Vi um barbeiro picando meu cachorro no quintal e vi as fezes no pelo. E agora, o cachorro vai transmitir pra mim respirando ou lambendo?'. A resposta epidemiológica correta e técnica do ACE é:",
+                        opcoes: [
+                            { texto: "Sim, o cão é o principal transmissor do vírus de chagas pela saliva.", correta: false, explicacao: "Não é vírus (é protozoário) e o cão não transmite lambendo." },
+                            { texto: "O cão atua como importante reservatório doméstico da doença de Chagas. O perigo não é o cão lamber você, mas o fato de que os barbeiros picarão o cão infectado, adquirirão o parasita, e depois picarão e defecarão nas pessoas da casa.", correta: true, explicacao: "Correto! O cão (ou gambá, gato) serve como 'caixa d'água de parasitas' (reservatório). O barbeiro faz a ponte entre o cão e o humano." },
+                            { texto: "Não se preocupe. O barbeiro que pica cão é de uma espécie que não pica humanos.", correta: false, explicacao: "Barbeiros picam vários mamíferos." },
+                            { texto: "O cachorro transmitirá a doença apenas pela urina no quintal.", correta: false, explicacao: "Incorreto." },
+                            { texto: "O cão é hospedeiro definitivo, o homem é intermediário. Basta aplicar Fumacê.", correta: false, explicacao: "Terminologia incorreta." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Na fisiopatologia da Esquistossomose, a formação do 'Granuloma' ao redor do ovo do parasita alojado no fígado do paciente é o principal motor da doença. Esse granuloma é:",
+                        opcoes: [
+                            { texto: "Uma colônia de bactérias oportunistas que devoram o fígado.", correta: false, explicacao: "Não é bactéria." },
+                            { texto: "Um tumor maligno (câncer) causado pelos produtos tóxicos do verme.", correta: false, explicacao: "Não é câncer." },
+                            { texto: "Uma resposta exagerada de cicatrização do sistema imunológico do próprio paciente (hipersensibilidade), que isola o ovo, mas acaba fibrosando (endurecendo) e obstruindo os vasos do fígado, gerando hipertensão portal.", correta: true, explicacao: "Correto! É a nossa própria defesa tentando 'enjaular' os ovos presos que destrói o fígado criando cicatrizes (fibrose)." },
+                            { texto: "Um saco de veneno criado pelo caramujo que vaza na corrente sanguínea.", correta: false, explicacao: "Totalmente incorreto." },
+                            { texto: "O local onde os vermes adultos copulam e bloqueiam a passagem da bile.", correta: false, explicacao: "Eles copulam nos vasos sanguíneos, não dentro de um granuloma no tecido." }
+                        ]
+                    }
+                ]
+            },
+            9: {
+                 disciplina: "Português",
+                tema: "Ortografia, Acentuação e Morfologia",
+                progresso: 45,
+                teoria: `
+                    <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>O domínio da norma culta nas regras frias (Ortografia, Acentuação e Classes de Palavras) é onde muitos candidatos perdem pontos de bobeira. A banca Ápice adora misturar regras do <span class="hl-concept">Novo Acordo Ortográfico</span> em questões diretas. Vamos focar nos erros mais caros e nas certezas gramaticais.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Acentuação: As Regras de Ouro</h3>
+                        <p>Acentuam-se as <span class="hl-word">Proparoxítonas</span> (todas: <em>médico, lágrima, pássaro</em>). Acentuam-se as <span class="hl-word">Oxítonas</span> terminadas em A(s), E(s), O(s), EM, ENS (<em>cajá, café, cipó, armazém</em>). Acentuam-se as <span class="hl-word">Paroxítonas</span> (as mais cobradas) terminadas em: L, I(s), N, U(s), R, X, Ã(s), ÃO(s), UM(ns), PS e Ditongos (<em>fácil, júri, pólen, bônus, caráter, tórax, órfã, órgão, fórum, bíceps, memória</em>). Paroxítonas terminadas em 'A, E, O, EM, ENS' <strong>NÃO</strong> têm acento (ex: <em>mesa, pele, bolo, item, hifens</em>).</p>
+                        
+                        <p><strong>Atenção ao Novo Acordo (O que caiu):</strong></p>
+                        <ul class="list-disc pl-8 space-y-2 mt-2">
+                            <li>Ditongos abertos (EI, OI) nas <span class="font-bold text-red-600">paroxítonas</span> perderam o acento: i-dei-a, as-sem-blei-a, joi-a, he-roi-co.</li>
+                            <li>(Mas continuam nas <span class="hl-concept">oxítonas</span>: a-néis, he-rói, cor-rói).</li>
+                            <li>Vogais dobradas (EE, OO) perderam o acento: voo, enjoo, leem, deem, creem.</li>
+                            <li>Acentos diferenciais que caíram: para (verbo parar), pelo (cabelo), pera (fruta).</li>
+                            <li>Acentos diferenciais que <span class="font-bold">FICARAM</span>: pôde (verbo) / pode; pôr (verbo) / por (preposição); têm (plural) / tem (singular).</li>
+                        </ul>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Temido Hífen</h3>
+                        <p>Regra geral do Novo Acordo para prefixos: <span class="hl-concept">Letras iguais se atraem e batem (precisam do hífen)</span>: <em>micro-ondas, anti-inflamatório, contra-ataque</em>. <span class="hl-word">Letras diferentes se abraçam (juntam tudo)</span>: <em>autoescola, infraestrutura, semicírculo</em>.
+                        <br><strong>Exceção da consoante R e S:</strong> Se a segunda palavra começar com R ou S e a primeira terminar em vogal, você junta e <span class="font-bold text-red-600">dobra o R/S</span>: <em>minissaia, ultrassom, autorretrato, antissocial</em>.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Morfologia Básica</h3>
+                        <p>Você precisa bater o olho numa palavra e saber o que ela é. O <span class="font-bold">Substantivo</span> dá o nome. O <span class="font-bold">Adjetivo</span> dá a característica (qualifica o substantivo). O <span class="font-bold">Advérbio</span> é inflexível (não vai pro plural) e modifica um verbo, um adjetivo ou outro advérbio, indicando tempo, modo, lugar (ex: ele correu <em>rápido</em>, ela é <em>muito</em> inteligente). O <span class="font-bold">Pronome</span> substitui ou acompanha o nome. Cuidado com o advérbio 'MEIO' x numeral 'MEIO': "A porta está <em>meio</em> (advérbio=um pouco) aberta" x "Comi <em>meia</em> (numeral=metade) maçã".</p>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>A Pegadinha do Ítem:</strong> A palavra "item" NÃO tem acento (é paroxítona terminada em 'em'). Seu plural "itens" também NÃO tem acento. Muita gente erra achando que segue a regra de "também" e "armazém" (que são oxítonas e têm acento).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>A Regra de Hiatos com I ou U sozinho:</strong> Levam acento se o "i" ou "u" estiverem sozinhos na sílaba tônica ou com "s": sa-ú-de, fa-ís-ca, ba-ú, e-go-ís-mo. NÃO leva acento se seguido de NH: ra-i-nha.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Assinale a alternativa em que todas as palavras estão acentuadas corretamente de acordo com as regras de acentuação gráfica vigentes.",
+                        opcoes: [
+                            { texto: "Máquina, jacaré, heroico.", correta: true, explicacao: "Máquina (proparoxítona), jacaré (oxítona em E), heroico (paroxítona com ditongo aberto 'oi' NÃO leva acento no Novo Acordo. Opa, espera, heróico leva acento? Não, heroico perdeu o acento. Heroi (herói) leva, heroico perdeu. Então está escrita correta sem o acento!)." },
+                            { texto: "Cajú, armazéns, idéia.", correta: false, explicacao: "Ideia perdeu o acento (paroxítona com 'ei')." },
+                            { texto: "Vôo, júri, pássaro.", correta: false, explicacao: "Voo perdeu o acento (hiato OO)." },
+                            { texto: "Lágrima, bônus, jóia.", correta: false, explicacao: "Joia perdeu o acento (paroxítona com 'oi')." },
+                            { texto: "Pêra, pelo, avô.", correta: false, explicacao: "Pera (fruta) perdeu o acento." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Sobre as classes de palavras (Morfologia), a palavra 'felizmente' classifica-se gramaticalmente como:",
+                        opcoes: [
+                            { texto: "Substantivo comum.", correta: false, explicacao: "Felizmente não é o nome de algo." },
+                            { texto: "Adjetivo pátrio.", correta: false, explicacao: "Não dá qualidade variável nem origem." },
+                            { texto: "Advérbio de modo.", correta: true, explicacao: "Correto! O sufixo '-mente' quase sempre forma advérbios de modo (indica 'como' algo ocorreu)." },
+                            { texto: "Verbo no particípio.", correta: false, explicacao: "Não indíca ação." },
+                            { texto: "Pronome relativo.", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "No Novo Acordo Ortográfico, o uso do hífen com prefixos mudou. Assinale a palavra grafada INCORRETAMENTE:",
+                        opcoes: [
+                            { texto: "Autoescola.", correta: false, explicacao: "Correto. Letras diferentes se abraçam (auto + escola)." },
+                            { texto: "Micro-ondas.", correta: false, explicacao: "Correto. Letras iguais se afastam com hífen (micro + ondas)." },
+                            { texto: "Anti-social.", correta: true, explicacao: "Gabarito! Está errado. Termina em vogal (anti) e começa com S (social), deve-se juntar e dobrar o S: antissocial." },
+                            { texto: "Minissaia.", correta: false, explicacao: "Correto (mini + saia)." },
+                            { texto: "Contra-ataque.", correta: false, explicacao: "Correto. Letras iguais, hífen (contra + ataque)." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Assinale a alternativa que completa corretamente as lacunas da frase: 'O Agente estava _____ cansado, pois caminhou por _____ cidade anotando os focos.'",
+                        opcoes: [
+                            { texto: "meio - meia", correta: true, explicacao: "Correto! Ele estava 'um pouco' cansado (advérbio invariável 'meio'), caminhou pela metade da cidade (numeral variável 'meia', concorda com cidade)." },
+                            { texto: "meia - meia", correta: false, explicacao: "Não se diz 'meia cansada' ou 'meia cansado', pois 'um pouco' não flexiona." },
+                            { texto: "meio - meio", correta: false, explicacao: "O numeral deve flexionar no feminino (meia)." },
+                            { texto: "meia - meio", correta: false, explicacao: "Invertido." },
+                            { texto: "meia - muita", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "As palavras 'hífen', 'órfão' e 'fórum' são acentuadas porque:",
+                        opcoes: [
+                            { texto: "São oxítonas e terminam em consoante forte.", correta: false, explicacao: "Elas são paroxítonas." },
+                            { texto: "São todas proparoxítonas.", correta: false, explicacao: "A tônica está na penúltima sílaba (hí-fen, ór-fão, fó-rum)." },
+                            { texto: "São paroxítonas terminadas em 'N', 'ÃO' e 'UM', respectivamente.", correta: true, explicacao: "Correto! É exatamente a regra das paroxítonas." },
+                            { texto: "Trata-se de uma exceção do Novo Acordo.", correta: false, explicacao: "Não há exceção aqui, é a regra clássica mantida." },
+                            { texto: "O acento é opcional no Brasil e obrigatório em Portugal.", correta: false, explicacao: "O acento é obrigatório." }
+                        ]
+                    },
+                    // MEDIAS
+                    {
+                        dificuldade: "Média",
+                        texto: "Analise a grafia da palavra 'exceção' e assinale a opção que possui palavra grafada com a mesma base ortográfica (S com som de Cês ou som equivalente após X):",
+                        opcoes: [
+                            { texto: "Excitar, excelente, excesso.", correta: true, explicacao: "Correto. O conjunto XC tem a mesma base fonética/ortográfica de exceção." },
+                            { texto: "Eceção, excelência, exsilar.", correta: false, explicacao: "Eceção e exsilar estão escritas erradas." },
+                            { texto: "Escessão, ecenssial, expectador.", correta: false, explicacao: "Escritas erradas." },
+                            { texto: "Esperança, escuro, extinto.", correta: false, explicacao: "Não usam XC." },
+                            { texto: "Assessoria, assíduo, assunto.", correta: false, explicacao: "Usam SS." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Nas formas verbais do plural, o acento diferencial foi mantido. Qual das frases abaixo está CORRETA gramaticalmente?",
+                        opcoes: [
+                            { texto: "Eles tem muito dinheiro para combater o mosquito.", correta: false, explicacao: "'Tem' no plural precisa de acento circunflexo (têm)." },
+                            { texto: "Aquelas mulheres vêm todos os dias ao posto.", correta: true, explicacao: "Correto! O verbo 'vir' no plural na 3ª pessoa exige acento (vêm)." },
+                            { texto: "O Prefeito vêm tomar medidas drásticas.", correta: false, explicacao: "O Prefeito (singular) usa 'vem' sem acento." },
+                            { texto: "Eles detem o controle da situação.", correta: false, explicacao: "Deter no plural exige acento agudo no singular (detém) e circunflexo no plural (detêm). Aqui falta o acento." },
+                            { texto: "Os cães mantem o ciclo da doença.", correta: false, explicacao: "Mantêm (com circunflexo no plural)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Das palavras oxítonas abaixo, qual não recebe acento gráfico de acordo com as regras de acentuação?",
+                        opcoes: [
+                            { texto: "Cajá.", correta: false, explicacao: "Oxítona terminada em A (Leva acento)." },
+                            { texto: "Jiló.", correta: false, explicacao: "Oxítona terminada em O (Leva acento)." },
+                            { texto: "Urubu.", correta: true, explicacao: "Gabarito! Oxítonas terminadas em I ou U NÃO levam acento (urubu, saci, piau), exceto se formarem hiato (aí, baú)." },
+                            { texto: "Ninguém.", correta: false, explicacao: "Oxítona terminada em EM (Leva acento)." },
+                            { texto: "Sopé.", correta: false, explicacao: "Oxítona terminada em E (Leva acento)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Assinale a alternativa onde TODAS as palavras formam seu plural apenas com o acréscimo da letra 'S'.",
+                        opcoes: [
+                            { texto: "Degrau, pão, flor.", correta: false, explicacao: "Degraus, pães (muda), flores (muda)." },
+                            { texto: "Mão, alemão, cão.", correta: false, explicacao: "Mãos, alemães, cães." },
+                            { texto: "Cidadão, cristão, irmão.", correta: true, explicacao: "Correto! Todas formam plural adicionando S: cidadãos, cristãos, irmãos. 'Cidadões' não existe." },
+                            { texto: "Balão, anão, vulcão.", correta: false, explicacao: "Balões, anões, vulcões." },
+                            { texto: "Hambúrguer, mulher, açúcar.", correta: false, explicacao: "Hambúrgueres, mulheres, açúcares." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Em qual das frases abaixo a palavra em destaque exerce a função de um pronome relativo?",
+                        opcoes: [
+                            { texto: "Ele disse QUE o mosquito era perigoso.", correta: false, explicacao: "Conjunção integrante (disse ISSO)." },
+                            { texto: "O agente QUE visitou a minha casa deixou um panfleto.", correta: true, explicacao: "Correto! 'Que' retoma 'o agente' (O agente o qual visitou). É pronome relativo." },
+                            { texto: "QUE lindo dia para o combate!", correta: false, explicacao: "Pronome exclamativo/advérbio de intensidade." },
+                            { texto: "Temos QUE ir embora rápido.", correta: false, explicacao: "Preposição (temos de ir)." },
+                            { texto: "A mãe falou QUE estava tudo limpo.", correta: false, explicacao: "Conjunção integrante." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Sobre as regras ortográficas do uso dos 'Porquês', marque a opção correta que preenche a lacuna: 'Não sei ______ ele não colocou areia no vaso. Você sabe o ______ ?'",
+                        opcoes: [
+                            { texto: "porque - por que", correta: false, explicacao: "O segundo deve ser substantivado." },
+                            { texto: "por que - porquê", correta: true, explicacao: "Correto! Primeiro é 'por que' (pergunta indireta: por qual motivo). Segundo é 'porquê' (substantivado pelo 'o', significa 'o motivo')." },
+                            { texto: "por quê - porque", correta: false, explicacao: "Primeiro não está no final da frase." },
+                            { texto: "porque - porquê", correta: false, explicacao: "Primeiro deveria ser separado." },
+                            { texto: "por que - porque", correta: false, explicacao: "Segundo deveria ter acento." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Assinale a alternativa onde as duas palavras sofrem a mesma regra de acentuação justificando seus acentos:",
+                        opcoes: [
+                            { texto: "Família / País.", correta: false, explicacao: "Família (paroxítona em ditongo). País (hiato)." },
+                            { texto: "Pólio / Baú.", correta: false, explicacao: "Pólio (paroxítona). Baú (hiato oxítono)." },
+                            { texto: "Límpida / Secretária.", correta: true, explicacao: "Correto! Ambas são paroxítonas terminadas em ditongo oral (ou proparoxítonas aparentes, aceito pelas bancas modernas)." },
+                            { texto: "Fácil / Sofá.", correta: false, explicacao: "Fácil (paroxítona terminada em L). Sofá (oxítona terminada em A)." },
+                            { texto: "Médico / Saúde.", correta: false, explicacao: "Médico (proparoxítona). Saúde (hiato)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Em qual alternativa a palavra em destaque NÃO exerce a função de adjetivo (qualificando um substantivo)?",
+                        opcoes: [
+                            { texto: "As medidas PREVENTIVAS foram adotadas.", correta: false, explicacao: "Preventivas qualifica 'medidas' (adjetivo)." },
+                            { texto: "O paciente GRAVE foi transferido.", correta: false, explicacao: "Grave qualifica 'paciente' (adjetivo)." },
+                            { texto: "Falou GRAVE com o infrator que não limpou o terreno.", correta: true, explicacao: "Correto! Aqui 'grave' significa 'gravemente'. Está modificando o verbo 'falou'. Funciona como advérbio de modo (palavra invariável neste caso)." },
+                            { texto: "Aquele mosquito VOADOR sumiu.", correta: false, explicacao: "Voador qualifica 'mosquito' (adjetivo)." },
+                            { texto: "As FALSAS denúncias atrasam o serviço.", correta: false, explicacao: "Falsas qualifica denúncias (adjetivo)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "O verbo 'haver' costuma gerar dúvidas de concordância. Assinale a frase que está INADEQUADA segundo a norma culta:",
+                        opcoes: [
+                            { texto: "Havia muitos mosquitos no terreno.", correta: false, explicacao: "Correto (haver no sentido de existir é impessoal, fica no singular)." },
+                            { texto: "Devem haver muitos focos de dengue ali.", correta: true, explicacao: "Gabarito (Inadequada)! Quando 'haver' é impessoal, ele transmite a impessoalidade para o auxiliar. O certo seria: 'Deve haver muitos focos'." },
+                            { texto: "Houve vários desastres ontem.", correta: false, explicacao: "Correto (singular)." },
+                            { texto: "Pode haver chuvas pesadas hoje.", correta: false, explicacao: "Correto (auxiliar no singular)." },
+                            { texto: "Eles haviam terminado a inspeção.", correta: false, explicacao: "Correto (aqui 'haver' é verbo auxiliar pessoal e vai para o plural)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "A formação do plural em palavras compostas é alvo frequente de bancas exigentes. Assinale a alternativa com a escrita correta no plural:",
+                        opcoes: [
+                            { texto: "Guarda-chuvas, beija-flores, bate-bocas.", correta: true, explicacao: "Correto! Verbo + Substantivo (apenas o substantivo varia: guarda-chuvas). Verbo + Substantivo (beija-flores). Verbo + Substantivo (bate-bocas)." },
+                            { texto: "Guardas-chuva, beijas-flor, bates-bocas.", correta: false, explicacao: "Incorreto. Verbo não varia em composição." },
+                            { texto: "Guarda-chuvas, beija-flor, bate-boca.", correta: false, explicacao: "Alguns ficaram no singular." },
+                            { texto: "Salários-famílias, tenentes-coronel, altos-falante.", correta: false, explicacao: "Incorreto. Substantivo+Substantivo (ambos variam ou só o primeiro). Adjetivo+Substantivo (altos-falantes)." },
+                            { texto: "Cachorro-quentes, navios-escola, abaixo-assinados.", correta: false, explicacao: "Cachorros-quentes." }
+                        ]
+                    }
+                ]
+            },
+            10: {
+                 disciplina: "Conhecimentos Específicos",
+                tema: "Vigilância Ambiental em Saúde: Conceitos",
+                progresso: 50,
+                teoria: `
+                    <div class="canto-saber text-lg leading-relaxed space-y-6 text-gray-800">
+                        <p>A atuação do Agente de Combate às Endemias é diretamente vinculada a uma das maiores conquistas do SUS: a estruturação da Vigilância em Saúde. A <span class="hl-word">Vigilância Ambiental em Saúde (VAS)</span> é um conjunto de ações que proporcionam o conhecimento e a detecção de qualquer mudança nos fatores determinantes e condicionantes do meio ambiente que interferem na saúde humana.</p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">O Foco da Vigilância Ambiental</h3>
+                        <p>O foco da VAS não é a "natureza selvagem" ou a proteção dos animais (isso é papel dos órgãos de Meio Ambiente e IBAMA). O foco é o <span class="hl-concept">ambiente onde o homem se insere e as variáveis que afetam a saúde HUMANA</span>. É uma abordagem essencialmente <span class="font-bold">antropocêntrica</span>. A VAS atua fortemente em duas frentes: riscos biológicos e riscos não-biológicos.</p>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">Matrizes Ambientais e Fatores de Risco</h3>
+                        <ul class="list-disc pl-8 space-y-2 mt-2">
+                            <li><span class="font-bold text-blue-600">VIGIÁGUA:</span> Monitora a qualidade da água para consumo humano. O foco principal é verificar níveis de cloro, turbidez, coliformes (bactérias fecais), garantindo a portabilidade da água na ponta (torneira).</li>
+                            <li><span class="font-bold text-orange-600">VIGISOLO:</span> Monitora áreas de risco como aterros desativados, contaminação do solo por agrotóxicos e resíduos industriais, onde populações estão construindo moradias.</li>
+                            <li><span class="font-bold text-green-600">VIGIAR:</span> Monitoramento da qualidade do ar (fumaça de queimadas, poluentes industriais, poeira) e seu impacto no aumento de doenças respiratórias crônicas e agudas na população.</li>
+                            <li><span class="font-bold text-red-600">VIGIDESASTRES:</span> Prepara o setor da saúde para atuar antes, durante e após desastres naturais (enchentes, secas, deslizamentos) e desastres de origem tecnológica (rompimento de barragens, contaminação por radionuclídeos).</li>
+                            <li><span class="font-bold text-purple-600">Fatores Biológicos (Animais):</span> Controle e monitoramento de Vetores (mosquitos, flebotomíneos, barbeiros, caramujos), Hospedeiros e Reservatórios, e Animais Peçonhentos (escorpiões, cobras, aranhas). Este é o "quartel-general" das funções diárias do ACE.</li>
+                        </ul>
+
+                        <h3 class="text-2xl font-bold text-slate-900 mt-8 border-b-2 border-blue-200 pb-2">A Lógica da Prevenção e Territorialização</h3>
+                        <p>A VAS baseia seu trabalho no <span class="hl-concept">planejamento e mapeamento do território (Territorialização)</span>. O ACE não anda a esmo. A cidade é dividida em estratos de risco. Locais com lixo a céu aberto, saneamento precário e proximidade de matas têm prioridade nas ações mecânicas. A lógica é antecipar a doença eliminando a condição ambiental propícia ao seu surgimento.</p>
+                    </div>
+                `,
+                perolas: `
+                    <ul class="space-y-4 text-lg text-slate-800">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-warning-circle text-orange-500 text-2xl mt-1"></i>
+                            <div><strong>Qual a diferença entre Vigilância SANITÁRIA (VISA) e Vigilância AMBIENTAL (VAS)?</strong> A VISA foca na regulação de produtos e serviços sujeitos à fiscalização (farmácias, alimentos, restaurantes, cosméticos, hospitais). A VAS foca nas variáveis do ambiente (água que vem da rua, ar, solo, desastres e mosquitos/vetores).</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-green-600 text-2xl mt-1"></i>
+                            <div><strong>Lembre-se:</strong> O ACE trabalha PARA O SUS, não para o Ministério do Meio Ambiente. Nossa missão ao matar uma larva não é por ecologia, é para salvar o morador de uma cama de UTI. Saúde humana é o foco central.</div>
+                        </li>
+                    </ul>
+                `,
+                questoes: [
+                    {
+                        dificuldade: "Fácil",
+                        texto: "Qual é o principal objetivo da Vigilância Ambiental em Saúde no contexto do Sistema Único de Saúde (SUS)?",
+                        opcoes: [
+                            { texto: "Proteger as florestas virgens do desmatamento ilegal.", correta: false, explicacao: "Isso é papel do IBAMA/Polícia Ambiental." },
+                            { texto: "Controlar e detectar mudanças nos fatores do ambiente que interferem na saúde humana.", correta: true, explicacao: "Correto! O foco é detectar riscos no ambiente para proteger a saúde das pessoas." },
+                            { texto: "Fiscalizar as indústrias farmacêuticas na fabricação de medicamentos.", correta: false, explicacao: "Isso é papel da Vigilância Sanitária (ANVISA)." },
+                            { texto: "Realizar transplantes de órgãos em hospitais de alta complexidade.", correta: false, explicacao: "Isso é Assistência Médica, não vigilância." },
+                            { texto: "Resgatar animais silvestres em cativeiro para soltura.", correta: false, explicacao: "Papel de órgãos ambientais." }
+                        ]
+                    },
+                    {
+                        dificuldade: "Fácil",
+                        texto: "O ACE lida rotineiramente com o monitoramento de mosquitos transmissores de doenças. Em qual área de fatores de risco da Vigilância Ambiental essa atividade se enquadra?",
+                        opcoes: [
+                            { texto: "VIGIÁGUA (Fatores ligados à água para consumo).", correta: false, explicacao: "O foco não é a qualidade química da água, mas o mosquito que cria nela." },
+                            { texto: "VIGISOLO (Fatores ligados a solos contaminados).", correta: false, explicacao: "Incorreto." },
+                            { texto: "Fatores Biológicos (Vetores, Hospedeiros e Reservatórios).", correta: true, explicacao: "Correto! Mosquitos são vetores biológicos." },
+                            { texto: "VIGIAR (Fatores ligados ao ar respirável).", correta: false, explicacao: "Incorreto." },
+                            { texto: "VIGIDESASTRES (Desastres naturais).", correta: false, explicacao: "Incorreto." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Dentre os animais abaixo, aquele que NÃO é classificado como de interesse direto para as ações da Vigilância Ambiental em Saúde em áreas urbanas é o:",
+                        opcoes: [
+                            { texto: "Escorpião.", correta: false, explicacao: "Animal peçonhento de altíssimo interesse." },
+                            { texto: "Aedes aegypti.", correta: false, explicacao: "Principal vetor urbano." },
+                            { texto: "Cão (em áreas com Leishmaniose Visceral).", correta: false, explicacao: "Principal reservatório da LV." },
+                            { texto: "Tucano frugívoro (que come frutas em matas distantes).", correta: true, explicacao: "Gabarito. Se não tem relação direta com surtos/transmissão de doenças para humanos no meio urbano (como tem o morcego vampiro com a raiva), não é foco do ACE." },
+                            { texto: "Rato de esgoto.", correta: false, explicacao: "Vetor/reservatório da leptospirose." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "O programa conhecido como VIGIÁGUA tem o dever de atuar focando primordialmente na:",
+                        opcoes: [
+                            { texto: "Despoluição de grandes rios para preservação de peixes.", correta: false, explicacao: "Isso é ambiental puro (órgão do meio ambiente)." },
+                            { texto: "Qualidade da água tratada destinada ao consumo da população, garantindo a sua potabilidade (parâmetros de cloro, turbidez, coliformes).", correta: true, explicacao: "Correto! O VigiÁgua cuida da água que o cidadão vai beber da torneira." },
+                            { texto: "Secagem de lagoas para evitar a esquistossomose.", correta: false, explicacao: "As lagoas não são secas, o foco é o saneamento e o caramujo." },
+                            { texto: "Construção de hidrelétricas.", correta: false, explicacao: "Atribuição da engenharia energética." },
+                            { texto: "Fiscalização da venda de águas minerais em supermercados.", correta: false, explicacao: "Fiscalização de produto à venda em prateleira é Vigilância Sanitária (VISA)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Fácil",
+                        texto: "Em uma epidemia grave ou após um deslizamento de terra com inúmeros desabrigados, o setor da Vigilância em Saúde que entra em estado de alerta máximo para monitorar o cenário é o:",
+                        opcoes: [
+                            { texto: "VIGISOLO.", correta: false, explicacao: "Focado mais em contaminação química crônica." },
+                            { texto: "VIGIAR.", correta: false, explicacao: "Focado no ar." },
+                            { texto: "VIGIDESASTRES.", correta: true, explicacao: "Correto! Preparação e resposta do SUS a desastres de origem natural ou tecnológica." },
+                            { texto: "Vigilância Nutricional.", correta: false, explicacao: "Focado em alimentação/nutrição crônica." },
+                            { texto: "Atenção Primária apenas.", correta: false, explicacao: "Atenção primária atende, a vigilância mapeia." }
+                        ]
+                    },
+                    // MEDIAS
+                     {
+                        dificuldade: "Média",
+                        texto: "Considere as atribuições do ACE e marque a alternativa correta que demonstra o alinhamento com os preceitos da Vigilância Ambiental.",
+                        opcoes: [
+                            { texto: "O ACE aplica vacinas nos postos de saúde durante campanhas.", correta: false, explicacao: "Quem aplica vacina em posto é o técnico/enfermeiro, não o ACE (ambiente)." },
+                            { texto: "O ACE multa lanchonetes e padarias por venderem alimentos estragados.", correta: false, explicacao: "Isso é fiscalização da Vigilância Sanitária (VISA)." },
+                            { texto: "O ACE realiza visitas domiciliares focadas na identificação e eliminação de condições ambientais (criadouros, lixo, entulhos) que favorecem vetores.", correta: true, explicacao: "Correto! É a essência do trabalho: olhar o ambiente e eliminar o risco de doenças." },
+                            { texto: "O ACE fiscaliza as matas para multar caçadores ilegais.", correta: false, explicacao: "Papel da Polícia Florestal/IBAMA." },
+                            { texto: "O ACE medica doentes confirmados com Dengue na UTI.", correta: false, explicacao: "Papel do médico/hospitalar." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Qual é a base operacional que organiza e otimiza o trabalho da Vigilância Ambiental e Epidemiológica nos municípios, garantindo que as áreas de maior risco recebam mais atenção?",
+                        opcoes: [
+                            { texto: "A distribuição aleatória das equipes pelas ruas.", correta: false, explicacao: "Fere o princípio de planejamento." },
+                            { texto: "A territorialização e o mapeamento das áreas de risco.", correta: true, explicacao: "Correto! É dividindo o mapa, avaliando o risco (saneamento, casos notificados, favelas) que se direciona a equipe." },
+                            { texto: "O atendimento de demandas apenas quando o Prefeito ordenar.", correta: false, explicacao: "A vigilância deve atuar por dados técnicos (indicadores)." },
+                            { texto: "O combate químico irrestrito em toda a extensão da cidade.", correta: false, explicacao: "Não há dinheiro, nem é ecológico aplicar veneno na cidade inteira sem necessidade." },
+                            { texto: "A terceirização do trabalho para as famílias, eximindo o poder público.", correta: false, explicacao: "O poder público tem o dever constitucional de zelar pela saúde." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "O surgimento crescente de escorpiões amarelos (Tityus serrulatus) em áreas urbanas é um grande desafio para o ACE. Que condições do meio ambiente urbano favorecem essa proliferação?",
+                        opcoes: [
+                            { texto: "Casas bem iluminadas e sem quintais.", correta: false, explicacao: "Escorpiões fogem da luz (fotofobia)." },
+                            { texto: "Acúmulo de entulhos, redes de esgoto sem manutenção, restos de materiais de construção e proliferação de baratas (alimento).", correta: true, explicacao: "Correto! Eles amam escuridão, entulho para se esconder e baratas para comer." },
+                            { texto: "Caixas d'água abertas no teto das casas.", correta: false, explicacao: "Foco de mosquitos, não escorpiões." },
+                            { texto: "Pomares de árvores frutíferas no campo.", correta: false, explicacao: "Lá existem outras espécies de escorpiões e predadores naturais." },
+                            { texto: "Áreas dedetizadas mensalmente com fumacê pesado.", correta: false, explicacao: "O inseticida em spray (aéreo) não pega escorpião que vive nas frestas e ainda mata as aranhas, que são seus predadores." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "A diferença técnica entre VETOR, HOSPEDEIRO e RESERVATÓRIO é um conceito-chave. Como chamamos o animal ou ambiente onde o agente causador da doença sobrevive, multiplica-se e dele depende para sua sobrevivência na natureza, servindo de fonte de infecção?",
+                        opcoes: [
+                            { texto: "Vetor mecânico.", correta: false, explicacao: "Vetor transporta, mas muitas vezes não é a casa principal onde o vírus/parasita espera anos." },
+                            { texto: "Reservatório.", correta: true, explicacao: "Correto! A caixa d'água que guarda e reproduz o perigo para a comunidade (ex: o cão na Leishmaniose)." },
+                            { texto: "Hospedeiro acidental ou terminal.", correta: false, explicacao: "É quem pega a doença e o ciclo acaba nele (ele sofre as consequências, mas não repassa)." },
+                            { texto: "Inseto vetor biológico.", correta: false, explicacao: "O vetor biológico leva a doença ativamente, mas o termo genérico onde o parasita repousa e garante sobrevivência prolongada é Reservatório." },
+                            { texto: "Praga urbana.", correta: false, explicacao: "Termo leigo." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Média",
+                        texto: "Em uma região com focos de lixão a céu aberto, fumaça constante devido a queima desse lixo, e invasão de ratos nas casas vizinhas, temos um problema múltiplo. Quais ramos da Vigilância Ambiental estão diretamente implicados neste cenário?",
+                        opcoes: [
+                            { texto: "Apenas Vigilância Entomológica (mosquitos).", correta: false, explicacao: "Há fumaça e ratos também." },
+                            { texto: "VIGIAR (ar), VIGISOLO (lixão) e Fatores Biológicos (ratos como reservatórios/vetores).", correta: true, explicacao: "Correto! A queima afeta o ar (VIGIAR), o lixão compromete o terreno (VIGISOLO) e a leptospirose através dos ratos (Biológicos)." },
+                            { texto: "Apenas VIGIDESASTRES.", correta: false, explicacao: "Isso é descaso crônico humano, não um desastre natural instantâneo de defesa civil na acepção clássica do programa." },
+                            { texto: "VIGIÁGUA exclusivamente.", correta: false, explicacao: "Embora o lixo possa contaminar o lençol freático, o problema na questão listou ar e ratos." },
+                            { texto: "Nenhum; isso é responsabilidade exclusiva das ONGs ambientais.", correta: false, explicacao: "SUS tem total responsabilidade." }
+                        ]
+                    },
+                    // DIFICEIS
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Uma peculiaridade técnica do escorpião amarelo (Tityus serrulatus), que justifica a dificuldade de seu controle e a explosão de casos em centros urbanos como Assunção e grandes capitais, é:",
+                        opcoes: [
+                            { texto: "Sua grande capacidade de voar e pular por cima de muros lisos.", correta: false, explicacao: "Escorpiões não voam." },
+                            { texto: "A resistência absoluta e comprovada a todo e qualquer fogo ou choque térmico.", correta: false, explicacao: "Eles morrem no fogo." },
+                            { texto: "Sua reprodução por partenogênese, ou seja, as fêmeas se reproduzem sozinhas e geram cópias (filhotes) sem necessidade do macho.", correta: true, explicacao: "Correto! Um único escorpião amarelo fêmea que chega numa tubulação de esgoto consegue fundar uma colônia inteira sozinha." },
+                            { texto: "Eles são parasitas de ratos e carrapatos, viajando no dorso destes animais.", correta: false, explicacao: "Eles são predadores autônomos." },
+                            { texto: "Eles se alimentam apenas de sangue humano (hematófagos).", correta: false, explicacao: "Eles comem insetos (baratas, grilos)." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Sobre o processo de notificação e atuação integrada, um morador de um sítio é diagnosticado com Doença de Chagas Aguda (provável infecção oral). O fluxo correto da Vigilância indica que:",
+                        opcoes: [
+                            { texto: "O posto de saúde atende e arquiva o prontuário em sigilo, o ACE só age se for picada do barbeiro confirmada.", correta: false, explicacao: "O sigilo de notificação não impede a ação ambiental. Toda Chagas Aguda demanda investigação pesada." },
+                            { texto: "A Vigilância Epidemiológica recebe a notificação do doente, investiga a causa, e aciona imediatamente o ACE e a Vigilância Sanitária para inspecionar os alimentos locais e capturar vetores (ação integrada).", correta: true, explicacao: "Correto! Esse é o ciclo perfeito do SUS. A epidemiologia (o caso humano) dispara a ação da Sanitária (o alimento) e Ambiental (os ACEs inspecionando casas e matas ao redor)." },
+                            { texto: "O Prefeito deve decretar Estado de Calamidade Pública e isolar a família em quarentena.", correta: false, explicacao: "Não há contágio de humano para humano, quarentena é absurdo médico." },
+                            { texto: "O ACE é o único profissional capaz de fechar a barraca de caldo de cana e dar multa sanitária.", correta: false, explicacao: "Fechar estabelecimento é poder de polícia da Vigilância Sanitária (Fiscais), não do ACE." },
+                            { texto: "Apenas se vacinam as pessoas vizinhas ao caso suspeito.", correta: false, explicacao: "Não existe vacina para Doença de Chagas." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "O conceito de 'Risco' na Vigilância Ambiental em Saúde difere da noção de 'Dano'. Assinale a alternativa que melhor ilustra uma intervenção sobre o RISCO.",
+                        opcoes: [
+                            { texto: "Internar na UTI uma criança desidratada com sintomas graves de diarreia.", correta: false, explicacao: "Isso é tratar o DANO (a doença já instalada)." },
+                            { texto: "Fornecer próteses para amputados após ataques de serpentes venenosas.", correta: false, explicacao: "Isso é tratar a consequência do DANO (reabilitação)." },
+                            { texto: "Inspecionar lotes vagos e notificar o proprietário para limpar e vedar fossas, reduzindo a procriação de pernilongos e Aedes antes que alguém adoeça.", correta: true, explicacao: "Correto! Atuar no risco é mexer nos fatores determinantes do ambiente (lixo/água) antes que a doença humana (o dano) aconteça." },
+                            { texto: "Remover cirurgicamente o baço do paciente com Leishmaniose Visceral.", correta: false, explicacao: "Ação curativa em hospital (Dano)." },
+                            { texto: "Notificar 50 óbitos no sistema de informação após uma tragédia climática.", correta: false, explicacao: "Isso é registro burocrático do dano final." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Em muitos municípios nordestinos e do interior do Brasil, as secas prolongadas induzem o armazenamento de água em baldes, tambores e cisternas a nível do solo (tipo B e tipo A2). Epidemiologicamente, a consequência ambiental direta (risco biológico) para o perfil das doenças é:",
+                        opcoes: [
+                            { texto: "A extinção definitiva do Aedes aegypti por falta de chuva.", correta: false, explicacao: "A seca extrema com armazenamento improvisado aumenta o risco de focos do Aedes nas casas." },
+                            { texto: "A proliferação desenfreada do mosquito-palha dentro da água acumulada.", correta: false, explicacao: "Mosquito palha vive na terra orgânica úmida." },
+                            { texto: "Um risco elevado para manter a endemicidade da Dengue o ano inteiro e o aparecimento de surtos de diarreias (se a água armazenada for mal manuseada/contaminada).", correta: true, explicacao: "Correto! Guardar água em casa (por falta de água na torneira) cria criadouros de dengue perenes. Se a higiene falhar, gera diarreia (VigiÁgua)." },
+                            { texto: "A infestação de rios por caramujos Biomphalaria, levando todos ao risco de Esquistossomose.", correta: false, explicacao: "Os tambores nas casas não afetam os rios e caramujos." },
+                            { texto: "A fuga de morcegos para os centros urbanos transmitindo raiva agressiva.", correta: false, explicacao: "Sem relação direta." }
+                        ]
+                    },
+                     {
+                        dificuldade: "Difícil",
+                        texto: "Na cadeia de vigilância da febre amarela silvestre, há um marcador ambiental muito claro que antecede os casos em humanos e serve como 'alarme biológico'. Qual é a orientação do Ministério da Saúde para a população e para os ACEs na identificação de campo?",
+                        opcoes: [
+                            { texto: "A descoberta de focos de Aedes aegypti no meio das florestas tropicais isoladas.", correta: false, explicacao: "O Aedes é urbano. O transmissor silvestre é Haemagogus/Sabethes." },
+                            { texto: "Notificar, isolar a área e vacinar anualmente todo o rebanho bovino e suíno local.", correta: false, explicacao: "Febre amarela não afeta gado nem porco." },
+                            { texto: "Notificar imediatamente ao serviço de saúde o encontro de primatas não humanos (macacos) doentes ou mortos (epizootia) nas matas ou parques da região.", correta: true, explicacao: "Correto! Os macacos adoecem primeiro na mata. A morte de macacos é a 'sirene de alarme' que a febre amarela silvestre chegou na região. O ACE não combate a febre na mata, ele usa esse alarme para pedir intensificação da vacinação nas pessoas ao redor." },
+                            { texto: "Capturar e sacrificar todos os macacos das matas vizinhas, pois eles são o vetor da febre amarela.", correta: false, explicacao: "Os macacos são vítimas, não vetores (quem transmite é o mosquito silvestre)." },
+                            { texto: "Iniciar maciça aplicação de fumacê com aviões sobre os parques nacionais.", correta: false, explicacao: "Ação ecologicamente proibida e inviável." }
+                        ]
+                    }
+                ]
+            }
+        };
         const app = {
             currentLessonId: null,
             respostas: [],
@@ -378,7 +2023,7 @@
                 }
 
                 if (!aulasDatabase[lessonId]) {
-                    alert("Aula não mockada neste protótipo. Tente a Aula 01.");
+                    alert("Aula ainda não liberada no sistema. Volte ao cronograma.");
                     return;
                 }
 
