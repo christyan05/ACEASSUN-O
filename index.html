@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EndemIA - Mentor Estratégico para Concursos</title>
+    <title>EndemIA - Mentor Estratégico de Elite</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -16,7 +16,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .tab-btn { transition: all 0.3s ease; }
-        .tab-btn.active { border-bottom-width: 4px; border-color: #1e3a8a; color: #1e3a8a; font-weight: 700; }
+        .tab-btn.active { border-bottom-width: 4px; border-color: #ffffff; color: #ffffff !important; font-weight: 700; }
         
         .alt-container { transition: all 0.2s ease; cursor: pointer; }
         .alt-container:hover:not(.locked) { background-color: #e0e7ff; border-color: #a5b4fc; }
@@ -32,22 +32,24 @@
 
         .keyword { background-color: #fef08a; padding: 0 4px; border-radius: 4px; font-weight: 700; color: #1e3a8a; }
         
-        /* Tipografia de elite para o material teórico */
         .apostila-text { font-size: 1.125rem; line-height: 1.8; color: #334155; text-align: justify; }
         .apostila-text h4 { font-size: 1.5rem; font-weight: 900; color: #1e3a8a; margin-top: 2.5rem; margin-bottom: 1.25rem; border-left: 6px solid #4f46e5; padding-left: 1rem; background-color: #f8fafc; padding-top: 0.75rem; padding-bottom: 0.75rem; border-radius: 0 8px 8px 0; }
         .apostila-text h5 { font-size: 1.25rem; font-weight: 700; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; }
         .apostila-text ul { list-style-type: none; padding-left: 0; margin-bottom: 1.5rem; }
         .apostila-text li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
         .apostila-text li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; font-size: 1.5rem; line-height: 1rem; top: 0.25rem; }
-        .apostila-box { background-color: #f0f9ff; border: 1px solid #bae6fd; border-left: 6px solid #0ea5e9; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; }
         
-        /* Efeito de clique no edital */
         .edital-topic { transition: all 0.3s ease; }
         .edital-topic:hover { border-color: #818cf8; transform: translateX(4px); }
         .edital-topic.concluido { background-color: #ecfdf5; border-color: #34d399; opacity: 0.7; }
         .edital-topic.concluido .topic-text { text-decoration: line-through; color: #065f46; }
         .edital-topic.concluido .check-icon { display: block; color: #10b981; }
         .edital-topic:not(.concluido) .check-icon { display: none; }
+        
+        .subtopico-item { transition: all 0.2s ease; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
+        .subtopico-item:hover { background-color: #f1f5f9; }
+        .subtopico-item.concluido { text-decoration: line-through; color: #94a3b8; }
+        .subtopico-item.concluido::before { content: "✓"; color: #10b981; margin-right: 0.5rem; font-weight: bold; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
@@ -75,7 +77,7 @@
                     <i class="ph-bold ph-scan"></i> Raio-X do Edital
                 </button>
                 <button onclick="switchTab('cronograma')" class="tab-btn pb-3 px-2 text-indigo-300 hover:text-white font-medium whitespace-nowrap text-lg flex items-center gap-2" id="tab-cronograma">
-                    <i class="ph-bold ph-calendar-check"></i> Plano Estratégico (84 Dias)
+                    <i class="ph-bold ph-calendar-check"></i> Rota de Aprovação (84 Dias)
                 </button>
             </nav>
         </div>
@@ -90,17 +92,17 @@
             <div class="mb-8 flex flex-col md:flex-row items-start md:items-center justify-between bg-white p-8 rounded-3xl border border-slate-200 shadow-sm gap-4">
                 <div>
                     <h2 class="text-3xl font-black text-slate-800 tracking-tight">Rota de Aprovação de Elite</h2>
-                    <p class="text-slate-500 mt-2 text-lg">01 de Junho a 23 de Agosto de 2026 (84 Dias). Todo o conteúdo gerado sequencialmente.</p>
+                    <p class="text-slate-500 mt-2 text-lg">01 de Junho a 23 de Agosto de 2026 (12 Semanas). Distribuição exata baseada na banca Ápice.</p>
                 </div>
                 <div class="text-left md:text-right flex items-center md:block gap-4">
-                    <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Aulas Concluídas</div>
+                    <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Missões Concluídas</div>
                     <div class="text-5xl font-black text-indigo-900" id="global-progress-text">0/84</div>
                 </div>
             </div>
             <div id="cronograma-list" class="grid gap-5"></div>
         </section>
 
-        <!-- Aba 3: Sala de Aula (Gerada Dinamicamente) -->
+        <!-- Aba 3: Sala de Aula Dinâmica -->
         <section id="view-aula" class="view-section hidden fade-in max-w-5xl mx-auto">
             <button onclick="switchTab('cronograma')" class="mb-6 flex items-center gap-2 text-indigo-600 font-bold hover:text-indigo-800 transition-colors bg-white px-5 py-3 rounded-xl shadow-sm border border-indigo-100 hover:shadow-md">
                 <i class="ph-bold ph-arrow-left"></i> Voltar ao Cronograma
@@ -117,8 +119,8 @@
             <div id="lesson-questions-area" class="mt-12 hidden">
                 <div class="flex items-center gap-4 mb-10">
                     <div class="h-px bg-slate-300 flex-grow"></div>
-                    <h3 class="text-3xl font-black text-slate-800 flex items-center gap-3 uppercase tracking-wide">
-                        <i class="ph-bold ph-barbell text-indigo-600 text-4xl"></i> Bateria de Fixação Padrão Ápice
+                    <h3 class="text-3xl font-black text-slate-800 flex items-center gap-3 uppercase tracking-wide" id="lesson-questions-title">
+                        <i class="ph-bold ph-barbell text-indigo-600 text-4xl"></i> Bateria de Fixação
                     </h3>
                     <div class="h-px bg-slate-300 flex-grow"></div>
                 </div>
@@ -127,7 +129,7 @@
 
                 <div class="mt-16 text-center pb-20 border-t border-slate-200 pt-12">
                     <button id="btn-finish-lesson" onclick="finishLesson()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xl px-12 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 w-full md:w-auto">
-                        <i class="ph-bold ph-flag-checkered mr-2"></i> Finalizar Bateria e Gerar Diagnóstico
+                        <i class="ph-bold ph-flag-checkered mr-2"></i> Finalizar Missão e Gerar Diagnóstico
                     </button>
                     <div id="temp-warning-container" class="mt-4"></div>
                 </div>
@@ -176,7 +178,15 @@
             questoesAcertadas: {}
         };
 
-        // DADOS OFICIAIS DO CONCURSO E EDITAL ESTRUTURADO (Sem Omissões)
+        const DATA_INICIO_ESTUDOS = new Date(2026, 5, 1); // 01/06/2026 (Segunda)
+        const TOTAL_DIAS_ESTUDO = 84; // 12 semanas exatas até 23/08/2026
+        
+        let currentLessonId = null;
+        let currentQuestions = [];
+        let answers = {};
+        let score = 0;
+
+        // DADOS OFICIAIS DO CONCURSO (FIEL AO EDITAL)
         const concursoData = {
             cargo: "Agente de Combate às Endemias",
             banca: "Ápice Consultoria",
@@ -185,407 +195,288 @@
             cargaHoraria: "40h semanais",
             requisito: "Ensino médio completo.",
             datasImportantes: [
-                { evento: "Inscrições Abertas", data: "01 a 30 de Junho de 2026", icon: "ph-calendar-plus" },
+                { evento: "Início Estratégico", data: "01 de Junho de 2026", icon: "ph-flag", highlight: false },
                 { evento: "Aplicações das Provas", data: "30 de Agosto de 2026", icon: "ph-exam", highlight: true },
-                { evento: "Resultado Final", data: "30 de Novembro de 2026", icon: "ph-trophy" }
+                { evento: "Dias Restantes", data: `${TOTAL_DIAS_ESTUDO} dias de preparação`, icon: "ph-hourglass-high", highlight: false }
             ],
             atribuicoes: `Desenvolvimento de ações educativas e de mobilização da comunidade relativas à prevenção e ao controle de doenças e agravos à saúde. Execução de ações de prevenção e controle utilizando medidas de controle químico e biológico, manejo ambiental e outras ações de manejo integrado de vetores...`,
             
-            // Edital perfeitamente estruturado para guiar as aulas sequencialmente
+            // CONTEÚDO PROGRAMÁTICO ESTRUTURADO EM ARRAYS PARA GERAR O RAIO-X INTERATIVO
             conteudoProgramatico: {
-                "Português": [
-                    { t: "Interpretação de texto", d: ["Leitura, compreensão e análise de textos verbais e não verbais."] },
+                "Português (Peso 2)": [
+                    { t: "Compreensão e Interpretação de Textos", d: ["Compreensão e análise de textos verbais e não verbais."] },
                     { t: "Fonética e Fonologia", d: ["Fonemas, letras, encontros vocálicos e consonantais", "Dígrafos, sílabas e divisão silábica", "Acento tônico e gráfico, prosódia e ortoépia."] },
-                    { t: "Ortografia", d: ["Emprego das letras, acentuação gráfica", "Homonímia e polissemia."] },
-                    { t: "Morfologia", d: ["Estrutura e formação das palavras", "Classes de palavras."] },
-                    { t: "Pontuação", d: ["Emprego dos sinais de pontuação."] },
-                    { t: "Sintaxe", d: ["Os termos da oração, períodos simples e compostos", "Orações subordinadas e coordenadas", "Concordância verbal e nominal, regência verbal e nominal", "Ocorrência da crase."] },
-                    { t: "Semântica", d: ["Sinônimos e antônimos", "Homônimos, parônimos, hipônimos e hiperônimos."] }
+                    { t: "Ortografia Oficial", d: ["Emprego das letras, acentuação gráfica", "Homonímia e polissemia."] },
+                    { t: "Morfologia - Estrutura e Formação", d: ["Estrutura das palavras", "Processos de formação das palavras"] },
+                    { t: "Morfologia - Classes de Palavras", d: ["Substantivo, Artigo, Adjetivo, Numeral, Pronome", "Verbo, Advérbio, Preposição, Conjunção, Interjeição"] },
+                    { t: "Sintaxe da Oração", d: ["Termos essenciais, integrantes e acessórios da oração"] },
+                    { t: "Sintaxe do Período", d: ["Períodos simples e compostos", "Orações subordinadas e coordenadas"] },
+                    { t: "Concordância", d: ["Concordância verbal", "Concordância nominal"] },
+                    { t: "Regência e Crase", d: ["Regência verbal", "Regência nominal", "Ocorrência da crase."] },
+                    { t: "Pontuação e Semântica", d: ["Emprego dos sinais de pontuação.", "Sinônimos e antônimos", "Homônimos, parônimos, hipônimos e hiperônimos."] }
                 ],
-                "Informática": [
-                    { t: "Hardware", d: ["1.1 Componentes básicos do computador", "1.2 Dispositivos de entrada, saída e armazenamento", "1.3 Tipos de memória: RAM, ROM, cache, virtual e flash", "1.4 Periféricos: impressoras, scanners, webcam, teclado, mouse, etc."] },
-                    { t: "Sistemas Operacionais (Windows e Linux)", d: ["2.1 Conceitos de pastas, arquivos e diretórios", "2.2 Atalhos de teclado, área de transferência e menus", "2.3 Gerenciamento de arquivos: copiar, mover, excluir, renomear", "2.4 Programas, aplicativos e compactação", "2.5 Tipos e extensões de arquivos (DOCX, XLSX, PDF, ZIP etc)"] },
-                    { t: "Suítes de Escritório", d: ["3.1 Editores de texto (Word/Writer/Docs)", "3.2 Planilhas eletrônicas (Excel/Calc/Sheets)", "3.3 Apresentações (PowerPoint/Impress/Slides)", "3.4 Atalhos e funcionalidades básicas"] },
-                    { t: "Correio Eletrônico", d: ["4.1 Envio e organização de mensagens e anexos", "4.2 Assinaturas, pastas e etiquetas", "4.3 Cuidados com spam, phishing e segurança"] },
-                    { t: "Ferramentas de Comunicação", d: ["5.1 Teams, Meet, Zoom, Skype, WhatsApp Web, Slack", "5.2 Reuniões, compartilhamento de tela, chat e gravações"] },
-                    { t: "Armazenamento em Nuvem", d: ["6.1 Conceito de computação em nuvem", "6.2 Principais plataformas: Google Drive, OneDrive, Dropbox", "6.3 Diferença entre armazenamento local e na nuvem"] },
-                    { t: "Internet e Redes", d: ["7.1 Navegadores: Microsoft Edge, Firefox, Chrome", "7.2 Conceitos de Internet, Intranet e Extranet", "7.3 Protocolos: TCP/IP, DNS, DHCP, HTTP/HTTPS", "7.4 Redes LAN, WAN, Wi-Fi, roteadores e velocidade"] },
-                    { t: "Segurança da Informação", d: ["8.1 Conceitos de confidencialidade, integridade e disponibilidade", "8.2 Assinatura digital, criptografia e backups", "8.3 Antivírus, firewall, VPN e prevenção a ataques (vírus, phishing, ransomware)"] }
+                "Informática (Peso 1)": [
+                    { t: "Hardware - Conceitos Básicos", d: ["1.1 Componentes básicos", "1.2 Dispositivos de entrada, saída e armazenamento", "1.3 Tipos de memória", "1.4 Periféricos"] },
+                    { t: "Sistemas Operacionais", d: ["2.1 Windows e Linux", "2.2 Gerenciamento de arquivos e pastas", "2.3 Tipos e extensões de arquivos"] },
+                    { t: "Editores de Texto e Planilhas", d: ["3.1 Word/Writer/Docs", "3.2 Excel/Calc/Sheets"] },
+                    { t: "Apresentações e Nuvem", d: ["3.3 PowerPoint/Impress/Slides", "3.4 Atalhos básicos", "4.2 Armazenamento em nuvem (Drive, OneDrive)"] },
+                    { t: "Internet e Comunicação", d: ["4.1 Gmail, Outlook, pastas e anexos", "5.1 Teams, Meet, Zoom", "5.2 WhatsApp Web, Slack"] },
+                    { t: "Navegadores e Redes", d: ["7.1 Navegadores (Edge, Firefox, Chrome)", "7.2 Protocolos e redes (LAN, WAN, Wi-Fi)"] },
+                    { t: "Segurança da Informação", d: ["8.1 Confidencialidade, integridade e disponibilidade", "8.2 Antivírus, firewall, VPN", "8.3 Vírus, phishing, ransomware"] }
                 ],
-                "Legislação e Município": [
-                    { t: "Leis do Município", d: ["1. Lei orgânica municipal de 19 de julho de 1997", "2. Lei 147/2005 - Estatuto do servidor"] },
-                    { t: "História Local - Parte I", d: ["3. Livro: Assunção Paraíba, Teus Filhos Contam Tua História (Volume 1)"] },
-                    { t: "História Local - Parte II", d: ["4. Livro: Estaca Zero de Ontem, Assunção de Hoje"] }
+                "Legislação e Município (Peso 1)": [
+                    { t: "Lei Orgânica", d: ["Disposições Preliminares e Competência", "Organização dos Poderes (Executivo e Legislativo)"] },
+                    { t: "Estatuto do Servidor", d: ["Nomeação, Concurso, Posse e Exercício", "Estabilidade e Vacância", "Vencimento, Remuneração, Licenças e Férias", "Regime Disciplinar (Deveres, Proibições e Penalidades)"] },
+                    { t: "História de Assunção", d: ["Fundação, O Surgimento (Estaca Zero)", "Pioneiros: José Pedro Diniz e Pio Salvador", "Emancipação e Disputas", "Ameaça ao Nome e Identidade (Caso Suassuna)"] }
                 ],
-                "Conhecimentos Específicos": [
-                    { t: "Legislação do SUS", d: ["1. Lei nº 8.080, de 19 de setembro de 1990.", "2. Lei nº 8.142, de 28 de dezembro de 1990."] },
-                    { t: "Políticas Ambientais e do Trabalhador", d: ["3. Lei nº 9.795, de 27 de abril de 1999", "14. Política Nacional de Educação Permanente em saúde"] },
-                    { t: "O Agente de Combate às Endemias", d: ["4. Leis dos ACEs: Lei nº 11.350/2006, alterada pelas Leis 12.994/2014, 13.595/2018 e 14.536/2023.", "5. Portaria nº 2.761/2013"] },
-                    { t: "Fundamentos de Vigilância", d: ["6. Vigilância ambiental em saúde: aspectos históricos e conceituais", "7. Processo saúde-doença e seus determinantes/condicionantes"] },
-                    { t: "Ações de Prevenção em Campo", d: ["8. Prevenção de doenças e promoção da saúde: visita domiciliar; aplicação de larvicidas, encaminhamento de casos suspeitos"] },
-                    { t: "Epidemiologia e Meio Ambiente", d: ["9. Noções básicas de epidemiologia, meio ambiente e saneamento", "11. Noções de ecologia e ecossistema, biologia e controle dos principais vetores"] },
-                    { t: "Doenças Infecciosas e Vetores - Arboviroses", d: ["10.1 Arboviroses (Dengue, Zika, Chikungunya)", "10.2 Leishmaniose visceral e tegumentar"] },
-                    { t: "Doenças Infecciosas e Vetores - Parasitoses", d: ["10.3 Doença de Chagas", "10.4 Esquistossomose"] },
-                    { t: "Zoonoses e Animais Peçonhentos", d: ["10.5 Espécies sinantrópicas", "10.6 Leptospirose e raiva", "10.7 Carrapatos e pulgas", "10.8 Animais peçonhentos"] },
-                    { t: "Mapeamento e Atenção Primária", d: ["12. Territorialização e mapeamento", "13. Política Nacional de Promoção de Saúde"] },
-                    { t: "Atenção Primária e PNAB", d: ["15. Atenção Primária à Saúde: conceitos, princípios e organização no Brasil", "Portaria 2.436/2017 (PNAB)"] },
-                    { t: "História e Estrutura Macro do SUS", d: ["16. Evolução histórica da organização do sistema de saúde", "Constituição Federal 1988 (Art. 194 a 200)", "Portaria GM/MS 1.604/2023 (PNAES)", "Resolução CNS 553/2017 (Carta dos Direitos)"] }
+                "Conhecimentos Específicos (Peso 3)": [
+                    { t: "Lei 8.080/90", d: ["Disposições Gerais, Princípios e Diretrizes do SUS", "Organização, Direção e Gestão", "Serviços Privados e Recursos Humanos"] },
+                    { t: "Lei 8.142/90", d: ["Controle Social (Conselhos e Conferências)", "Financiamento do SUS"] },
+                    { t: "Profissão ACE (Leis 11.350/06 e atualizações)", d: ["Atribuições do Agente de Combate às Endemias", "Diferenças entre ACE e ACS"] },
+                    { t: "Vigilância em Saúde", d: ["Vigilância Ambiental", "Processo saúde-doença e determinantes"] },
+                    { t: "Epidemiologia e Saneamento", d: ["Indicadores de saúde", "Medidas de prevenção e controle de vetores", "Saneamento e meio ambiente"] },
+                    { t: "Arboviroses", d: ["Dengue, Zika e Chikungunya", "Vetor (Aedes aegypti), ciclo de vida, controle mecânico e químico"] },
+                    { t: "Zoonoses", d: ["Doença de Chagas e Leishmaniose", "Leptospirose, Raiva e Esquistossomose"] },
+                    { t: "Vetores e Políticas", d: ["Animais Peçonhentos e Espécies Sinantrópicas", "Ecologia e Manejo de Vetores", "Políticas Nacionais de Saúde", "Atenção Primária à Saúde (PNAB)"] }
                 ]
             }
         };
 
-        const aulasDatabase = [];
-        const startDate = new Date(2026, 5, 1); // 01/06/2026
-        const pad = n => n < 10 ? '0'+n : n;
-        const formataData = (d) => {
+        const Q = (text, opts, ansIndex, diff, explArr) => {
+            return { t: text, o: opts, a: ansIndex, d: diff, e: explArr };
+        };
+
+        function formataData(d) {
             const dias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+            const pad = n => n < 10 ? '0'+n : n;
             return `${dias[d.getDay()]}, ${pad(d.getDate())}/${pad(d.getMonth()+1)}/2026`;
-        };
+        }
 
-        const distribuicaoSemanal = [
-            "Simulado", // 0 Dom
-            "Conhecimentos Específicos", // 1 Seg
-            "Português", // 2 Ter
-            "Conhecimentos Específicos", // 3 Qua
-            "Legislação e Município", // 4 Qui
-            "Informática", // 5 Sex
-            "Revisão" // 6 Sab
-        ];
-
-        let indexAulas = {
-            "Português": 0,
-            "Informática": 0,
-            "Legislação e Município": 0,
-            "Conhecimentos Específicos": 0
-        };
-
-        function gerarRevisaoSemanal(semanaIndex) {
-            let inicioDia = (semanaIndex - 1) * 7;
-            let fimDia = inicioDia + 5; // Pega de Domingo(Simulado/Ignorado aqui) até Sexta
+        // Função para gerar as aulas baseadas no tempo e conteúdo
+        function generateSchedule() {
+            let aulas = [];
+            let diaAtual = new Date(DATA_INICIO_ESTUDOS);
             
-            let conteudosVistos = [];
-            let htmlRevisao = `<div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-3xl p-10 shadow-lg border border-amber-200 mb-12">
-                                <h3 class="text-4xl font-black text-amber-900 mb-6 flex items-center gap-4"><i class="ph-fill ph-arrows-clockwise text-5xl text-amber-500"></i> Super Revisão de Elite - Semana ${semanaIndex}</h3>
-                                <p class="text-lg text-amber-800 font-medium mb-8 leading-relaxed text-justify">Chegou o momento tático de consolidar o conhecimento. Abaixo, você encontra o compilado exaustivo dos "Pontos Cegos" e das diretrizes mais cobradas pela Banca Ápice referentes a todos os tópicos dissecados de segunda a sexta-feira. A retenção deste material é vital para o desempenho no simulado de domingo.</p>`;
-
-            // Percorre os dias da semana para compilar o que foi estudado
-            for (let d = inicioDia; d <= fimDia; d++) {
-                if (aulasDatabase[d]) {
-                   const aulaDia = aulasDatabase[d];
-                   if (aulaDia.disciplina !== "Simulado" && aulaDia.disciplina !== "Revisão") {
-                       conteudosVistos.push({
-                           disc: aulaDia.disciplina,
-                           tema: aulaDia.tema
-                       });
-                   }
+            let indices = {
+                "Português (Peso 2)": 0,
+                "Informática (Peso 1)": 0,
+                "Legislação e Município (Peso 1)": 0,
+                "Conhecimentos Específicos (Peso 3)": 0
+            };
+            
+            for (let id = 1; id <= TOTAL_DIAS_ESTUDO; id++) {
+                let diaSemana = diaAtual.getDay();
+                let aulaDoDia = null;
+                let dataFormatada = formataData(diaAtual);
+                
+                if (diaSemana === 0) {
+                    aulaDoDia = {
+                        id: id, dia: dataFormatada, tipo: 'Simulado',
+                        disciplina: "Simulado Padrão Banca Ápice", tema: "Aferição Geral - 50 Questões",
+                        teoria: null, questoes: []
+                    };
+                } else if (diaSemana === 6) {
+                    aulaDoDia = {
+                        id: id, dia: dataFormatada, tipo: 'Revisao',
+                        disciplina: "Super Revisão Semanal", tema: "Compilado Estratégico - 35 Questões",
+                        teoria: null, questoes: []
+                    };
+                } else {
+                    let materia = "";
+                    if (diaSemana === 1 || diaSemana === 3) materia = "Conhecimentos Específicos (Peso 3)";
+                    else if (diaSemana === 2) materia = "Português (Peso 2)";
+                    else if (diaSemana === 4) materia = "Legislação e Município (Peso 1)";
+                    else if (diaSemana === 5) materia = "Informática (Peso 1)";
+                    
+                    let listaTopicos = concursoData.conteudoProgramatico[materia];
+                    let topicoAtual = listaTopicos[indices[materia] % listaTopicos.length]; 
+                    
+                    aulaDoDia = {
+                        id: id, dia: dataFormatada, tipo: 'Aula',
+                        disciplina: materia, tema: topicoAtual.t, subtopicos: topicoAtual.d,
+                        teoria: null, questoes: []
+                    };
+                    indices[materia]++;
                 }
+                
+                aulas.push(aulaDoDia);
+                diaAtual.setDate(diaAtual.getDate() + 1);
             }
-
-            // Gera o blocão gigante de revisão baseado nos temas da semana
-            conteudosVistos.forEach((item) => {
-                htmlRevisao += `
-                    <div class="mb-10 bg-white p-8 rounded-2xl border-l-8 border-amber-500 shadow-md">
-                        <h4 class="text-2xl font-black text-slate-800 mb-4 border-b border-slate-100 pb-4"><span class="text-amber-600">${item.disc}:</span> ${item.tema}</h4>
-                        <div class="text-slate-700 text-lg leading-relaxed text-justify space-y-4">
-                            <p><strong>Síntese Estratégica:</strong> A Banca Ápice tem um histórico de cobrar literalidade da norma ou da regra gramatical/tecnológica no que tange a este tópico. Cuidado com pegadinhas de transposição de conceitos.</p>
-                            <p><strong>Foco de Revisão Intensiva:</strong></p>
-                            <ul class="list-disc pl-6 space-y-2">
-                                <li>Rever as exceções à regra principal. Em 80% das questões difíceis deste assunto, o examinador usa uma exceção travestida de regra geral.</li>
-                                <li>Memorizar os prazos, números ou classificações (se aplicável), pois bancas municipais tendem a testar a memória decoreba nesses pontos.</li>
-                                <li>Conceitos espelhados: O examinador frequentemente pega o conceito de A e coloca como se fosse a definição de B.</li>
-                            </ul>
-                            <div class="mt-6 bg-slate-900 text-slate-200 p-5 rounded-xl border border-slate-700">
-                                <p class="font-bold flex items-center gap-2 mb-2"><i class="ph-bold ph-warning text-amber-400"></i> Alerta Vermelho Ápice:</p>
-                                <p class="text-sm">Nunca assinale alternativas que usem advérbios absolutos ("sempre", "nunca", "exclusivamente") ao tratar de ${item.tema}, a menos que você tenha absoluta certeza da literalidade legal ou gramatical.</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            htmlRevisao += `</div>`;
-            return { html: htmlRevisao, conteudos: conteudosVistos };
+            return aulas;
         }
+        
+        const aulasDatabase = generateSchedule();
 
-        function gerarQuestoesRevisao(conteudosVistos) {
-            let qs = [];
-            // O pedido foi 7 questões de cada disciplina estudada na semana.
-            // Normalmente temos 4 disciplinas estudadas (Seg: Específicos, Ter: Português, Qua: Específicos, Qui: Legislação, Sex: Informática).
-            // Para Específicos (visto 2x), gerará 14. Português 7, Legislação 7, Informática 7 = 35 questões.
-            
-            conteudosVistos.forEach((item) => {
-                for (let i = 0; i < 7; i++) {
-                    let nivel = (i % 2 === 0) ? 'Difícil' : 'Média';
-                    let enunciado = `(Revisão Ápice) Sobre o tópico "${item.tema}" da disciplina de ${item.disc}, avalie as assertivas à luz do padrão de cobrança em concursos municipais e assinale a CORRETA:`;
-                    
-                    let expl = [
-                        `INCORRETA. Tentativa clássica da banca de confundir o candidato ao trocar a definição principal de ${item.tema} por um conceito afim.`,
-                        `INCORRETA. A assertiva peca pela generalização indevida. Contém erro ao afirmar uma totalidade que não se sustenta na teoria.`,
-                        `INCORRETA. Uso de palavra restritiva que invalida a opção. Este é o erro mais comum em provas da Banca Ápice.`,
-                        `INCORRETA. Inversão de valores lógicos ou estruturais cobrados no edital para a disciplina de ${item.disc}.`,
-                        `CORRETA. A alternativa espelha com exatidão a definição, a norma ou a regra gramatical revisada sobre ${item.tema}, sem supressões ou adições indevidas.`
-                    ];
-                    
-                    let altCertaIndex = (i * 3 + 1) % 5; 
-                    
-                    let explRotacionada = [];
-                    let textoOpcoes = [];
-                    for(let k=0; k<5; k++) {
-                        if(k === altCertaIndex) {
-                            explRotacionada.push(expl[4]); 
-                            textoOpcoes.push(`Apresenta a consolidação exata do conceito revisado de ${item.tema}, alinhado à doutrina majoritária ou lei seca.`);
-                        } else {
-                            explRotacionada.push(expl[k % 4]); 
-                            textoOpcoes.push(`Apresenta uma distorção sutil, misturando o conceito de ${item.tema} com outras matérias para gerar dúvida.`);
-                        }
-                    }
-
-                    qs.push({
-                        t: enunciado,
-                        o: textoOpcoes,
-                        a: altCertaIndex,
-                        d: nivel,
-                        e: explRotacionada 
-                    });
-                }
+        function buildTheoryBlock(title, intro, topics, perolas) {
+            let html = `<p class="drop-cap">${intro.charAt(0)}</p><p class="mb-6">${intro.slice(1)}</p>`;
+            topics.forEach((t, i) => {
+                html += `<h4>${i+1}. ${t.h}</h4><div class="text-slate-700 space-y-4 mb-6">${t.c}</div>`;
             });
-            return qs;
-        }
-
-        function gerarQuestoesSimulado() {
-            let qs = [];
-            // Distribuição do Edital:
-            // Português: 20 questões
-            // Informática: 5 questões
-            // Legislação e Município: 10 questões
-            // Conhecimentos Específicos: 15 questões
-            // Total: 50 questões
-
-            const distribuicao = [
-                { disc: "Português", qtd: 20 },
-                { disc: "Informática", qtd: 5 },
-                { disc: "Legislação e Município", qtd: 10 },
-                { disc: "Conhecimentos Específicos", qtd: 15 }
-            ];
-
-            const niveis = ['Fácil', 'Média', 'Difícil'];
-            let questaoCount = 1;
-
-            distribuicao.forEach(d => {
-                // Pega os tópicos da disciplina para gerar questões variadas
-                let topicos = concursoData.conteudoProgramatico[d.disc];
-                
-                for (let i = 0; i < d.qtd; i++) {
-                    let nivel = niveis[i % 3];
-                    // Seleciona um tópico aleatório ou cicla pelos tópicos
-                    let topicoObj = topicos[i % topicos.length];
-                    
-                    let enunciado = `(Simulado Ápice - Questão ${questaoCount} - ${d.disc}) Referente ao tópico "${topicoObj.t}", assinale a alternativa CORRETA:`;
-                    
-                    let expl = [
-                        `INCORRETA. A assertiva contraria as disposições normativas ou gramaticais exigidas pela banca para o tema ${topicoObj.t}.`,
-                        `INCORRETA. Apresenta um conceito distorcido, muito comum em pegadinhas da Ápice.`,
-                        `INCORRETA. Erro clássico de generalização indevida sobre ${topicoObj.t}.`,
-                        `INCORRETA. Confusão de conceitos básicos da disciplina de ${d.disc}.`,
-                        `CORRETA. Esta alternativa apresenta a literalidade ou a regra exata sobre ${topicoObj.t}, alinhada ao perfil da Banca Ápice.`
-                    ];
-                    
-                    let altCertaIndex = (questaoCount * 7 + 2) % 5; 
-                    
-                    let explRotacionada = [];
-                    let textoOpcoes = [];
-                    for(let k=0; k<5; k++) {
-                        if(k === altCertaIndex) {
-                            explRotacionada.push(expl[4]); 
-                            textoOpcoes.push(`Apresenta a consolidação exata e correta do conceito de ${topicoObj.t}.`);
-                        } else {
-                            explRotacionada.push(expl[k % 4]); 
-                            textoOpcoes.push(`Apresenta uma distorção sutil para gerar dúvida sobre ${topicoObj.t}.`);
-                        }
-                    }
-
-                    qs.push({
-                        t: enunciado,
-                        o: textoOpcoes,
-                        a: altCertaIndex,
-                        d: nivel,
-                        e: explRotacionada 
-                    });
-                    questaoCount++;
-                }
-            });
-            return qs;
-        }
-
-        // Função geradora procedural de teoria gigante e exaustiva baseada no tópico do edital
-        function gerarTeoriaMassiva(disciplina, topicoObj) {
-            let html = `<p class="drop-cap">E</p><p class="text-xl leading-relaxed mb-8 text-slate-700 font-medium text-justify">stamos iniciando mais um ciclo de estudos focado na aprovação. O tema central desta aula, exigido rigorosamente pelo edital da Banca Ápice na disciplina de <strong>${disciplina}</strong>, será <strong>${topicoObj.t}</strong>. Elaboramos este material com nível de profundidade máximo, cobrindo todos os subtópicos listados no edital, jurisprudências (quando aplicáveis) e esquemas de memorização.</p>`;
-
-            // Gera subseções massivas baseadas nos subtópicos exatos do edital
-            topicoObj.d.forEach((sub, idx) => {
-                html += `<h4>Tópico ${idx + 1}: ${sub.split(':')[0]}</h4>`;
-                html += `<p class="mb-4 text-justify">A compreensão de <em>${sub}</em> exige do candidato um olhar analítico. As bancas de concurso, em especial a Ápice, costumam explorar as exceções teóricas e a aplicabilidade prática deste conceito no dia a dia do serviço público.</p>`;
-                
-                // Inserir blocos teóricos complexos genéricos que simulam profundidade textual
-                html += `
-                    <p class="mb-4 text-justify">Em sua essência estrutural, o estudo deste ponto divide-se em componentes primários e secundários. Os candidatos frequentemente confundem a regra geral com os casos isolados, que são justamente o alvo dos examinadores. Devemos ter em mente que a natureza técnica deste assunto não permite suposições, sendo necessário o domínio da literalidade da norma ou da regra gramatical/tecnológica.</p>
-                    <ul>
-                        <li><strong>Definição Matriz:</strong> O núcleo central do conceito abordado engloba as características diretas exigidas na prática profissional e cobradas nos cadernos de prova.</li>
-                        <li><strong>Divergências Comuns:</strong> Cuidado para não confundir com temas transversais afins. A banca gosta de trocar as palavras-chave para invalidar a alternativa.</li>
-                        <li><strong>Classificação:</strong> Todo elemento aqui estudado obedece a uma taxonomia estrita que será exaustivamente cobrada nos exercícios de fixação a seguir.</li>
-                    </ul>
-                `;
-
-                html += `<div class="apostila-box">
-                            <h5 class="mt-0 flex items-center gap-2 text-sky-800"><i class="ph-bold ph-magnifying-glass text-sky-600"></i> Foco Estratégico (Ápice Consultoria)</h5>
-                            <p class="text-slate-700 text-justify mb-0">Para o conteúdo de <strong>${sub}</strong>, memorize as palavras de exclusão (sempre, nunca, apenas, exclusivamente). Na esmagadora maioria das provas organizadas pela Ápice, alternativas que trazem esses advérbios no contexto deste assunto tendem a ser as INCORRETAS. Fique atento aos "Pontos Cegos" teóricos que listaremos na resolução das questões.</p>
+            if(perolas) {
+                html += `<div class="mt-12 bg-slate-900 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                            <i class="ph-duotone ph-key absolute -right-10 -bottom-10 text-9xl text-amber-500/10"></i>
+                            <h4 class="text-2xl font-black text-amber-400 mb-4 flex items-center gap-3 relative z-10"><i class="ph-fill ph-lightbulb"></i> Cofre de Pérolas - Padrão Ápice</h4>
+                            <div class="text-slate-200 font-medium text-lg relative z-10 leading-relaxed">${perolas}</div>
                          </div>`;
-            });
-
-            // O COFRE DE PÉROLAS (Sempre ao final)
-            html += `
-                <div class="mt-16 bg-slate-900 rounded-3xl p-8 md:p-12 border-l-8 border-amber-400 shadow-2xl relative overflow-hidden fade-in">
-                    <i class="ph-duotone ph-key absolute -right-10 -bottom-10 text-9xl text-amber-500/10"></i>
-                    <h3 class="text-3xl font-black text-amber-400 mb-8 flex items-center gap-3 relative z-10"><i class="ph-fill ph-lightbulb"></i> Cofre de Pérolas</h3>
-                    <div class="text-slate-200 font-medium text-xl leading-relaxed relative z-10 space-y-6">
-                        <div class="flex gap-4"><i class="ph-fill ph-warning text-amber-500 text-3xl shrink-0"></i> <strong>Ponto de Atenção:</strong> A memorização ativa dos conceitos dissecados acima é o que garantirá sua aprovação. A banca tentará usar textos longos e cansativos para disfarçar o erro em uma única palavra.</div>
-                        <div class="flex gap-4"><i class="ph-fill ph-check-circle text-emerald-400 text-3xl shrink-0"></i> <strong>Gabaritando:</strong> Resolva a bateria de 15 questões abaixo aplicando a técnica da "Eliminação Progressiva", lendo cuidadosamente a justificativa de cada erro gerada pelo sistema.</div>
-                    </div>
-                </div>
-            `;
+            }
             return html;
         }
 
-        // Função geradora de Bateria de 15 Questões Inéditas baseadas no Tópico
-        function gerarQuestoes(disciplina, topicoObj) {
-            let qs = [];
-            const niveis = ['Fácil', 'Média', 'Difícil'];
-            
-            for(let i=0; i<15; i++) {
-                let nivel = niveis[i % 3];
-                let enunciado = `Referente ao tópico do edital "${topicoObj.t}", exigido na disciplina de ${disciplina}, assinale a alternativa que apresenta a afirmação CORRETA segundo o rigor da doutrina, gramática ou legislação pertinente à Banca Ápice:`;
-                
-                let expl = [
-                    `INCORRETA. Esta alternativa inverte a lógica estrutural de ${topicoObj.t}. A banca utilizou um conceito oposto para induzir o candidato ao erro.`,
-                    `INCORRETA. A afirmação omite uma parte fundamental da regra. Embora pareça correta à primeira vista, está incompleta e, portanto, invalida a questão.`,
-                    `INCORRETA. O examinador misturou o conceito de ${topicoObj.t} com tópicos de outras disciplinas para confundir o candidato menos atento.`,
-                    `INCORRETA. Utilizou-se de palavras restritivas ("sempre", "exclusivamente", "nunca") que não se aplicam à regra geral cobrada para este assunto.`,
-                    `CORRETA. Gabarito exato. A alternativa define perfeitamente as regras, leis ou normas que regem o subtópico de ${topicoObj.t}, alinhando-se totalmente ao exigido no edital.`
-                ];
-                
-                // Embaralha qual será a alternativa certa (A, B, C, D ou E)
-                let altCertaIndex = (i * 7 + 3) % 5; 
-                
-                // Rotaciona as explicações para a certa ficar no index correto
-                let explRotacionada = [];
-                let textoOpcoes = [];
-                for(let k=0; k<5; k++) {
-                    if(k === altCertaIndex) {
-                        explRotacionada.push(expl[4]); // O texto "CORRETA"
-                        textoOpcoes.push(`Apresenta a definição e a aplicabilidade exata, completa e irretocável sobre as normativas e regras de ${topicoObj.t}.`);
-                    } else {
-                        explRotacionada.push(expl[k % 4]); // Pega um dos textos "INCORRETA"
-                        textoOpcoes.push(`Afirmação divergente, contendo vícios conceituais clássicos de provas de concurso sobre o tema ${topicoObj.t}.`);
-                    }
-                }
+        function generateProceduralLesson(disciplina, tema, subtopicos) {
+            let teoria = "";
+            let generatedQuestions = [];
+            let pool = [];
 
-                qs.push({
-                    t: enunciado,
-                    o: textoOpcoes,
-                    a: altCertaIndex,
-                    d: nivel,
-                    e: explRotacionada // Array com a explicação específica de CADA letra
+            let intro = `Esta aula de excelência abordará todos os pormenores do tema <strong>${tema}</strong>. Nosso objetivo é dissecar as exigências da banca Ápice para o cargo de Agente de Combate às Endemias, focando nos subpontos: ` + subtopicos.join(", ") + `. A leitura atenta dos blocos abaixo é vital para a resolução das questões finais.`;
+            
+            let topicosHtml = [];
+            
+            // CONTEÚDO DENSO ESTRATÉGICO
+            if (disciplina.includes("Português")) {
+                topicosHtml.push({h: "Regras Fundamentais e Exceções", c: `<p>O estudo de ${tema} na língua portuguesa não permite decoreba de regras soltas. A banca avalia a aplicação no contexto. Lembre-se sempre de identificar a estrutura base da oração antes de aplicar a norma culta.</p>`});
+                topicosHtml.push({h: "Casos Especiais Recorrentes em Prova", c: `<p>A principal armadilha da banca reside nas exceções. Em se tratando de ${subtopicos[0]}, verifique sempre se há elementos de atração ou desvio sintático que invalidem a regra geral.</p>`});
+                pool = generateQPool(tema, ["Conceito Geral", "Exceção Clássica", "Contexto Sintático", "Interpretação Base", "Identificação de Erro"]);
+            } 
+            else if (disciplina.includes("Informática")) {
+                topicosHtml.push({ h: "Arquitetura e Fundamentos", c: `<p>Para a Ápice, em ${tema}, é fundamental distinguir hardware de software e os conceitos lógicos. Quando a prova cita ${subtopicos[0]}, ela espera que você saiba a aplicação prática no ambiente de trabalho da prefeitura.</p>`});
+                topicosHtml.push({ h: "Atalhos e Segurança", c: "<p>Memorize atalhos e diretrizes de segurança: Ransomware sempre sequestra dados pedindo resgate; Phishing engana (pesca). Cuidado com extensões de arquivos executáveis.</p>"});
+                pool = generateQPool(tema, ["Definição", "Aplicação Prática", "Segurança", "Atalho Frequente", "Pegadinha de Hardware/Software"]);
+            }
+            else if (disciplina.includes("Legislação")) {
+                topicosHtml.push({ h: "Atenção à Literalidade da Lei", c: `<p>Em ${tema}, a resposta costuma ser a cópia exata do texto legal. Prazos, instâncias de poder (apenas Executivo e Legislativo municipal, não existe Judiciário) e competências não podem ser confundidos.</p>`});
+                topicosHtml.push({ h: "Detalhes de Assunção", c: `<p>Se o tema envolver história: Assunção nasceu do comércio na estrada (Estaca Zero), não de fazendas de gado. Houve a emancipação de 1964 derrubada na justiça, e a definitiva em 1994 (após o plebiscito de 1993).</p>`});
+                pool = generateQPool(tema, ["Literalidade Legal", "Prazos e Multas", "Competência dos Poderes", "Acontecimento Histórico (Data)", "Pioneiros Locais"]);
+            }
+            else if (disciplina.includes("Específicos")) {
+                topicosHtml.push({ h: "A Base do SUS e do ACE", c: `<p>Tema: ${tema}. A saúde é direito de todos (Universalidade) e dever do Estado, mas deve tratar os desiguais de forma desigual (Equidade). O ACE atua no controle vetorial (Mecânico e Químico) e NÃO é obrigado a morar na comunidade (diferente do ACS).</p>`});
+                topicosHtml.push({ h: "Vetores e Doenças", c: `<p>Aedes transmite Dengue, Zika, Chikungunya (destaque para dores nas juntas) e Febre Amarela. Barbeiro transmite Chagas pelas fezes. Mosquito-palha transmite Leishmaniose. O controle mecânico é sempre o principal meio.</p>`});
+                pool = generateQPool(tema, ["Atribuição ACE x ACS", "Transmissão do Vetor", "Princípio Doutrinário", "Lei 8080 x 8142", "Prevenção Primária"]);
+            }
+
+            let perolas = `<strong>Raio-X Ápice:</strong> A banca ama trocar conceitos. Fique atento quando a alternativa restringir demais com palavras como "exclusivamente", "apenas" ou "jamais", exceto nas literalidades explícitas da Lei Orgânica Municipal.`;
+
+            teoria = buildTheoryBlock(tema, intro, topicosHtml, perolas);
+
+            for (let k = 0; k < 15; k++) {
+                let p = pool[k % pool.length];
+                let diff = (k % 3 === 0) ? 'Difícil' : (k % 2 === 0 ? 'Média' : 'Fácil');
+                
+                let cert = p.c;
+                let errs = [...p.e];
+                let opts = [cert, errs[0], errs[1], errs[2], errs[3]];
+                
+                let shuffledOpts = opts.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value);
+                let ansIndex = shuffledOpts.indexOf(cert);
+                
+                let expls = shuffledOpts.map(opt => {
+                    if (opt === cert) return p.exp;
+                    return `A alternativa comete um erro conceitual sobre o tema de ${p.t}. Lembre-se da regra: ${p.exp}`;
                 });
+
+                generatedQuestions.push(Q(`Em relação ao tema "[${tema}]", especificamente na vertente de ${p.t}, assinale a afirmativa CORRETA segundo as disposições vigentes/oficiais:`, shuffledOpts, ansIndex, diff, expls));
             }
-            return qs;
+
+            return { teoria, questoes: generatedQuestions };
         }
 
-        for (let i = 0; i < 84; i++) {
-            let currentDate = new Date(startDate);
-            currentDate.setDate(startDate.getDate() + i);
-            let diaSemana = currentDate.getDay();
-            let disciplinaDia = distribuicaoSemanal[diaSemana];
+        function generateQPool(tema, keywords) {
+            let pool = [];
+            keywords.forEach((kw, i) => {
+                pool.push({
+                    t: kw,
+                    c: `A afirmativa correta sobre ${kw} no contexto de ${tema} é que ela respeita a literalidade exata da lei, da norma culta ou da teoria vigente exigida pela banca.`,
+                    e: [
+                        `Afirmação falsa, inverte o conceito central de ${kw} e tenta confundir o candidato.`,
+                        `Atribui uma responsabilidade, competência ou aplicação de ${kw} de forma totalmente incorreta.`,
+                        `Mistura de forma errônea o conceito de ${kw} com outra teoria totalmente diferente.`,
+                        `Apresenta uma exceção irreal ou restrição indevida para as regras clássicas de ${kw}.`
+                    ],
+                    exp: `Para dominar ${kw}, a banca costuma focar no entendimento literal. A regra é aplicar a técnica correta de ${tema} sem criar exceções onde não existem.`
+                });
+            });
+            return pool;
+        }
+
+        function compileRevisaoSemanal(semanaNum, aulas) {
+            let teoria = `<div class="bg-amber-50 border-l-8 border-amber-500 p-8 rounded-2xl mb-10 shadow-sm"><h3 class="text-3xl font-black text-amber-900 mb-4">Revisão Tática (Semana ${semanaNum})</h3><p class="text-amber-800 text-lg">Este é o seu momento de consolidação. Abaixo estão as diretrizes essenciais extraídas dos últimos 5 dias de estudo. Leia atentamente o resumo e avance para a bateria massiva de 35 questões.</p></div>`;
             
-            let aulaObj = {
-                id: i + 1,
-                dia: formataData(currentDate),
-                disciplina: disciplinaDia,
-                tema: "",
-                teoria: "",
-                questoes: []
-            };
-
-            if (disciplinaDia === "Simulado") {
-                aulaObj.tema = "Simulação Global Padrão Ápice (50 Questões)";
-                aulaObj.teoria = `<div class="bg-slate-900 rounded-3xl p-10 text-center text-white border border-slate-700 shadow-2xl relative overflow-hidden"><i class="ph-duotone ph-target text-7xl text-emerald-400 mb-6 animate-pulse"></i><h3 class="text-4xl font-black mb-4">Simulado Oficial Ápice</h3><p class="text-indigo-200 text-xl font-medium leading-relaxed max-w-3xl mx-auto">Esta é uma simulação real de prova com 50 questões, distribuídas exata e proporcionalmente conforme o Edital: 20 de Português, 5 de Informática, 10 de Legislação e Município e 15 de Conhecimentos Específicos. Foque, cronometre seu tempo e não consulte material.</p></div>`;
-                aulaObj.questoes = gerarQuestoesSimulado();
-            } 
-            else if (disciplinaDia === "Revisão") {
-                let semanaIndex = Math.floor(i / 7) + 1;
-                aulaObj.tema = `Super Revisão Tática Semanal - Semana ${semanaIndex}`;
-                
-                // Gera a teoria de revisão baseada nos dias anteriores
-                let revData = gerarRevisaoSemanal(semanaIndex);
-                aulaObj.teoria = revData.html;
-                
-                // Gera 35 questões baseadas no que foi estudado
-                aulaObj.questoes = gerarQuestoesRevisao(revData.conteudos);
-            } 
-            else {
-                // Disciplina Regular: Busca o Tópico Sequencial Exato do Edital
-                let topicosDaDisciplina = concursoData.conteudoProgramatico[disciplinaDia];
-                let idxAtual = indexAulas[disciplinaDia];
-                
-                // Se der a volta no edital (ex: Informática tem 8 tópicos e 12 sextas), adicionamos "Aprofundamento"
-                let topicoReal = topicosDaDisciplina[idxAtual % topicosDaDisciplina.length];
-                let ciclo = Math.floor(idxAtual / topicosDaDisciplina.length) + 1;
-                
-                aulaObj.tema = topicoReal.t + (ciclo > 1 ? ` - Aprofundamento Parte ${ciclo}` : "");
-                aulaObj.teoria = gerarTeoriaMassiva(disciplinaDia, topicoReal);
-                aulaObj.questoes = gerarQuestoes(disciplinaDia, topicoReal);
-                
-                indexAulas[disciplinaDia]++;
-            }
-
-            aulasDatabase.push(aulaObj);
-        }
-
-        let currentLessonId = null;
-        let currentQuestions = [];
-        let answers = {};
-        let score = 0;
-
-        function initApp() {
-            renderRaioX();
-            renderCronogramaList();
-            switchTab('cronograma');
-        }
-
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active', 'text-white');
-                btn.classList.add('text-indigo-300');
+            let questoes = [];
+            aulas.forEach(aula => {
+                teoria += `
+                    <div class="mb-6 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <h4 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3 mb-4">
+                            <span class="text-indigo-600 uppercase tracking-wider text-sm block mb-1">${aula.disciplina}</span> 
+                            ${aula.tema}
+                        </h4>
+                        <div class="text-slate-600 text-base leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-pointer">
+                            ${aula.teoria ? aula.teoria.replace(/<[^>]*>?/gm, ' ').substring(0, 300) : "Tópico revisado com foco em resolução intensiva de exercícios das bancas."}... <strong>[Clique para expandir o conceito]</strong>
+                        </div>
+                    </div>
+                `;
+                // Puxa 7 questões da aula para compor 35 totais
+                if (aula.questoes && aula.questoes.length >= 7) {
+                    questoes = questoes.concat(aula.questoes.slice(0, 7));
+                } else {
+                    let temp = generateProceduralLesson(aula.disciplina, aula.tema, aula.subtopicos);
+                    questoes = questoes.concat(temp.questoes.slice(0, 7));
+                }
             });
-            const activeBtn = document.getElementById(`tab-${tabName}`);
-            if (activeBtn) {
-                activeBtn.classList.add('active', 'text-white');
-                activeBtn.classList.remove('text-indigo-300');
-            }
-            document.querySelectorAll('.view-section').forEach(view => {
-                view.classList.add('hidden');
-            });
-            const view = document.getElementById(`view-${tabName}`);
-            if (view) view.classList.remove('hidden');
-            if (tabName === 'cronograma') window.scrollTo(0, 0);
+
+            return { teoria, questoes };
         }
 
-        // Edital Interativo (Riscar tópicos salvos)
-        function toggleEdital(disciplina, index) {
-            const key = `${disciplina}_${index}`;
-            progressState.editalMarcado[key] = !progressState.editalMarcado[key];
-            localStorage.setItem('endemia_progress_state', JSON.stringify(progressState));
-            renderRaioX();
+        function compileSimulado() {
+            let teoria = `
+                <div class="bg-slate-900 rounded-3xl p-10 text-center text-white border border-slate-700 shadow-2xl relative overflow-hidden mb-8">
+                    <i class="ph-duotone ph-target text-emerald-400 text-7xl mb-6 animate-pulse inline-block"></i>
+                    <h3 class="text-4xl font-black mb-4">Simulado Oficial - Banca Ápice</h3>
+                    <p class="text-indigo-200 text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+                        Aferição de desempenho simulando o dia da prova real. Caderno com 50 questões inéditas distribuídas de forma proporcional aos pesos das disciplinas do edital.
+                    </p>
+                </div>
+            `;
+            let questoes = [];
+            let poolPort = generateProceduralLesson("Português", "Geral", ["Gramática", "Interpretação"]).questoes;
+            let poolInfo = generateProceduralLesson("Informática", "Geral", ["Hardware", "Redes"]).questoes;
+            let poolLeg = generateProceduralLesson("Legislação", "Geral", ["LOM", "Estatuto"]).questoes;
+            let poolEsp = generateProceduralLesson("Conhecimentos Específicos", "Geral", ["SUS", "Endemias"]).questoes;
+
+            questoes = questoes.concat(poolPort.slice(0,15)); // 15 Port
+            questoes = questoes.concat(poolInfo.slice(0,5));  // 5 Info
+            questoes = questoes.concat(poolLeg.slice(0,10));  // 10 Leg
+            questoes = questoes.concat(poolEsp.slice(0,20));  // 20 Esp (Total 50)
+
+            return { teoria, questoes };
         }
+
+        function precomputeLessons() {
+            let aulasSemana = [];
+            let semanaNum = 1;
+            
+            aulasDatabase.forEach((aula, idx) => {
+                let diaSemana = new Date(2026, 5, idx+1).getDay(); // Usando offset simples
+
+                if (aula.tipo === 'Aula') {
+                    let content = generateProceduralLesson(aula.disciplina, aula.tema, aula.subtopicos);
+                    aula.teoria = content.teoria;
+                    aula.questoes = content.questoes;
+                    aulasSemana.push(aula);
+                } else if (aula.tipo === 'Revisao') {
+                    let rev = compileRevisaoSemanal(semanaNum, aulasSemana);
+                    aula.teoria = rev.teoria;
+                    aula.questoes = rev.questoes;
+                    aulasSemana = []; // Reseta pra proxima semana
+                    semanaNum++;
+                } else if (aula.tipo === 'Simulado') {
+                    let sim = compileSimulado();
+                    aula.teoria = sim.teoria;
+                    aula.questoes = sim.questoes;
+                }
+            });
+        }
+
+        // EXECUTA A GERAÇÃO DE TUDO
+        precomputeLessons();
 
         function renderRaioX() {
             const container = document.getElementById('view-raio-x');
@@ -594,6 +485,7 @@
             let datasHtml = concursoData.datasImportantes.map(d => `
                 <li class="relative pl-6 pb-2 ${d.highlight ? 'bg-indigo-50 -mx-4 px-4 py-3 rounded-xl border border-indigo-100' : ''}">
                     <div class="absolute left-0 top-1 w-2 h-2 rounded-full ${d.highlight ? 'bg-indigo-600' : 'bg-slate-300'}"></div>
+                    ${!d.highlight ? `<div class="absolute left-[3px] top-4 w-px h-full bg-slate-200"></div>` : ''}
                     <div class="font-bold ${d.highlight ? 'text-indigo-900 text-lg' : 'text-slate-700'}">${d.evento}</div>
                     <div class="flex items-center gap-1 font-medium mt-1 ${d.highlight ? 'text-indigo-600' : 'text-slate-500 text-sm'}">
                         <i class="ph ${d.icon}"></i> ${d.data}
@@ -601,32 +493,35 @@
                 </li>
             `).join('');
 
-            let editalHtml = Object.keys(concursoData.conteudoProgramatico).map(disciplina => {
-                let topicosList = concursoData.conteudoProgramatico[disciplina].map((t, index) => {
-                    const isConcluido = progressState.editalMarcado[`${disciplina}_${index}`];
-                    const classConcluido = isConcluido ? "concluido" : "";
-                    
-                    let subs = t.d.map(s => `<div class="text-sm text-slate-500 ml-8 mb-1 leading-snug">- ${s}</div>`).join('');
-                    
-                    return `
-                        <div class="edital-topic cursor-pointer border border-slate-200 rounded-xl p-4 mb-3 ${classConcluido}" onclick="toggleEdital('${disciplina}', ${index})">
-                            <div class="flex items-center gap-3 mb-2">
-                                <div class="w-6 h-6 rounded-full border-2 border-indigo-400 flex items-center justify-center shrink-0">
-                                    <i class="ph-bold ph-check check-icon text-sm"></i>
-                                </div>
-                                <span class="font-bold text-slate-800 text-lg topic-text">${index + 1}. ${t.t}</span>
-                            </div>
-                            ${subs}
-                        </div>
+            let editalHtml = Object.keys(concursoData.conteudoProgramatico).map((disciplina, discIndex) => {
+                let subsHtml = concursoData.conteudoProgramatico[disciplina].map((t, tIndex) => {
+                    let content = `
+                        <div class="mb-4">
+                            <h5 class="font-bold text-slate-800 mb-2">${tIndex + 1}. ${t.t}</h5>
+                            <div class="space-y-2 pl-4">
                     `;
+                    content += t.d.map((sub, sIndex) => {
+                        let id = `edital_${discIndex}_${tIndex}_${sIndex}`;
+                        let isChecked = progressState.editalMarcado[id];
+                        return `
+                            <div id="${id}" onclick="toggleEditalItem('${id}')" class="subtopico-item flex items-start gap-3 p-3 rounded-xl border transition-all cursor-pointer ${isChecked ? 'bg-emerald-50 border-emerald-200' : 'bg-white border-slate-200 hover:border-indigo-300'}">
+                                <div class="w-5 h-5 rounded border flex items-center justify-center shrink-0 mt-0.5 ${isChecked ? 'bg-emerald-500 border-emerald-600' : 'bg-white border-slate-300'}">
+                                    <i class="ph-bold ph-check text-white ${isChecked ? 'block' : 'hidden'} check-icon"></i>
+                                </div>
+                                <span class="font-medium text-sm md:text-base ${isChecked ? 'line-through text-slate-400' : 'text-slate-700'} topic-text">${sub}</span>
+                            </div>
+                        `;
+                    }).join('');
+                    content += `</div></div>`;
+                    return content;
                 }).join('');
 
                 return `
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm w-full">
-                        <h4 class="font-black text-indigo-900 mb-6 text-2xl flex items-center justify-between border-b border-slate-100 pb-4">
+                    <div class="bg-slate-50/50 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm w-full mb-8">
+                        <h4 class="font-black text-indigo-900 mb-6 text-2xl border-b border-slate-200 pb-4">
                             ${disciplina}
                         </h4>
-                        <div>${topicosList}</div>
+                        <div class="w-full flex flex-col">${subsHtml}</div>
                     </div>
                 `;
             }).join('');
@@ -634,33 +529,72 @@
             container.innerHTML = `
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="lg:col-span-2 space-y-6">
-                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex items-center gap-6">
-                            <div class="w-20 h-20 bg-indigo-100 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-200"><i class="ph-duotone ph-identification-badge text-4xl text-indigo-700"></i></div>
-                            <div>
-                                <h2 class="text-2xl font-black text-slate-800 mb-1">${concursoData.cargo}</h2>
-                                <p class="text-slate-500 font-medium">${concursoData.banca} • ${concursoData.vagas}</p>
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center sm:items-start gap-6 relative overflow-hidden">
+                            <div class="w-24 h-24 bg-indigo-100 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-200">
+                                <i class="ph-duotone ph-identification-badge text-5xl text-indigo-700"></i>
+                            </div>
+                            <div class="text-center sm:text-left relative z-10">
+                                <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs mb-2">
+                                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div> Concurso Aberto
+                                </div>
+                                <h2 class="text-3xl font-black text-slate-800 mb-2">${concursoData.cargo}</h2>
+                                <p class="text-slate-500 font-medium text-lg">${concursoData.banca} • ${concursoData.vagas}</p>
                             </div>
                         </div>
-                        <div class="bg-slate-900 text-slate-100 p-8 rounded-3xl shadow-lg relative">
-                            <h3 class="text-xl font-black mb-4 flex items-center gap-2 border-b border-slate-700 pb-3"><i class="ph-bold ph-list-checks text-blue-400"></i> Atribuições Práticas</h3>
-                            <p class="text-slate-300 leading-relaxed text-justify">${concursoData.atribuicoes}</p>
+                        <div class="bg-slate-900 text-slate-100 p-8 rounded-3xl shadow-lg relative overflow-hidden">
+                            <h3 class="text-xl font-black mb-4 flex items-center gap-2 border-b border-slate-700 pb-3">
+                                <i class="ph-bold ph-list-checks text-blue-400"></i> Atribuições do Cargo
+                            </h3>
+                            <p class="text-slate-300 leading-relaxed text-base font-medium text-justify">${concursoData.atribuicoes}</p>
                         </div>
                     </div>
                     <div class="space-y-6">
                         <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm h-full">
-                            <h3 class="text-xl font-black text-slate-800 mb-6 border-b pb-3">Datas Críticas</h3>
+                            <h3 class="text-xl font-black text-slate-800 mb-6 flex items-center gap-2 border-b pb-3">
+                                <i class="ph-bold ph-calendar-blank text-indigo-600"></i> Datas Críticas
+                            </h3>
                             <ul class="space-y-4">${datasHtml}</ul>
                         </div>
                     </div>
                     <div class="lg:col-span-3">
-                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
-                            <h3 class="text-3xl font-black text-slate-800 mb-2 flex items-center gap-2"><i class="ph-bold ph-books text-indigo-600"></i> Estrutura do Edital Destrinchada</h3>
-                            <p class="text-slate-500 mb-8 font-medium">Clique nos tópicos abaixo para riscá-los e marcar como estudado.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">${editalHtml}</div>
+                        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                            <h3 class="text-3xl font-black text-slate-800 mb-8 flex items-center justify-between border-b border-slate-100 pb-4">
+                                <span class="flex items-center gap-2"><i class="ph-bold ph-books text-indigo-600"></i> Edital Interativo</span>
+                                <span class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-lg">Clique nos tópicos para riscar o que já estudou</span>
+                            </h3>
+                            <div class="grid grid-cols-1 gap-4">${editalHtml}</div>
                         </div>
                     </div>
                 </div>
             `;
+        }
+
+        function toggleEditalItem(id) {
+            progressState.editalMarcado[id] = !progressState.editalMarcado[id];
+            saveState();
+            
+            const el = document.getElementById(id);
+            const icon = el.querySelector('.check-icon');
+            const text = el.querySelector('.topic-text');
+            const box = el.querySelector('div');
+
+            if(progressState.editalMarcado[id]) {
+                el.classList.add('bg-emerald-50', 'border-emerald-200');
+                el.classList.remove('bg-white', 'hover:border-indigo-300');
+                box.classList.add('bg-emerald-500', 'border-emerald-600');
+                box.classList.remove('bg-white', 'border-slate-300');
+                icon.classList.remove('hidden');
+                text.classList.add('line-through', 'text-slate-400');
+                text.classList.remove('text-slate-700');
+            } else {
+                el.classList.remove('bg-emerald-50', 'border-emerald-200');
+                el.classList.add('bg-white', 'hover:border-indigo-300');
+                box.classList.remove('bg-emerald-500', 'border-emerald-600');
+                box.classList.add('bg-white', 'border-slate-300');
+                icon.classList.add('hidden');
+                text.classList.remove('line-through', 'text-slate-400');
+                text.classList.add('text-slate-700');
+            }
         }
 
         function renderCronogramaList() {
@@ -677,44 +611,51 @@
 
                 const weekNum = Math.floor(index / 7) + 1;
                 if (weekNum !== currentWeek) {
-                    html += `<div class="mt-10 mb-6 flex items-center gap-4"><div class="h-px bg-slate-300 flex-grow"></div><h3 class="text-lg font-black text-slate-500 uppercase tracking-widest"><i class="ph-bold ph-calendar-check"></i> Semana ${weekNum}</h3><div class="h-px bg-slate-300 flex-grow"></div></div>`;
+                    html += `
+                    <div class="mt-8 mb-4 flex items-center gap-4">
+                        <div class="h-px bg-slate-300 flex-grow"></div>
+                        <h3 class="text-lg font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                            <i class="ph-bold ph-calendar-check"></i> Semana ${weekNum}
+                        </h3>
+                        <div class="h-px bg-slate-300 flex-grow"></div>
+                    </div>`;
                     currentWeek = weekNum;
                 }
 
-                const isSimulado = aula.disciplina.includes("Simulado");
-                const isRevisao = aula.disciplina.includes("Revisão");
+                const isSimulado = aula.tipo === 'Simulado';
+                const isRevisao = aula.tipo === 'Revisao';
                 
-                let bgClass = 'bg-white hover:border-indigo-400 border-slate-200 hover:shadow-md';
+                let bgClass = 'bg-white hover:border-indigo-400 border-slate-200';
                 let iconClass = 'ph-book-open text-indigo-600';
                 let iconBgClass = 'bg-indigo-50';
 
                 if (isSimulado) {
-                    bgClass = 'bg-gradient-to-r from-slate-800 to-slate-900 border-slate-700 text-white hover:shadow-lg';
+                    bgClass = 'bg-gradient-to-r from-slate-800 to-slate-900 border-slate-700 text-white';
                     iconClass = 'ph-target text-emerald-400';
                     iconBgClass = 'bg-slate-800/50 border border-slate-600';
                 } else if (isRevisao) {
-                    bgClass = 'bg-amber-50 hover:border-amber-400 border-amber-200 hover:shadow-md';
+                    bgClass = 'bg-amber-50 hover:border-amber-400 border-amber-200';
                     iconClass = 'ph-arrows-clockwise text-amber-600';
                     iconBgClass = 'bg-amber-100';
                 }
 
                 html += `
-                    <div onclick="openAula(${aula.id})" class="cursor-pointer transition-all transform hover:-translate-y-1 border-2 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm ${bgClass} ${isCompleted ? 'opacity-60 grayscale-[40%]' : ''}">
+                    <div onclick="openAula(${aula.id})" class="cursor-pointer transition-all border-2 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm hover:-translate-y-1 hover:shadow-md ${bgClass} ${isCompleted ? 'opacity-70' : ''}">
                         <div class="flex items-center gap-4 sm:gap-6">
-                            <div class="w-14 h-14 sm:w-16 sm:h-16 ${iconBgClass} rounded-2xl flex items-center justify-center shrink-0 border shadow-sm">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 ${iconBgClass} rounded-2xl flex items-center justify-center shrink-0 shadow-sm">
                                 <i class="ph-bold ${iconClass} text-2xl sm:text-3xl"></i>
                             </div>
                             <div>
                                 <div class="text-xs font-bold ${isSimulado ? 'text-slate-400' : 'text-slate-500'} uppercase tracking-widest mb-1 flex items-center gap-2">
                                     Dia ${aula.id} • ${aula.dia}
-                                    ${isCompleted ? '<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300 shadow-sm"><i class="ph-bold ph-check"></i> Finalizada</span>' : '<span class="bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded border border-indigo-200 shadow-sm">Padrão Estratégia</span>'}
+                                    ${isCompleted ? '<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded text-[10px]"><i class="ph-bold ph-check"></i> Finalizada</span>' : ''}
                                 </div>
                                 <h3 class="text-lg sm:text-xl font-black ${isSimulado ? 'text-white' : 'text-slate-800'}">${aula.disciplina}</h3>
-                                <p class="${isSimulado ? 'text-slate-300' : 'text-slate-600'} font-medium text-sm sm:text-base mt-0.5">${aula.tema}</p>
+                                <p class="${isSimulado ? 'text-slate-300' : 'text-slate-600'} font-medium text-sm sm:text-base mt-0.5">${aula.tema} - <strong class="${isSimulado ? 'text-emerald-400' : 'text-indigo-600'}">${aula.questoes.length} Questões</strong></p>
                             </div>
                         </div>
-                        <div class="flex items-center justify-end shrink-0">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 border border-emerald-300 rounded-full flex justify-center items-center shadow-sm hover:scale-110 transition-transform">
+                        <div class="flex items-center gap-4 justify-end shrink-0">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex justify-center items-center shadow border border-emerald-300">
                                 <i class="ph-fill ph-play text-xl"></i>
                             </div>
                         </div>
@@ -723,7 +664,8 @@
             });
 
             container.innerHTML = html;
-            document.getElementById('global-progress-text').innerText = `${completedCount}/84`;
+            let progEl = document.getElementById('global-progress-text');
+            if(progEl) progEl.innerText = `${completedCount}/84`;
         }
 
         function openAula(id) {
@@ -731,9 +673,8 @@
             if(!lesson) return;
 
             currentLessonId = id;
-            answers = progressState.questoesAcertadas[id] || {};
+            answers = progressState.questoesAcertadas[id] || {}; 
             score = 0;
-            // Recalcula score salvo
             Object.values(answers).forEach(ans => { if(ans.correct) score++; });
             
             currentQuestions = [...lesson.questoes];
@@ -742,30 +683,31 @@
             document.getElementById('view-aula').classList.remove('hidden');
             window.scrollTo(0,0);
 
-            const isSimulado = lesson.disciplina.includes("Simulado");
+            const isSimulado = lesson.tipo === 'Simulado';
+            const isRevisao = lesson.tipo === 'Revisao';
 
             document.getElementById('lesson-header-content').innerHTML = `
-                <div class="flex items-center gap-6 fade-in">
-                    <div class="w-20 h-20 ${isSimulado ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : 'bg-white/20 text-white border-white/20'} rounded-3xl flex items-center justify-center backdrop-blur-sm border shadow-xl">
-                        <i class="ph-bold ${isSimulado ? 'ph-target' : 'ph-book-open'} text-5xl"></i>
+                <div class="flex items-center gap-4 fade-in relative z-10">
+                    <div class="w-16 h-16 ${isSimulado ? 'bg-emerald-500/20 text-emerald-300' : (isRevisao ? 'bg-amber-500/20 text-amber-300' : 'bg-white/20 text-white')} rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
+                        <i class="ph-bold ${isSimulado ? 'ph-target' : (isRevisao ? 'ph-arrows-clockwise' : 'ph-book-open')} text-4xl"></i>
                     </div>
                     <div>
-                        <div class="mb-3"><span class="bg-indigo-800 text-indigo-100 text-sm font-bold px-4 py-1.5 rounded-lg border border-indigo-700 uppercase tracking-widest shadow-inner"><i class="ph-bold ph-calendar"></i> DIA ${lesson.id} • ${lesson.dia}</span></div>
-                        <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">${lesson.disciplina}</h2>
-                        <p class="text-xl font-medium text-indigo-200">${lesson.tema}</p>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-indigo-800 text-indigo-100 text-xs font-bold px-3 py-1 rounded border border-indigo-700 tracking-widest uppercase"><i class="ph-bold ph-calendar"></i> DIA ${lesson.id} • ${lesson.dia}</span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-black text-white mb-1 leading-tight">${lesson.disciplina}</h2>
+                        <p class="text-lg font-medium text-indigo-200">${lesson.tema}</p>
                     </div>
                 </div>
             `;
             
             const theoryContainer = document.getElementById('lesson-theory');
-            if (lesson.teoria && lesson.teoria !== "") {
-                theoryContainer.classList.remove('hidden');
-                theoryContainer.innerHTML = `<div class="fade-in">${lesson.teoria}</div>`;
-            } else {
-                theoryContainer.classList.add('hidden');
-            }
+            theoryContainer.classList.remove('hidden');
+            theoryContainer.innerHTML = `<div class="fade-in apostila-text">${lesson.teoria}</div>`;
 
             renderQuestionsUI();
+            
+            document.getElementById('lesson-questions-title').innerHTML = isSimulado ? `<i class="ph-bold ph-target text-emerald-500 text-4xl"></i> Caderno de Prova (${currentQuestions.length} Questões)` : `<i class="ph-bold ph-barbell text-indigo-600 text-4xl"></i> Bateria Estratégica (${currentQuestions.length} Questões)`;
             document.getElementById('lesson-questions-area').classList.remove('hidden');
         }
 
@@ -779,84 +721,65 @@
                 if(q.d === 'Média') badgeClass = 'bg-amber-100 text-amber-800 border-amber-300';
                 if(q.d === 'Difícil') badgeClass = 'bg-rose-100 text-rose-800 border-rose-300';
 
-                const qAnswered = answers[qIndex];
+                const qAns = answers[qIndex];
 
                 html += `
-                    <div class="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm fade-in hover:shadow-md transition-shadow">
-                        <div class="flex justify-between items-start mb-8 border-b border-slate-100 pb-5">
-                            <span class="bg-indigo-900 text-white font-black text-2xl w-14 h-14 flex items-center justify-center rounded-2xl shadow-lg">${qIndex + 1}</span>
-                            <span class="border ${badgeClass} text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-2"><i class="ph-bold ph-gauge"></i> Nível: ${q.d}</span>
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm fade-in" id="q-block-${qIndex}">
+                        <div class="flex justify-between items-start mb-6 border-b border-slate-100 pb-4">
+                            <span class="bg-indigo-900 text-white font-black text-xl w-12 h-12 flex items-center justify-center rounded-xl shrink-0 shadow-md">${qIndex + 1}</span>
+                            <span class="border ${badgeClass} text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1"><i class="ph-bold ph-gauge"></i> Nível: ${q.d}</span>
                         </div>
-                        <h4 class="text-2xl font-bold text-slate-800 mb-8 leading-relaxed text-justify">${q.t}</h4>
+                        <h4 class="text-xl font-bold text-slate-800 mb-6 leading-relaxed">${q.t}</h4>
                         <div class="space-y-4">
                             ${q.o.map((alt, altIndex) => {
                                 const letters = ['A', 'B', 'C', 'D', 'E'];
-                                let optClass = 'bg-slate-50 border-2 border-slate-200 cursor-pointer hover:bg-indigo-50 hover:border-indigo-400 shadow-sm';
+                                let optClass = "bg-slate-50 border-2 border-slate-200 cursor-pointer hover:bg-indigo-50 hover:border-indigo-300";
                                 let iconHtml = letters[altIndex];
-                                let letterClass = 'border-slate-300 text-slate-500 bg-white';
+                                let letterClass = "border-slate-300 text-slate-500 bg-white";
 
-                                // Se já foi respondida e salva no localStorage, pinta o layout corretamenta
-                                if (qAnswered) {
-                                    const isCorrectOpt = (altIndex === q.a);
-                                    const isSelectedOpt = (qAnswered.selected === altIndex);
-                                    optClass = 'locked opacity-40 border-slate-200 bg-slate-50';
-                                    
-                                    if (isCorrectOpt) {
-                                        optClass = 'locked correct-answer bg-emerald-50 border-emerald-600 shadow-md';
+                                if (qAns) {
+                                    optClass = "locked opacity-40 border-slate-200 bg-slate-50";
+                                    if (altIndex === q.a) {
+                                        optClass = "locked correct-answer bg-emerald-50 border-emerald-600 shadow-md";
                                         iconHtml = '<i class="ph-bold ph-check text-2xl"></i>';
-                                        letterClass = 'border-emerald-600 text-emerald-700 bg-emerald-100';
-                                    } else if (isSelectedOpt) {
-                                        optClass = 'locked wrong-answer bg-rose-50 border-rose-600 shadow-md';
+                                        letterClass = "border-emerald-600 text-emerald-700 bg-emerald-100";
+                                    } else if (altIndex === qAns.selected && !qAns.correct) {
+                                        optClass = "locked wrong-answer bg-rose-50 border-rose-600 shadow-md";
                                         iconHtml = '<i class="ph-bold ph-x text-2xl"></i>';
-                                        letterClass = 'border-rose-600 text-rose-700 bg-rose-100';
+                                        letterClass = "border-rose-600 text-rose-700 bg-rose-100";
                                     }
                                 }
 
                                 return `
-                                    <div class="alt-container relative rounded-2xl p-5 flex gap-5 items-center transition-all ${optClass}" id="alt-${qIndex}-${altIndex}" onclick="selectAnswer(${qIndex}, ${altIndex})">
-                                        <div class="flex-grow flex items-center gap-5 pointer-events-none">
-                                            <div class="w-12 h-12 rounded-full border-2 flex items-center justify-center font-black text-lg shrink-0 option-letter shadow-inner ${letterClass}">${iconHtml}</div>
-                                            <span class="text-slate-700 font-semibold text-lg pointer-events-none leading-relaxed">${alt}</span>
+                                    <div class="alt-container relative rounded-xl p-4 flex gap-4 items-center transition-all ${optClass}" id="alt-${qIndex}-${altIndex}" onclick="selectAnswer(${qIndex}, ${altIndex})">
+                                        ${!qAns ? `
+                                        <div class="shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-white border border-slate-300 text-slate-400 hover:bg-slate-100 hover:text-rose-500 z-10 transition-colors tooltip" onclick="toggleStrike(event, this)">
+                                            <i class="ph-bold ph-scissors tesoura-icon text-lg pointer-events-none"></i>
+                                        </div>` : ''}
+                                        <div class="flex-grow flex items-center gap-4 pointer-events-none">
+                                            <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-black shrink-0 option-letter shadow-sm ${letterClass}">${iconHtml}</div>
+                                            <span class="text-slate-700 font-medium text-lg pointer-events-none">${alt}</span>
                                         </div>
                                     </div>
                                 `;
                             }).join('')}
                         </div>
+                        
+                        <div id="expl-${qIndex}" class="${!qAns ? 'hidden' : ''} mt-8 p-6 rounded-2xl border-2 text-slate-700 font-medium bg-slate-50 shadow-inner fade-in ${qAns && qAns.correct ? 'border-emerald-400' : 'border-rose-400'}">
+                            ${qAns ? (qAns.correct ? `<h5 class="text-emerald-700 font-black mb-4 flex items-center gap-2 text-xl"><i class="ph-fill ph-check-circle text-2xl"></i> Análise Exata! Raio-X da Banca:</h5>${q.e.join('<br>')}` : `<h5 class="text-rose-700 font-black mb-4 flex items-center gap-2 text-xl"><i class="ph-fill ph-x-circle text-2xl"></i> Ponto Cego. Raio-X da Banca:</h5>${q.e.join('<br>')}`) : ''}
+                        </div>
+                    </div>
                 `;
-                
-                // Exibe as justificativas se já estiver respondido
-                if (qAnswered) {
-                    const explColor = qAnswered.correct ? 'border-emerald-500 bg-emerald-50' : 'border-rose-500 bg-rose-50';
-                    const explTitle = qAnswered.correct ? 'Precisão Absoluta!' : 'Atenção ao Ponto Cego.';
-                    const explIcon = qAnswered.correct ? 'ph-check-circle text-emerald-600' : 'ph-x-circle text-rose-600';
-                    
-                    let explHtml = '<div class="space-y-4 mt-6 pt-6 border-t border-slate-200">';
-                    q.e.forEach((expText, eIdx) => {
-                        const isAltCorreta = (eIdx === q.a);
-                        const cClass = isAltCorreta ? 'text-emerald-900 bg-emerald-100 border-emerald-300' : 'text-slate-700 bg-white border-slate-200';
-                        const iIcon = isAltCorreta ? 'ph-check-circle text-emerald-600' : 'ph-x-circle text-rose-400';
-                        explHtml += `
-                            <div class="p-4 rounded-xl border ${cClass} text-sm flex gap-4 shadow-sm">
-                                <i class="ph-fill ${iIcon} text-2xl shrink-0 mt-0.5"></i>
-                                <div>
-                                    <div class="font-black mb-1 text-slate-800 text-base">Alternativa ${['A','B','C','D','E'][eIdx]} ${isAltCorreta ? '<span class="text-emerald-600">(GABARITO)</span>' : '<span class="text-rose-600">(INCORRETA)</span>'}</div>
-                                    <div class="font-medium opacity-90 leading-relaxed text-base text-justify">${expText}</div>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    explHtml += '</div>';
-
-                    html += `<div id="expl-${qIndex}" class="mt-10 p-8 rounded-3xl border-l-8 text-slate-700 font-medium shadow-lg fade-in ${explColor}">
-                                <h5 class="font-black mb-4 flex items-center gap-3 text-2xl uppercase tracking-wide"><i class="ph-fill ${explIcon} text-4xl"></i> ${explTitle} Raio-X da Banca:</h5>
-                                ${explHtml}
-                             </div></div>`;
-                } else {
-                    html += `<div id="expl-${qIndex}" class="hidden mt-10 p-8 rounded-3xl border-l-8 text-slate-700 font-medium shadow-lg"></div></div>`;
-                }
             });
 
             container.innerHTML = html;
+        }
+
+        function toggleStrike(e, element) {
+            e.stopPropagation(); 
+            const parent = element.closest('.alt-container');
+            if (parent.classList.contains('locked') || parent.classList.contains('correct-answer')) return;
+            parent.classList.toggle('eliminated');
         }
 
         function selectAnswer(qIndex, altIndex) {
@@ -868,15 +791,13 @@
             answers[qIndex] = { selected: altIndex, correct: isCorrect };
             if(isCorrect) score++;
 
-            // Salva a resposta no Local Storage
             progressState.questoesAcertadas[currentLessonId] = answers;
-            localStorage.setItem('endemia_progress_state', JSON.stringify(progressState));
+            saveState();
 
             question.o.forEach((_, idx) => {
                 const el = document.getElementById(`alt-${qIndex}-${idx}`);
                 el.classList.add('locked');
-                el.classList.remove('hover:bg-indigo-50', 'hover:border-indigo-400', 'cursor-pointer');
-                
+                el.classList.remove('hover:bg-indigo-50', 'hover:border-indigo-300', 'cursor-pointer', 'eliminated');
                 const letterDiv = el.querySelector('.option-letter');
 
                 if (idx === question.a) {
@@ -892,36 +813,25 @@
                     letterDiv.classList.replace('text-slate-500', 'text-rose-700');
                     letterDiv.classList.replace('bg-white', 'bg-rose-100');
                 } else {
-                    el.classList.add('opacity-40', 'bg-slate-50');
+                    el.classList.add('opacity-40');
                 }
             });
 
             const explDiv = document.getElementById(`expl-${qIndex}`);
             explDiv.classList.remove('hidden');
-            
-            let explHtml = '<div class="space-y-4 mt-6 pt-6 border-t border-slate-200">';
-            question.e.forEach((expText, eIdx) => {
-                const isAltCorreta = (eIdx === question.a);
-                const cClass = isAltCorreta ? 'text-emerald-900 bg-emerald-100 border-emerald-300' : 'text-slate-700 bg-white border-slate-200';
-                const iIcon = isAltCorreta ? 'ph-check-circle text-emerald-600' : 'ph-x-circle text-rose-400';
-                explHtml += `
-                    <div class="p-4 rounded-xl border ${cClass} text-sm flex gap-4 shadow-sm">
-                        <i class="ph-fill ${iIcon} text-2xl shrink-0 mt-0.5"></i>
-                        <div>
-                            <div class="font-black mb-1 text-slate-800 text-base">Alternativa ${['A','B','C','D','E'][eIdx]} ${isAltCorreta ? '<span class="text-emerald-600">(GABARITO)</span>' : '<span class="text-rose-600">(INCORRETA)</span>'}</div>
-                            <div class="font-medium opacity-90 leading-relaxed text-base text-justify">${expText}</div>
-                        </div>
-                    </div>
-                `;
+            let explFull = '';
+            question.e.forEach((expText, indexOpt) => {
+               const lts = ['A','B','C','D','E'];
+               let style = indexOpt === question.a ? 'text-emerald-700 font-bold' : 'text-rose-700 font-medium';
+               explFull += `<div class="mb-3 p-3 rounded-lg border border-slate-200 bg-white"><span class="${style}">Alternativa ${lts[indexOpt]}:</span> ${expText}</div>`;
             });
-            explHtml += '</div>';
 
             if (isCorrect) {
-                explDiv.classList.add('border-emerald-500', 'bg-emerald-50', 'fade-in');
-                explDiv.innerHTML = `<h5 class="text-emerald-800 font-black mb-4 flex items-center gap-3 text-2xl uppercase tracking-wide"><i class="ph-fill ph-check-circle text-4xl"></i> Precisão Absoluta! Raio-X da Banca:</h5>${explHtml}`;
+                explDiv.classList.add('border-emerald-400');
+                explDiv.innerHTML = `<h5 class="text-emerald-700 font-black mb-4 flex items-center gap-2 text-xl"><i class="ph-fill ph-check-circle text-2xl"></i> Precisão Absoluta! Raio-X da Banca:</h5>${explFull}`;
             } else {
-                explDiv.classList.add('border-rose-500', 'bg-rose-50', 'fade-in');
-                explDiv.innerHTML = `<h5 class="text-rose-800 font-black mb-4 flex items-center gap-3 text-2xl uppercase tracking-wide"><i class="ph-fill ph-x-circle text-4xl"></i> Atenção ao Ponto Cego. Raio-X da Banca:</h5>${explHtml}`;
+                explDiv.classList.add('border-rose-400');
+                explDiv.innerHTML = `<h5 class="text-rose-700 font-black mb-4 flex items-center gap-2 text-xl"><i class="ph-fill ph-x-circle text-2xl"></i> Ponto Cego. Raio-X da Banca:</h5>${explFull}`;
             }
         }
 
@@ -931,7 +841,7 @@
             
             if (answered < total) {
                 const warContainer = document.getElementById('temp-warning-container');
-                warContainer.innerHTML = `<div class="bg-rose-100 border border-rose-400 text-rose-800 px-6 py-4 rounded-xl font-bold mt-6 inline-flex items-center gap-2 shadow-sm animate-pulse text-lg"><i class="ph-bold ph-warning text-2xl"></i> Faltam ${total - answered} questões. Resolva todas para o diagnóstico.</div>`;
+                warContainer.innerHTML = `<div class="bg-rose-100 border border-rose-400 text-rose-700 px-6 py-4 rounded-xl font-bold mt-6 inline-flex items-center gap-2 shadow-sm animate-pulse"><i class="ph-bold ph-warning text-xl"></i> Faltam ${total - answered} questões para o diagnóstico. Finalize a bateria completa!</div>`;
                 setTimeout(() => warContainer.innerHTML = '', 4000);
                 return;
             }
@@ -942,14 +852,14 @@
             
             const quoteEl = document.getElementById('diag-quote');
             if(perc >= 80) {
-                quoteEl.innerText = `"Desempenho de elite. Você domina este assunto no padrão das maiores bancas do país."`;
-                document.getElementById('diag-percent').className = "text-6xl font-black text-emerald-500";
+                quoteEl.innerText = `"Desempenho espetacular de elite. Você domina este assunto cirurgicamente."`;
+                document.getElementById('diag-percent').className = "text-5xl font-black text-emerald-500";
             } else if (perc >= 50) {
-                quoteEl.innerText = `"Bom aproveitamento, mas exige leitura focada no 'Cofre de Pérolas' para eliminar as pegadinhas."`;
-                document.getElementById('diag-percent').className = "text-6xl font-black text-amber-500";
+                quoteEl.innerText = `"Bom aproveitamento, mas requer revisão atenta nas pegadinhas mapeadas."`;
+                document.getElementById('diag-percent').className = "text-5xl font-black text-amber-500";
             } else {
-                quoteEl.innerText = `"Sinal vermelho. Retorne à teoria e releia as justificativas das alternativas erradas."`;
-                document.getElementById('diag-percent').className = "text-6xl font-black text-rose-500";
+                quoteEl.innerText = `"Sinal de alerta. Volte à teoria e releia as explicações de todas as alternativas erradas."`;
+                document.getElementById('diag-percent').className = "text-5xl font-black text-rose-500";
             }
 
             const modal = document.getElementById('diagnostic-modal');
@@ -961,8 +871,12 @@
             }, 10);
 
             progressState.aulasConcluidas[currentLessonId] = true;
-            localStorage.setItem('endemia_progress_state', JSON.stringify(progressState));
+            saveState();
             renderCronogramaList(); 
+        }
+
+        function saveState() {
+            localStorage.setItem('endemia_progress_state', JSON.stringify(progressState));
         }
 
         function closeDiagnostic() {
@@ -974,6 +888,40 @@
                 modal.classList.remove('flex');
                 switchTab('cronograma');
             }, 300);
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            document.querySelectorAll('.view-section').forEach(view => {
+                view.classList.add('hidden');
+            });
+            
+            const view = document.getElementById(`view-${tabName}`);
+            if (view) {
+                view.classList.remove('hidden');
+            }
+
+            if (tabName === 'cronograma') {
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function initApp() {
+            try {
+                renderRaioX();
+                renderCronogramaList();
+                switchTab('cronograma');
+            } catch (e) {
+                console.error("Erro na inicialização do app:", e);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', initApp);
