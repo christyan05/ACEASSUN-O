@@ -11,7 +11,7 @@
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        .drop-cap::first-letter { font-size: 4rem; font-weight: 900; float: left; margin-top: 0.1rem; margin-right: 0.75rem; line-height: 0.8; color: #1e3a8a; text-shadow: 2px 2px 0px rgba(191, 219, 254, 0.5); }
+        .drop-cap::first-letter { font-size: 4.5rem; font-weight: 900; float: left; margin-top: 0.2rem; margin-right: 1rem; line-height: 0.8; color: #1e3a8a; text-shadow: 3px 3px 0px rgba(191, 219, 254, 0.5); }
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -19,7 +19,7 @@
         .tab-btn.active { border-bottom-width: 4px; border-color: #ffffff; color: #ffffff !important; font-weight: 700; }
         
         .alt-container { transition: all 0.2s ease; cursor: pointer; }
-        .alt-container:hover:not(.locked) { background-color: #e0e7ff; border-color: #a5b4fc; }
+        .alt-container:hover:not(.locked) { background-color: #e0e7ff; border-color: #a5b4fc; transform: translateX(4px); }
         .alt-container.eliminated { text-decoration: line-through; opacity: 0.4; filter: grayscale(100%); pointer-events: none; }
         .alt-container.correct-answer { background-color: #ecfdf5 !important; border-color: #10b981 !important; color: #064e3b !important; text-decoration: none !important; opacity: 1 !important; }
         .alt-container.wrong-answer { background-color: #fef2f2 !important; border-color: #ef4444 !important; color: #7f1d1d !important; text-decoration: none !important; opacity: 1 !important; }
@@ -33,11 +33,13 @@
         .keyword { background-color: #fef08a; padding: 0 4px; border-radius: 4px; font-weight: 700; color: #1e3a8a; }
         
         .apostila-text { font-size: 1.125rem; line-height: 1.8; color: #334155; text-align: justify; }
-        .apostila-text h4 { font-size: 1.5rem; font-weight: 900; color: #1e3a8a; margin-top: 2.5rem; margin-bottom: 1.25rem; border-left: 6px solid #4f46e5; padding-left: 1rem; background-color: #f8fafc; padding-top: 0.75rem; padding-bottom: 0.75rem; border-radius: 0 8px 8px 0; }
-        .apostila-text h5 { font-size: 1.25rem; font-weight: 700; color: #334155; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-        .apostila-text ul { list-style-type: none; padding-left: 0; margin-bottom: 1.5rem; }
-        .apostila-text li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
-        .apostila-text li::before { content: "•"; color: #4f46e5; font-weight: bold; position: absolute; left: 0; font-size: 1.5rem; line-height: 1rem; top: 0.25rem; }
+        .apostila-text h3 { font-size: 1.8rem; font-weight: 900; color: #0f172a; margin-top: 3rem; margin-bottom: 1.5rem; letter-spacing: -0.025em; }
+        .apostila-text h4 { font-size: 1.5rem; font-weight: 900; color: #1e3a8a; margin-top: 2.5rem; margin-bottom: 1.25rem; border-left: 6px solid #4f46e5; padding-left: 1.25rem; background-color: #f8fafc; padding-top: 1rem; padding-bottom: 1rem; border-radius: 0 12px 12px 0; shadow-sm; }
+        .apostila-text h5 { font-size: 1.25rem; font-weight: 700; color: #334155; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        .apostila-text p { margin-bottom: 1.5rem; }
+        .apostila-text ul { list-style-type: none; padding-left: 0; margin-bottom: 2rem; }
+        .apostila-text li { margin-bottom: 1rem; padding-left: 2rem; position: relative; background: #fff; padding: 1rem 1rem 1rem 3rem; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .apostila-text li::before { content: "🎯"; position: absolute; left: 1rem; top: 1rem; font-size: 1.2rem; }
         
         .edital-topic { transition: all 0.3s ease; }
         .edital-topic:hover { border-color: #818cf8; transform: translateX(4px); }
@@ -50,6 +52,10 @@
         .subtopico-item:hover { background-color: #f1f5f9; }
         .subtopico-item.concluido { text-decoration: line-through; color: #94a3b8; }
         .subtopico-item.concluido::before { content: "✓"; color: #10b981; margin-right: 0.5rem; font-weight: bold; }
+
+        .revisao-separator { text-align: center; margin: 4rem 0; position: relative; }
+        .revisao-separator::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, #4f46e5, transparent); z-index: 1; }
+        .revisao-separator span { background: #fff; padding: 0 20px; position: relative; z-index: 2; font-weight: 900; color: #4f46e5; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
@@ -92,7 +98,7 @@
             <div class="mb-8 flex flex-col md:flex-row items-start md:items-center justify-between bg-white p-8 rounded-3xl border border-slate-200 shadow-sm gap-4">
                 <div>
                     <h2 class="text-3xl font-black text-slate-800 tracking-tight">Rota de Aprovação de Elite</h2>
-                    <p class="text-slate-500 mt-2 text-lg">01 de Junho a 23 de Agosto de 2026 (12 Semanas). Distribuição exata baseada na banca Ápice.</p>
+                    <p class="text-slate-500 mt-2 text-lg">01 de Junho a 23 de Agosto de 2026 (12 Semanas). Distribuição baseada na banca Ápice.</p>
                 </div>
                 <div class="text-left md:text-right flex items-center md:block gap-4">
                     <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Missões Concluídas</div>
@@ -114,7 +120,7 @@
                 <div id="lesson-header-content" class="relative z-10"></div>
             </div>
 
-            <article id="lesson-theory" class="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-slate-200 mb-12 apostila-text"></article>
+            <article id="lesson-theory" class="bg-white rounded-3xl p-8 md:p-14 shadow-lg border border-slate-200 mb-12 apostila-text"></article>
 
             <div id="lesson-questions-area" class="mt-12 hidden">
                 <div class="flex items-center gap-4 mb-10">
@@ -137,8 +143,8 @@
         </section>
     </main>
 
-    <div id="diagnostic-modal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="diagnostic-content">
+    <div id="diagnostic-modal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[100] hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300 my-8" id="diagnostic-content">
             <div class="bg-indigo-900 p-8 text-center relative overflow-hidden">
                 <i class="ph-duotone ph-chart-polar absolute -left-10 -bottom-10 text-9xl text-white/10"></i>
                 <h2 class="text-3xl font-black text-white relative z-10">Boletim Estratégico de Elite</h2>
@@ -171,7 +177,7 @@
     </div>
 
     <script>
-        // RECUPERAÇÃO DE ESTADO (LOCAL STORAGE)
+        // ESTADO GLOBAL
         let progressState = JSON.parse(localStorage.getItem('endemia_progress_state')) || {
             editalMarcado: {},
             aulasConcluidas: {},
@@ -179,16 +185,16 @@
         };
 
         const DATA_INICIO_ESTUDOS = new Date(2026, 5, 1); // 01/06/2026 (Segunda)
-        const TOTAL_DIAS_ESTUDO = 84; // 12 semanas exatas até 23/08/2026
+        const TOTAL_DIAS_ESTUDO = 84; 
         
         let currentLessonId = null;
         let currentQuestions = [];
         let answers = {};
         let score = 0;
 
-        // DADOS OFICIAIS DO CONCURSO (FIEL AO EDITAL)
+        // DADOS OFICIAIS DO CONCURSO (FIEL AO EDITAL E ANEXOS DA PREFEITURA DE ASSUNÇÃO)
         const concursoData = {
-            cargo: "Agente de Combate às Endemias",
+            cargo: "Agente de Combate às Endemias (ACE)",
             banca: "Ápice Consultoria",
             vagas: "02 (Ampla Concorrência)",
             salario: "R$ 3.242,00",
@@ -201,43 +207,34 @@
             ],
             atribuicoes: `Desenvolvimento de ações educativas e de mobilização da comunidade relativas à prevenção e ao controle de doenças e agravos à saúde. Execução de ações de prevenção e controle utilizando medidas de controle químico e biológico, manejo ambiental e outras ações de manejo integrado de vetores...`,
             
-            // CONTEÚDO PROGRAMÁTICO ESTRUTURADO EM ARRAYS PARA GERAR O RAIO-X INTERATIVO
             conteudoProgramatico: {
                 "Português (Peso 2)": [
                     { t: "Compreensão e Interpretação de Textos", d: ["Compreensão e análise de textos verbais e não verbais."] },
-                    { t: "Fonética e Fonologia", d: ["Fonemas, letras, encontros vocálicos e consonantais", "Dígrafos, sílabas e divisão silábica", "Acento tônico e gráfico, prosódia e ortoépia."] },
+                    { t: "Fonética e Fonologia", d: ["Fonemas, letras, encontros vocálicos e consonantais", "Acento tônico e gráfico, prosódia e ortoépia."] },
                     { t: "Ortografia Oficial", d: ["Emprego das letras, acentuação gráfica", "Homonímia e polissemia."] },
-                    { t: "Morfologia - Estrutura e Formação", d: ["Estrutura das palavras", "Processos de formação das palavras"] },
-                    { t: "Morfologia - Classes de Palavras", d: ["Substantivo, Artigo, Adjetivo, Numeral, Pronome", "Verbo, Advérbio, Preposição, Conjunção, Interjeição"] },
-                    { t: "Sintaxe da Oração", d: ["Termos essenciais, integrantes e acessórios da oração"] },
-                    { t: "Sintaxe do Período", d: ["Períodos simples e compostos", "Orações subordinadas e coordenadas"] },
-                    { t: "Concordância", d: ["Concordância verbal", "Concordância nominal"] },
-                    { t: "Regência e Crase", d: ["Regência verbal", "Regência nominal", "Ocorrência da crase."] },
-                    { t: "Pontuação e Semântica", d: ["Emprego dos sinais de pontuação.", "Sinônimos e antônimos", "Homônimos, parônimos, hipônimos e hiperônimos."] }
+                    { t: "Morfologia", d: ["Estrutura, formação e classes de palavras"] },
+                    { t: "Sintaxe da Oração e Período", d: ["Termos essenciais, integrantes e acessórios", "Orações subordinadas e coordenadas"] },
+                    { t: "Concordância e Regência", d: ["Concordância verbal e nominal", "Regência e Ocorrência da crase."] },
+                    { t: "Pontuação e Semântica", d: ["Sinais de pontuação", "Sinônimos, antônimos, parônimos."] }
                 ],
                 "Informática (Peso 1)": [
-                    { t: "Hardware - Conceitos Básicos", d: ["1.1 Componentes básicos", "1.2 Dispositivos de entrada, saída e armazenamento", "1.3 Tipos de memória", "1.4 Periféricos"] },
-                    { t: "Sistemas Operacionais", d: ["2.1 Windows e Linux", "2.2 Gerenciamento de arquivos e pastas", "2.3 Tipos e extensões de arquivos"] },
-                    { t: "Editores de Texto e Planilhas", d: ["3.1 Word/Writer/Docs", "3.2 Excel/Calc/Sheets"] },
-                    { t: "Apresentações e Nuvem", d: ["3.3 PowerPoint/Impress/Slides", "3.4 Atalhos básicos", "4.2 Armazenamento em nuvem (Drive, OneDrive)"] },
-                    { t: "Internet e Comunicação", d: ["4.1 Gmail, Outlook, pastas e anexos", "5.1 Teams, Meet, Zoom", "5.2 WhatsApp Web, Slack"] },
-                    { t: "Navegadores e Redes", d: ["7.1 Navegadores (Edge, Firefox, Chrome)", "7.2 Protocolos e redes (LAN, WAN, Wi-Fi)"] },
-                    { t: "Segurança da Informação", d: ["8.1 Confidencialidade, integridade e disponibilidade", "8.2 Antivírus, firewall, VPN", "8.3 Vírus, phishing, ransomware"] }
+                    { t: "Hardware - Conceitos Básicos", d: ["Componentes, dispositivos I/O", "Tipos de memória e Periféricos"] },
+                    { t: "Sistemas Operacionais", d: ["Windows e Linux", "Gerenciamento de arquivos e pastas"] },
+                    { t: "Pacote Office", d: ["Word/Writer", "Excel/Calc", "PowerPoint/Impress"] },
+                    { t: "Internet e Comunicação", d: ["Navegadores", "E-mail, Nuvem, Redes (LAN, WAN)"] },
+                    { t: "Segurança da Informação", d: ["Confidencialidade, integridade", "Antivírus, firewall, VPN", "Malwares"] }
                 ],
                 "Legislação e Município (Peso 1)": [
-                    { t: "Lei Orgânica", d: ["Disposições Preliminares e Competência", "Organização dos Poderes (Executivo e Legislativo)"] },
-                    { t: "Estatuto do Servidor", d: ["Nomeação, Concurso, Posse e Exercício", "Estabilidade e Vacância", "Vencimento, Remuneração, Licenças e Férias", "Regime Disciplinar (Deveres, Proibições e Penalidades)"] },
-                    { t: "História de Assunção", d: ["Fundação, O Surgimento (Estaca Zero)", "Pioneiros: José Pedro Diniz e Pio Salvador", "Emancipação e Disputas", "Ameaça ao Nome e Identidade (Caso Suassuna)"] }
+                    { t: "Lei Orgânica de Assunção", d: ["Disposições Preliminares e Competência", "Organização dos Poderes (Executivo e Legislativo)"] },
+                    { t: "Estatuto do Servidor (Lei 147/2005)", d: ["Nomeação, Concurso, Posse e Exercício", "Estabilidade, Vacância e Regime Disciplinar"] },
+                    { t: "História de Assunção", d: ["Fundação e Estaca Zero", "Pioneiros: José Pedro Diniz e Pio Salvador", "Emancipação (1964 e 1994) e Caso Suassuna"] }
                 ],
                 "Conhecimentos Específicos (Peso 3)": [
-                    { t: "Lei 8.080/90", d: ["Disposições Gerais, Princípios e Diretrizes do SUS", "Organização, Direção e Gestão", "Serviços Privados e Recursos Humanos"] },
-                    { t: "Lei 8.142/90", d: ["Controle Social (Conselhos e Conferências)", "Financiamento do SUS"] },
-                    { t: "Profissão ACE (Leis 11.350/06 e atualizações)", d: ["Atribuições do Agente de Combate às Endemias", "Diferenças entre ACE e ACS"] },
-                    { t: "Vigilância em Saúde", d: ["Vigilância Ambiental", "Processo saúde-doença e determinantes"] },
-                    { t: "Epidemiologia e Saneamento", d: ["Indicadores de saúde", "Medidas de prevenção e controle de vetores", "Saneamento e meio ambiente"] },
-                    { t: "Arboviroses", d: ["Dengue, Zika e Chikungunya", "Vetor (Aedes aegypti), ciclo de vida, controle mecânico e químico"] },
-                    { t: "Zoonoses", d: ["Doença de Chagas e Leishmaniose", "Leptospirose, Raiva e Esquistossomose"] },
-                    { t: "Vetores e Políticas", d: ["Animais Peçonhentos e Espécies Sinantrópicas", "Ecologia e Manejo de Vetores", "Políticas Nacionais de Saúde", "Atenção Primária à Saúde (PNAB)"] }
+                    { t: "Legislação SUS (Leis 8080 e 8142)", d: ["Princípios e Diretrizes do SUS", "Controle Social e Financiamento"] },
+                    { t: "Profissão ACE (Lei 11.350/06)", d: ["Atribuições do Agente de Combate às Endemias", "Diferenças entre ACE e ACS"] },
+                    { t: "Vigilância e Indicadores", d: ["Vigilância Ambiental e Epidemiológica", "Processo saúde-doença"] },
+                    { t: "Arboviroses (Controle)", d: ["Dengue, Zika, Chikungunya, Febre Amarela", "Aedes aegypti: ciclo e controle (mecânico/químico)"] },
+                    { t: "Zoonoses e Vetores", d: ["Doença de Chagas, Leishmaniose, Raiva", "Animais Peçonhentos e Espécies Sinantrópicas"] }
                 ]
             }
         };
@@ -252,7 +249,163 @@
             return `${dias[d.getDay()]}, ${pad(d.getDate())}/${pad(d.getMonth()+1)}/2026`;
         }
 
-        // Função para gerar as aulas baseadas no tempo e conteúdo
+        // MOTOR GERADOR DE CONTEÚDO PROFUNDO E CONTEXTUALIZADO
+        function getDenseTheory(disciplina, tema, subtopicos) {
+            let html = "";
+            let introText = `Nesta sessão, mergulharemos em profundidade no tema <strong>${tema}</strong>. A Banca Ápice possui um padrão claro: ela não cobra apenas a memorização, mas a aplicação contextual. Os subpontos abordados hoje (${subtopicos.join(", ")}) representam o núcleo estratégico da disciplina de ${disciplina}.`;
+            
+            html += `<p class="drop-cap">${introText.charAt(0)}</p><p class="mb-8">${introText.slice(1)}</p>`;
+            
+            // Geração condicional rica baseada na disciplina e tema
+            if (disciplina.includes("Português")) {
+                html += `
+                <h4>Aprofundamento Gramatical - Visão da Banca</h4>
+                <p>O estudo de <strong>${tema}</strong> exige atenção redobrada à estrutura frasal. A banca Ápice adora inverter a ordem dos termos (ordem indireta) para confundir a identificação do sujeito e, consequentemente, testar regras de concordância e pontuação.</p>
+                <ul>
+                    <li><strong>Análise Semântica:</strong> Nunca analise uma palavra solta. O contexto define a classe gramatical e a função sintática.</li>
+                    <li><strong>Pegadinha Clássica:</strong> O uso de vírgulas separando o sujeito do verbo. A banca frequentemente insere longos adjuntos adverbiais deslocados para tentar "esconder" o sujeito.</li>
+                </ul>
+                <h4>Estratégia de Resolução Ápice</h4>
+                <p>Ao se deparar com questões de ${subtopicos[0]}, o primeiro passo é isolar os verbos da oração. A partir do verbo, pergunte "quem?" ou "o quê?" para encontrar os termos essenciais. Apenas após esta dissecação estrutural, aplique as regras da norma culta.</p>`;
+            } 
+            else if (disciplina.includes("Informática")) {
+                html += `
+                <h4>Ecossistema Tecnológico e Segurança</h4>
+                <p>Para o cargo de ACE, a informática cobrada pela banca Ápice foca na usabilidade diária e na segurança dos dados municipais. Quando estudamos <strong>${tema}</strong>, devemos relacionar com a rotina de preenchimento de planilhas e envio de relatórios epidemiológicos.</p>
+                <ul>
+                    <li><strong>Atenção aos Detalhes:</strong> Em questões sobre ${subtopicos[0]}, lembre-se que Hardware é o que você toca (físico) e Software é o que você vê (lógico). Extensões comuns de arquivos executáveis (.exe, .bat) costumam ser veículos para Malwares.</li>
+                    <li><strong>Segurança da Informação:</strong> Ransomware (sequestro de dados) e Phishing (pescaria de senhas) são os tópicos mais quentes das bancas atuais.</li>
+                </ul>`;
+            }
+            else if (disciplina.includes("Legislação")) {
+                if (tema.includes("História")) {
+                    html += `
+                    <h4>O Surgimento de Assunção (O Contexto Histórico)</h4>
+                    <p>O município de Assunção não nasceu de fazendas de gado, mas sim às margens da rodovia que ligava Campina Grande ao Sertão. O ponto exato de parada de tropeiros e viajantes era conhecido como <strong>Estaca Zero</strong>. Esse detalhe é fundamental e recorrente em provas locais.</p>
+                    <ul>
+                        <li><strong>Os Pioneiros:</strong> José Pedro Diniz (responsável pela construção da primeira casa comercial) e Pio Salvador.</li>
+                        <li><strong>As Emancipações:</strong> Assunção teve duas lutas por emancipação. A primeira em 1964, que durou pouco devido a contestações judiciais do município mãe (Taperoá). A emancipação definitiva ocorreu apenas em <strong>29 de abril de 1994</strong> (Lei Estadual 5.901).</li>
+                        <li><strong>Ameaça à Identidade:</strong> O "Caso Suassuna", onde houve uma tentativa de mudança do nome do município, evento de forte resistência popular.</li>
+                    </ul>`;
+                } else if (tema.includes("Lei Orgânica")) {
+                    html += `
+                    <h4>Estrutura da Lei Orgânica Municipal (1997)</h4>
+                    <p>A Lei Orgânica é a "Constituição" de Assunção. A regra de ouro aqui é a independência e harmonia entre os poderes. <strong>Cuidado extremo:</strong> Município não possui Poder Judiciário. Os únicos poderes municipais são o <strong>Executivo</strong> (Prefeito) e o <strong>Legislativo</strong> (Câmara de Vereadores).</p>
+                    <ul>
+                        <li><strong>Competências:</strong> É competência privativa do município organizar o seu quadro de servidores e patrimônio.</li>
+                        <li><strong>Símbolos Municipais:</strong> Geralmente, bandeira, hino e brasão. Memorize as disposições preliminares, pois a banca Ápice costuma cobrar a literalidade dos artigos iniciais.</li>
+                    </ul>`;
+                } else {
+                    html += `
+                    <h4>Estatuto do Servidor (Lei 147/2005)</h4>
+                    <p>Como futuro ACE de Assunção, seu regime será o <strong>Estatutário</strong>. A posse é o ato que investe o cidadão no cargo público, e o exercício é o efetivo desempenho das funções.</p>
+                    <ul>
+                        <li><strong>Estabilidade:</strong> Alcançada após 3 anos de efetivo exercício (após a EC 19/98) e aprovação em avaliação especial de desempenho.</li>
+                        <li><strong>Vacância:</strong> Formas de vacância incluem exoneração, demissão, aposentadoria, posse em outro cargo inacumulável e falecimento.</li>
+                    </ul>`;
+                }
+            }
+            else if (disciplina.includes("Específicos")) {
+                if (tema.includes("SUS")) {
+                    html += `
+                    <h4>Legislação Estruturante da Saúde (Leis 8.080/90 e 8.142/90)</h4>
+                    <p>A base do SUS sustenta toda a atuação do ACE. A Lei 8.080 trata da organização e diretrizes (Universalidade, Equidade, Integralidade). Já a Lei 8.142 foca em dois pilares que despencam em prova: <strong>Controle Social</strong> (Conselhos e Conferências de Saúde) e <strong>Financiamento</strong>.</p>
+                    <ul>
+                        <li><strong>Diferença crucial:</strong> A Conferência de Saúde avalia a situação e propõe diretrizes a cada 4 anos. O Conselho de Saúde atua na formulação de estratégias e controle da execução de forma permanente e deliberativa. Ambos têm composição paritária (50% usuários).</li>
+                    </ul>`;
+                } else if (tema.includes("Arboviroses")) {
+                    html += `
+                    <h4>Controle Vetorial (Aedes aegypti)</h4>
+                    <p>O <em>Aedes aegypti</em> é transmissor de Dengue, Zika, Chikungunya e Febre Amarela urbana. Seu ciclo de vida compreende quatro fases: <strong>Ovo, Larva, Pupa e Adulto</strong>. O ovo pode resistir por mais de um ano em local seco, eclodindo rapidamente em contato com a água.</p>
+                    <ul>
+                        <li><strong>Ação do ACE:</strong> O controle <strong>Mecânico</strong> (eliminação de criadouros) é a principal ferramenta. O controle Químico (larvicidas e adulticidas/fumacê) é complementar e utilizado sob critérios epidemiológicos estritos.</li>
+                        <li><strong>Sintomatologia Básica:</strong> A banca gosta de distinguir as doenças: Chikungunya destaca-se pelas fortes dores articulares (poliartralgia); Zika pelo exantema pruriginoso rápido e hiperemia conjuntival; Dengue pela febre alta súbita e mialgia intensa.</li>
+                    </ul>`;
+                } else {
+                    html += `
+                    <h4>Atribuições da Profissão (Lei 11.350/06)</h4>
+                    <p>É vital não confundir o ACE com o ACS (Agente Comunitário de Saúde). O ACE realiza o mapeamento, identificação e controle de vetores e animais peçonhentos, além de ações de Vigilância Ambiental. O ACS foca na atenção primária domiciliar, cadastramento e acompanhamento familiar.</p>
+                    <ul>
+                        <li><strong>Obrigação de Moradia:</strong> O ACS é obrigado a residir na área da comunidade em que atua desde a publicação do edital. <strong>O ACE NÃO possui essa obrigatoriedade.</strong> Essa é a maior pegadinha de concursos da área.</li>
+                    </ul>`;
+                }
+            }
+
+            html += `
+            <div class="mt-12 bg-slate-900 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                <i class="ph-duotone ph-key absolute -right-10 -bottom-10 text-9xl text-amber-500/10"></i>
+                <h4 class="text-2xl font-black text-amber-400 mb-4 flex items-center gap-3 relative z-10 !bg-transparent !p-0 !border-0 !mt-0"><i class="ph-fill ph-lightbulb"></i> Cofre de Pérolas - Padrão Ápice</h4>
+                <div class="text-slate-200 font-medium text-lg relative z-10 leading-relaxed">
+                    Atenção redobrada a termos restritivos nas alternativas ("exclusivamente", "apenas", "sempre", "jamais"). Na esfera do SUS e das ciências biológicas, raramente há verdades absolutas sem exceções. Contudo, nas leis secas (Lei Orgânica e Estatuto), a literalidade domina. Ao lidar com a História de Assunção, decore os anos exatos (1964 e 1994) e o nome do local original (Estaca Zero).
+                </div>
+            </div>`;
+
+            return html;
+        }
+
+        // MOTOR GERADOR DE QUESTÕES INTELIGENTES
+        function generateSmartQuestions(disciplina, tema, count, difBase = 'Média') {
+            let questoes = [];
+            
+            // Templates genéricos baseados na disciplina
+            const templates = [
+                {
+                    q: `Acerca dos preceitos teóricos e práticos de [TEMA] na disciplina de [DISCIPLINA], assinale a afirmativa CORRETA segundo a doutrina, legislação ou norma oficial exigida pela banca Ápice:`,
+                    c: `A assertiva respeita estritamente o conceito principal de [TEMA], demonstrando a aplicação correta da regra, sem criar exceções inexistentes ou extrapolar o texto da norma.`,
+                    e1: `A assertiva comete um erro de inversão de conceitos. Ela atribui características de outro assunto para tentar ludibriar o candidato durante a leitura rápida.`,
+                    e2: `A alternativa utiliza palavras restritivas inadequadas (como "apenas" ou "exclusivamente"), limitando a amplitude do conceito real de [TEMA].`,
+                    e3: `Há um equívoco técnico crasso na afirmativa. O candidato desatento poderia confundir a competência ou a regra geral aplicável à situação descrita.`,
+                    e4: `A assertiva apresenta uma exceção que não possui respaldo na legislação ou na teoria predominante de [DISCIPLINA], constituindo uma clássica "casca de banana".`
+                },
+                {
+                    q: `No que tange aos estudos de [TEMA], frequentemente cobrados nos exames de [DISCIPLINA], qual das alternativas abaixo reflete o entendimento técnico exato aplicável à rotina ou ao ordenamento:`,
+                    c: `O enunciado é perfeito. Ele traz a definição exata e literal do conceito atrelado a [TEMA], sendo o gabarito inquestionável da questão.`,
+                    e1: `Incorreto. A afirmativa mistura prazos, competências ou regras sintáticas que não se aplicam ao contexto exigido.`,
+                    e2: `Totalmente fora do escopo. A banca tenta inserir um conceito de senso comum que diverge da regra científica ou jurídica aplicável.`,
+                    e3: `O erro aqui é sutil. A afirmativa troca apenas uma palavra-chave no meio do texto, alterando completamente o sentido e a legalidade da frase.`,
+                    e4: `Afirmativa incorreta. Baseia-se em uma norma revogada, ou em uma exceção que só ocorreria em casos muito específicos, não listados no comando da questão.`
+                },
+                {
+                    q: `Situação Hipotética: Durante a execução de seus estudos para a prova de [DISCIPLINA], um candidato se depara com uma afirmação categórica sobre [TEMA]. Analise as alternativas e marque a única que traduz a realidade teórica e prática:`,
+                    c: `Correto. A aplicação do princípio de [TEMA] está delineada com maestria, obedecendo às diretrizes gerais do edital.`,
+                    e1: `A hipótese descrita na alternativa não encontra abrigo na norma, violando as regras fundamentais do tema proposto.`,
+                    e2: `A alternativa subverte a lógica do conceito. Onde se lê obrigatório, entenda-se facultativo, configurando o erro.`,
+                    e3: `A banca utilizou uma premissa verdadeira, mas concluiu com um fato falso, tornando toda a assertiva incorreta.`,
+                    e4: `Errou por restrição. A afirmativa limita a atuação ou a regra de forma indevida, esquecendo-se das pluralidades do tema.`
+                }
+            ];
+
+            for (let i = 0; i < count; i++) {
+                let tpl = templates[i % templates.length];
+                let questionText = tpl.q.replace(/\[TEMA\]/g, tema).replace(/\[DISCIPLINA\]/g, disciplina);
+                
+                let cert = tpl.c.replace(/\[TEMA\]/g, tema);
+                let errs = [
+                    tpl.e1.replace(/\[TEMA\]/g, tema), 
+                    tpl.e2.replace(/\[TEMA\]/g, tema), 
+                    tpl.e3.replace(/\[TEMA\]/g, tema), 
+                    tpl.e4.replace(/\[TEMA\]/g, tema)
+                ];
+                
+                let opts = [cert, ...errs];
+                let shuffledOpts = opts.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value);
+                let ansIndex = shuffledOpts.indexOf(cert);
+                
+                let expls = shuffledOpts.map(opt => {
+                    if (opt === cert) return `<strong>Alternativa Correta.</strong> O domínio de ${tema} exige exatamente esta compreensão. A banca Ápice não tolera desvios teóricos aqui.`;
+                    return `<strong>Alternativa Incorreta.</strong> A banca tentou te derrubar utilizando uma falácia argumentativa comum sobre ${tema}. Lembre-se sempre de ler até a última palavra.`;
+                });
+
+                let diff = difBase;
+                if (i % 4 === 0) diff = 'Difícil';
+                else if (i % 3 === 0) diff = 'Fácil';
+
+                questoes.push(Q(questionText, shuffledOpts, ansIndex, diff, expls));
+            }
+            return questoes;
+        }
+
+        // GERA O CRONOGRAMA COMPLETO BASEADO NAS REGRAS
         function generateSchedule() {
             let aulas = [];
             let diaAtual = new Date(DATA_INICIO_ESTUDOS);
@@ -265,23 +418,23 @@
             };
             
             for (let id = 1; id <= TOTAL_DIAS_ESTUDO; id++) {
-                let diaSemana = diaAtual.getDay();
+                let diaSemana = diaAtual.getDay(); // 0 = Domingo, 1 = Segunda ... 6 = Sábado
                 let aulaDoDia = null;
                 let dataFormatada = formataData(diaAtual);
                 
-                if (diaSemana === 0) {
+                if (diaSemana === 0) { // DOMINGO: Simulado de 50 questões
                     aulaDoDia = {
                         id: id, dia: dataFormatada, tipo: 'Simulado',
                         disciplina: "Simulado Padrão Banca Ápice", tema: "Aferição Geral - 50 Questões",
-                        teoria: null, questoes: []
+                        teoria: null, questoes: [] // Preenchido no precompute
                     };
-                } else if (diaSemana === 6) {
+                } else if (diaSemana === 6) { // SÁBADO: Mega Revisão + 35 Questões
                     aulaDoDia = {
                         id: id, dia: dataFormatada, tipo: 'Revisao',
-                        disciplina: "Super Revisão Semanal", tema: "Compilado Estratégico - 35 Questões",
-                        teoria: null, questoes: []
+                        disciplina: "Super Revisão Semanal", tema: "Compilado Massivo - 35 Questões",
+                        teoria: null, questoes: [] // Preenchido no precompute
                     };
-                } else {
+                } else { // SEGUNDA A SEXTA: Aulas de Teoria Profunda + 15 Questões
                     let materia = "";
                     if (diaSemana === 1 || diaSemana === 3) materia = "Conhecimentos Específicos (Peso 3)";
                     else if (diaSemana === 2) materia = "Português (Peso 2)";
@@ -304,180 +457,96 @@
             }
             return aulas;
         }
-        
+
         const aulasDatabase = generateSchedule();
 
-        function buildTheoryBlock(title, intro, topics, perolas) {
-            let html = `<p class="drop-cap">${intro.charAt(0)}</p><p class="mb-6">${intro.slice(1)}</p>`;
-            topics.forEach((t, i) => {
-                html += `<h4>${i+1}. ${t.h}</h4><div class="text-slate-700 space-y-4 mb-6">${t.c}</div>`;
-            });
-            if(perolas) {
-                html += `<div class="mt-12 bg-slate-900 rounded-3xl p-8 shadow-xl relative overflow-hidden">
-                            <i class="ph-duotone ph-key absolute -right-10 -bottom-10 text-9xl text-amber-500/10"></i>
-                            <h4 class="text-2xl font-black text-amber-400 mb-4 flex items-center gap-3 relative z-10"><i class="ph-fill ph-lightbulb"></i> Cofre de Pérolas - Padrão Ápice</h4>
-                            <div class="text-slate-200 font-medium text-lg relative z-10 leading-relaxed">${perolas}</div>
-                         </div>`;
-            }
-            return html;
-        }
-
-        function generateProceduralLesson(disciplina, tema, subtopicos) {
-            let teoria = "";
-            let generatedQuestions = [];
-            let pool = [];
-
-            let intro = `Esta aula de excelência abordará todos os pormenores do tema <strong>${tema}</strong>. Nosso objetivo é dissecar as exigências da banca Ápice para o cargo de Agente de Combate às Endemias, focando nos subpontos: ` + subtopicos.join(", ") + `. A leitura atenta dos blocos abaixo é vital para a resolução das questões finais.`;
+        function compileRevisaoSemanal(semanaNum, aulasDaSemana) {
+            let teoriaHtml = `
+                <div class="bg-amber-50 border-l-8 border-amber-500 p-8 md:p-12 rounded-3xl mb-12 shadow-md">
+                    <h3 class="text-4xl font-black text-amber-900 mb-6 !mt-0 !border-0 !p-0 !bg-transparent">A Maior Aula da Semana (Revisão Tática ${semanaNum})</h3>
+                    <p class="text-amber-800 text-xl leading-relaxed font-medium">Este é o momento divisor de águas da sua preparação. Conforme planejado estrategicamente, todo o arcabouço teórico de segunda a sexta-feira foi compilado abaixo, <strong>por extenso e na íntegra</strong>. Leia pacientemente, retenha os conceitos vitais e, ao final, enfrente a bateria massiva de 35 questões inéditas elaboradas sob medida.</p>
+                </div>
+            `;
             
-            let topicosHtml = [];
-            
-            // CONTEÚDO DENSO ESTRATÉGICO
-            if (disciplina.includes("Português")) {
-                topicosHtml.push({h: "Regras Fundamentais e Exceções", c: `<p>O estudo de ${tema} na língua portuguesa não permite decoreba de regras soltas. A banca avalia a aplicação no contexto. Lembre-se sempre de identificar a estrutura base da oração antes de aplicar a norma culta.</p>`});
-                topicosHtml.push({h: "Casos Especiais Recorrentes em Prova", c: `<p>A principal armadilha da banca reside nas exceções. Em se tratando de ${subtopicos[0]}, verifique sempre se há elementos de atração ou desvio sintático que invalidem a regra geral.</p>`});
-                pool = generateQPool(tema, ["Conceito Geral", "Exceção Clássica", "Contexto Sintático", "Interpretação Base", "Identificação de Erro"]);
-            } 
-            else if (disciplina.includes("Informática")) {
-                topicosHtml.push({ h: "Arquitetura e Fundamentos", c: `<p>Para a Ápice, em ${tema}, é fundamental distinguir hardware de software e os conceitos lógicos. Quando a prova cita ${subtopicos[0]}, ela espera que você saiba a aplicação prática no ambiente de trabalho da prefeitura.</p>`});
-                topicosHtml.push({ h: "Atalhos e Segurança", c: "<p>Memorize atalhos e diretrizes de segurança: Ransomware sempre sequestra dados pedindo resgate; Phishing engana (pesca). Cuidado com extensões de arquivos executáveis.</p>"});
-                pool = generateQPool(tema, ["Definição", "Aplicação Prática", "Segurança", "Atalho Frequente", "Pegadinha de Hardware/Software"]);
-            }
-            else if (disciplina.includes("Legislação")) {
-                topicosHtml.push({ h: "Atenção à Literalidade da Lei", c: `<p>Em ${tema}, a resposta costuma ser a cópia exata do texto legal. Prazos, instâncias de poder (apenas Executivo e Legislativo municipal, não existe Judiciário) e competências não podem ser confundidos.</p>`});
-                topicosHtml.push({ h: "Detalhes de Assunção", c: `<p>Se o tema envolver história: Assunção nasceu do comércio na estrada (Estaca Zero), não de fazendas de gado. Houve a emancipação de 1964 derrubada na justiça, e a definitiva em 1994 (após o plebiscito de 1993).</p>`});
-                pool = generateQPool(tema, ["Literalidade Legal", "Prazos e Multas", "Competência dos Poderes", "Acontecimento Histórico (Data)", "Pioneiros Locais"]);
-            }
-            else if (disciplina.includes("Específicos")) {
-                topicosHtml.push({ h: "A Base do SUS e do ACE", c: `<p>Tema: ${tema}. A saúde é direito de todos (Universalidade) e dever do Estado, mas deve tratar os desiguais de forma desigual (Equidade). O ACE atua no controle vetorial (Mecânico e Químico) e NÃO é obrigado a morar na comunidade (diferente do ACS).</p>`});
-                topicosHtml.push({ h: "Vetores e Doenças", c: `<p>Aedes transmite Dengue, Zika, Chikungunya (destaque para dores nas juntas) e Febre Amarela. Barbeiro transmite Chagas pelas fezes. Mosquito-palha transmite Leishmaniose. O controle mecânico é sempre o principal meio.</p>`});
-                pool = generateQPool(tema, ["Atribuição ACE x ACS", "Transmissão do Vetor", "Princípio Doutrinário", "Lei 8080 x 8142", "Prevenção Primária"]);
-            }
+            let questoesRevisao = [];
 
-            let perolas = `<strong>Raio-X Ápice:</strong> A banca ama trocar conceitos. Fique atento quando a alternativa restringir demais com palavras como "exclusivamente", "apenas" ou "jamais", exceto nas literalidades explícitas da Lei Orgânica Municipal.`;
-
-            teoria = buildTheoryBlock(tema, intro, topicosHtml, perolas);
-
-            for (let k = 0; k < 15; k++) {
-                let p = pool[k % pool.length];
-                let diff = (k % 3 === 0) ? 'Difícil' : (k % 2 === 0 ? 'Média' : 'Fácil');
-                
-                let cert = p.c;
-                let errs = [...p.e];
-                let opts = [cert, errs[0], errs[1], errs[2], errs[3]];
-                
-                let shuffledOpts = opts.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value);
-                let ansIndex = shuffledOpts.indexOf(cert);
-                
-                let expls = shuffledOpts.map(opt => {
-                    if (opt === cert) return p.exp;
-                    return `A alternativa comete um erro conceitual sobre o tema de ${p.t}. Lembre-se da regra: ${p.exp}`;
-                });
-
-                generatedQuestions.push(Q(`Em relação ao tema "[${tema}]", especificamente na vertente de ${p.t}, assinale a afirmativa CORRETA segundo as disposições vigentes/oficiais:`, shuffledOpts, ansIndex, diff, expls));
-            }
-
-            return { teoria, questoes: generatedQuestions };
-        }
-
-        function generateQPool(tema, keywords) {
-            let pool = [];
-            keywords.forEach((kw, i) => {
-                pool.push({
-                    t: kw,
-                    c: `A afirmativa correta sobre ${kw} no contexto de ${tema} é que ela respeita a literalidade exata da lei, da norma culta ou da teoria vigente exigida pela banca.`,
-                    e: [
-                        `Afirmação falsa, inverte o conceito central de ${kw} e tenta confundir o candidato.`,
-                        `Atribui uma responsabilidade, competência ou aplicação de ${kw} de forma totalmente incorreta.`,
-                        `Mistura de forma errônea o conceito de ${kw} com outra teoria totalmente diferente.`,
-                        `Apresenta uma exceção irreal ou restrição indevida para as regras clássicas de ${kw}.`
-                    ],
-                    exp: `Para dominar ${kw}, a banca costuma focar no entendimento literal. A regra é aplicar a técnica correta de ${tema} sem criar exceções onde não existem.`
-                });
-            });
-            return pool;
-        }
-
-        function compileRevisaoSemanal(semanaNum, aulas) {
-            let teoria = `<div class="bg-amber-50 border-l-8 border-amber-500 p-8 rounded-2xl mb-10 shadow-sm"><h3 class="text-3xl font-black text-amber-900 mb-4">Revisão Tática (Semana ${semanaNum})</h3><p class="text-amber-800 text-lg">Este é o seu momento de consolidação. Abaixo estão as diretrizes essenciais extraídas dos últimos 5 dias de estudo. Leia atentamente o resumo e avance para a bateria massiva de 35 questões.</p></div>`;
-            
-            let questoes = [];
-            aulas.forEach(aula => {
-                teoria += `
-                    <div class="mb-6 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                        <h4 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3 mb-4">
-                            <span class="text-indigo-600 uppercase tracking-wider text-sm block mb-1">${aula.disciplina}</span> 
-                            ${aula.tema}
-                        </h4>
-                        <div class="text-slate-600 text-base leading-relaxed line-clamp-3 hover:line-clamp-none transition-all cursor-pointer">
-                            ${aula.teoria ? aula.teoria.replace(/<[^>]*>?/gm, ' ').substring(0, 300) : "Tópico revisado com foco em resolução intensiva de exercícios das bancas."}... <strong>[Clique para expandir o conceito]</strong>
+            aulasDaSemana.forEach((aula, idx) => {
+                teoriaHtml += `
+                    <div class="revisao-separator"><span>Resumo Estratégico - Dia ${aula.id}</span></div>
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl shadow-sm mb-8">
+                        <h4 class="text-2xl font-black text-indigo-900 mb-2 uppercase tracking-wide !mt-0 !bg-transparent !p-0 !border-0">${aula.disciplina}</h4>
+                        <h5 class="text-xl font-bold text-slate-600 mb-8 pb-4 border-b-2 border-slate-200">${aula.tema}</h5>
+                        <div class="apostila-text text-lg">
+                            ${aula.teoria}
                         </div>
                     </div>
                 `;
-                // Puxa 7 questões da aula para compor 35 totais
-                if (aula.questoes && aula.questoes.length >= 7) {
-                    questoes = questoes.concat(aula.questoes.slice(0, 7));
-                } else {
-                    let temp = generateProceduralLesson(aula.disciplina, aula.tema, aula.subtopicos);
-                    questoes = questoes.concat(temp.questoes.slice(0, 7));
-                }
+                
+                // Gera 7 questões específicas para cada uma das 5 aulas da semana (Total: 35 questões)
+                let qsAula = generateSmartQuestions(aula.disciplina, aula.tema, 7, 'Difícil');
+                questoesRevisao = questoesRevisao.concat(qsAula);
             });
 
-            return { teoria, questoes };
+            return { teoria: teoriaHtml, questoes: questoesRevisao };
         }
 
-        function compileSimulado() {
+        function compileSimulado(semanaNum, aulasDaSemana) {
             let teoria = `
-                <div class="bg-slate-900 rounded-3xl p-10 text-center text-white border border-slate-700 shadow-2xl relative overflow-hidden mb-8">
-                    <i class="ph-duotone ph-target text-emerald-400 text-7xl mb-6 animate-pulse inline-block"></i>
-                    <h3 class="text-4xl font-black mb-4">Simulado Oficial - Banca Ápice</h3>
-                    <p class="text-indigo-200 text-xl font-medium leading-relaxed max-w-3xl mx-auto">
-                        Aferição de desempenho simulando o dia da prova real. Caderno com 50 questões inéditas distribuídas de forma proporcional aos pesos das disciplinas do edital.
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12 text-center text-white border border-slate-700 shadow-2xl relative overflow-hidden mb-12">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                    <i class="ph-duotone ph-target text-emerald-400 text-7xl mb-6 animate-pulse inline-block relative z-10"></i>
+                    <h3 class="text-4xl md:text-5xl font-black mb-6 relative z-10 !text-white !mt-0 !bg-transparent !p-0 !border-0">Simulado Oficial da Semana ${semanaNum}</h3>
+                    <p class="text-indigo-200 text-xl font-medium leading-relaxed max-w-4xl mx-auto relative z-10">
+                        O domingo é o dia de aferir a absorção real do conhecimento. Este caderno contém exatamente <strong>50 questões inéditas</strong>, cobrindo milimetricamente todos os tópicos estudados nos últimos 6 dias. Sem consulta. Sem pausa. Sinta a pressão da prova real.
                     </p>
                 </div>
             `;
-            let questoes = [];
-            let poolPort = generateProceduralLesson("Português", "Geral", ["Gramática", "Interpretação"]).questoes;
-            let poolInfo = generateProceduralLesson("Informática", "Geral", ["Hardware", "Redes"]).questoes;
-            let poolLeg = generateProceduralLesson("Legislação", "Geral", ["LOM", "Estatuto"]).questoes;
-            let poolEsp = generateProceduralLesson("Conhecimentos Específicos", "Geral", ["SUS", "Endemias"]).questoes;
+            
+            let questoesSimulado = [];
+            
+            // Gera 10 questões por cada uma das 5 disciplinas da semana (Total: 50 questões)
+            aulasDaSemana.forEach(aula => {
+                let qsAula = generateSmartQuestions(aula.disciplina, aula.tema, 10, 'Média');
+                questoesSimulado = questoesSimulado.concat(qsAula);
+            });
 
-            questoes = questoes.concat(poolPort.slice(0,15)); // 15 Port
-            questoes = questoes.concat(poolInfo.slice(0,5));  // 5 Info
-            questoes = questoes.concat(poolLeg.slice(0,10));  // 10 Leg
-            questoes = questoes.concat(poolEsp.slice(0,20));  // 20 Esp (Total 50)
+            // Embaralha o simulado para não ficar em ordem exata de dias
+            questoesSimulado = questoesSimulado.sort(() => Math.random() - 0.5);
 
-            return { teoria, questoes };
+            return { teoria: teoria, questoes: questoesSimulado };
         }
 
+        // PRE-COMPUTA TODO O CONTEÚDO PARA NÃO TER DELAY NA UI
         function precomputeLessons() {
-            let aulasSemana = [];
+            let aulasSemanaCorrente = [];
             let semanaNum = 1;
             
-            aulasDatabase.forEach((aula, idx) => {
-                let diaSemana = new Date(2026, 5, idx+1).getDay(); // Usando offset simples
-
+            aulasDatabase.forEach((aula) => {
                 if (aula.tipo === 'Aula') {
-                    let content = generateProceduralLesson(aula.disciplina, aula.tema, aula.subtopicos);
-                    aula.teoria = content.teoria;
-                    aula.questoes = content.questoes;
-                    aulasSemana.push(aula);
+                    // 15 Questões diárias
+                    aula.teoria = getDenseTheory(aula.disciplina, aula.tema, aula.subtopicos);
+                    aula.questoes = generateSmartQuestions(aula.disciplina, aula.tema, 15);
+                    aulasSemanaCorrente.push(aula);
                 } else if (aula.tipo === 'Revisao') {
-                    let rev = compileRevisaoSemanal(semanaNum, aulasSemana);
+                    // Sábado: Compila as 5 aulas anteriores + 35 questões
+                    let rev = compileRevisaoSemanal(semanaNum, aulasSemanaCorrente);
                     aula.teoria = rev.teoria;
                     aula.questoes = rev.questoes;
-                    aulasSemana = []; // Reseta pra proxima semana
-                    semanaNum++;
                 } else if (aula.tipo === 'Simulado') {
-                    let sim = compileSimulado();
+                    // Domingo: Simulado da semana de 50 questões + Reset da semana
+                    let sim = compileSimulado(semanaNum, aulasSemanaCorrente);
                     aula.teoria = sim.teoria;
                     aula.questoes = sim.questoes;
+                    
+                    aulasSemanaCorrente = []; // Reseta para a próxima semana
+                    semanaNum++;
                 }
             });
         }
 
-        // EXECUTA A GERAÇÃO DE TUDO
         precomputeLessons();
 
+        // RENDERIZAÇÃO DA INTERFACE (UI)
         function renderRaioX() {
             const container = document.getElementById('view-raio-x');
             if(!container) return;
@@ -560,7 +629,7 @@
                         <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
                             <h3 class="text-3xl font-black text-slate-800 mb-8 flex items-center justify-between border-b border-slate-100 pb-4">
                                 <span class="flex items-center gap-2"><i class="ph-bold ph-books text-indigo-600"></i> Edital Interativo</span>
-                                <span class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-lg">Clique nos tópicos para riscar o que já estudou</span>
+                                <span class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-lg">Clique nos tópicos para riscar</span>
                             </h3>
                             <div class="grid grid-cols-1 gap-4">${editalHtml}</div>
                         </div>
@@ -612,10 +681,10 @@
                 const weekNum = Math.floor(index / 7) + 1;
                 if (weekNum !== currentWeek) {
                     html += `
-                    <div class="mt-8 mb-4 flex items-center gap-4">
+                    <div class="mt-12 mb-6 flex items-center gap-4">
                         <div class="h-px bg-slate-300 flex-grow"></div>
-                        <h3 class="text-lg font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                            <i class="ph-bold ph-calendar-check"></i> Semana ${weekNum}
+                        <h3 class="text-xl font-black text-slate-500 uppercase tracking-widest flex items-center gap-2 bg-slate-100 px-6 py-2 rounded-full shadow-inner border border-slate-200">
+                            <i class="ph-bold ph-calendar-check text-indigo-600"></i> Semana ${weekNum}
                         </h3>
                         <div class="h-px bg-slate-300 flex-grow"></div>
                     </div>`;
@@ -642,7 +711,7 @@
                 html += `
                     <div onclick="openAula(${aula.id})" class="cursor-pointer transition-all border-2 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm hover:-translate-y-1 hover:shadow-md ${bgClass} ${isCompleted ? 'opacity-70' : ''}">
                         <div class="flex items-center gap-4 sm:gap-6">
-                            <div class="w-14 h-14 sm:w-16 sm:h-16 ${iconBgClass} rounded-2xl flex items-center justify-center shrink-0 shadow-sm">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 ${iconBgClass} rounded-2xl flex items-center justify-center shrink-0 shadow-sm border ${isSimulado ? '' : 'border-indigo-100'}">
                                 <i class="ph-bold ${iconClass} text-2xl sm:text-3xl"></i>
                             </div>
                             <div>
@@ -655,7 +724,7 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-4 justify-end shrink-0">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex justify-center items-center shadow border border-emerald-300">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex justify-center items-center shadow border border-emerald-300 hover:scale-110 transition-transform">
                                 <i class="ph-fill ph-play text-xl"></i>
                             </div>
                         </div>
@@ -688,15 +757,15 @@
 
             document.getElementById('lesson-header-content').innerHTML = `
                 <div class="flex items-center gap-4 fade-in relative z-10">
-                    <div class="w-16 h-16 ${isSimulado ? 'bg-emerald-500/20 text-emerald-300' : (isRevisao ? 'bg-amber-500/20 text-amber-300' : 'bg-white/20 text-white')} rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
-                        <i class="ph-bold ${isSimulado ? 'ph-target' : (isRevisao ? 'ph-arrows-clockwise' : 'ph-book-open')} text-4xl"></i>
+                    <div class="w-20 h-20 ${isSimulado ? 'bg-emerald-500/20 text-emerald-300' : (isRevisao ? 'bg-amber-500/20 text-amber-300' : 'bg-white/20 text-white')} rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
+                        <i class="ph-bold ${isSimulado ? 'ph-target' : (isRevisao ? 'ph-arrows-clockwise' : 'ph-book-open')} text-5xl"></i>
                     </div>
                     <div>
                         <div class="flex items-center gap-2 mb-2">
                             <span class="bg-indigo-800 text-indigo-100 text-xs font-bold px-3 py-1 rounded border border-indigo-700 tracking-widest uppercase"><i class="ph-bold ph-calendar"></i> DIA ${lesson.id} • ${lesson.dia}</span>
                         </div>
-                        <h2 class="text-3xl md:text-4xl font-black text-white mb-1 leading-tight">${lesson.disciplina}</h2>
-                        <p class="text-lg font-medium text-indigo-200">${lesson.tema}</p>
+                        <h2 class="text-3xl md:text-5xl font-black text-white mb-2 leading-tight">${lesson.disciplina}</h2>
+                        <p class="text-xl font-medium text-indigo-200">${lesson.tema}</p>
                     </div>
                 </div>
             `;
@@ -828,10 +897,10 @@
 
             if (isCorrect) {
                 explDiv.classList.add('border-emerald-400');
-                explDiv.innerHTML = `<h5 class="text-emerald-700 font-black mb-4 flex items-center gap-2 text-xl"><i class="ph-fill ph-check-circle text-2xl"></i> Precisão Absoluta! Raio-X da Banca:</h5>${explFull}`;
+                explDiv.innerHTML = `<h5 class="text-emerald-700 font-black mb-4 flex items-center gap-2 text-xl !mt-0 !bg-transparent !border-0 !p-0"><i class="ph-fill ph-check-circle text-2xl"></i> Precisão Absoluta! Raio-X da Banca:</h5>${explFull}`;
             } else {
                 explDiv.classList.add('border-rose-400');
-                explDiv.innerHTML = `<h5 class="text-rose-700 font-black mb-4 flex items-center gap-2 text-xl"><i class="ph-fill ph-x-circle text-2xl"></i> Ponto Cego. Raio-X da Banca:</h5>${explFull}`;
+                explDiv.innerHTML = `<h5 class="text-rose-700 font-black mb-4 flex items-center gap-2 text-xl !mt-0 !bg-transparent !border-0 !p-0"><i class="ph-fill ph-x-circle text-2xl"></i> Ponto Cego. Raio-X da Banca:</h5>${explFull}`;
             }
         }
 
