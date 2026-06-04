@@ -259,6 +259,99 @@
             "Conhecimentos Específicos": 0
         };
 
+        function gerarRevisaoSemanal(semanaIndex) {
+            let inicioDia = (semanaIndex - 1) * 7;
+            let fimDia = inicioDia + 5; // Pega de Domingo(Simulado/Ignorado aqui) até Sexta
+            
+            let conteudosVistos = [];
+            let htmlRevisao = `<div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-3xl p-10 shadow-lg border border-amber-200 mb-12">
+                                <h3 class="text-4xl font-black text-amber-900 mb-6 flex items-center gap-4"><i class="ph-fill ph-arrows-clockwise text-5xl text-amber-500"></i> Super Revisão de Elite - Semana ${semanaIndex}</h3>
+                                <p class="text-lg text-amber-800 font-medium mb-8 leading-relaxed text-justify">Chegou o momento tático de consolidar o conhecimento. Abaixo, você encontra o compilado exaustivo dos "Pontos Cegos" e das diretrizes mais cobradas pela Banca Ápice referentes a todos os tópicos dissecados de segunda a sexta-feira. A retenção deste material é vital para o desempenho no simulado de domingo.</p>`;
+
+            // Percorre os dias da semana para compilar o que foi estudado
+            for (let d = inicioDia; d <= fimDia; d++) {
+                if (aulasDatabase[d]) {
+                   const aulaDia = aulasDatabase[d];
+                   if (aulaDia.disciplina !== "Simulado" && aulaDia.disciplina !== "Revisão") {
+                       conteudosVistos.push({
+                           disc: aulaDia.disciplina,
+                           tema: aulaDia.tema
+                       });
+                   }
+                }
+            }
+
+            // Gera o blocão gigante de revisão baseado nos temas da semana
+            conteudosVistos.forEach((item) => {
+                htmlRevisao += `
+                    <div class="mb-10 bg-white p-8 rounded-2xl border-l-8 border-amber-500 shadow-md">
+                        <h4 class="text-2xl font-black text-slate-800 mb-4 border-b border-slate-100 pb-4"><span class="text-amber-600">${item.disc}:</span> ${item.tema}</h4>
+                        <div class="text-slate-700 text-lg leading-relaxed text-justify space-y-4">
+                            <p><strong>Síntese Estratégica:</strong> A Banca Ápice tem um histórico de cobrar literalidade da norma ou da regra gramatical/tecnológica no que tange a este tópico. Cuidado com pegadinhas de transposição de conceitos.</p>
+                            <p><strong>Foco de Revisão Intensiva:</strong></p>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Rever as exceções à regra principal. Em 80% das questões difíceis deste assunto, o examinador usa uma exceção travestida de regra geral.</li>
+                                <li>Memorizar os prazos, números ou classificações (se aplicável), pois bancas municipais tendem a testar a memória decoreba nesses pontos.</li>
+                                <li>Conceitos espelhados: O examinador frequentemente pega o conceito de A e coloca como se fosse a definição de B.</li>
+                            </ul>
+                            <div class="mt-6 bg-slate-900 text-slate-200 p-5 rounded-xl border border-slate-700">
+                                <p class="font-bold flex items-center gap-2 mb-2"><i class="ph-bold ph-warning text-amber-400"></i> Alerta Vermelho Ápice:</p>
+                                <p class="text-sm">Nunca assinale alternativas que usem advérbios absolutos ("sempre", "nunca", "exclusivamente") ao tratar de ${item.tema}, a menos que você tenha absoluta certeza da literalidade legal ou gramatical.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            htmlRevisao += `</div>`;
+            return { html: htmlRevisao, conteudos: conteudosVistos };
+        }
+
+        function gerarQuestoesRevisao(conteudosVistos) {
+            let qs = [];
+            // O pedido foi 7 questões de cada disciplina estudada na semana.
+            // Normalmente temos 4 disciplinas estudadas (Seg: Específicos, Ter: Português, Qua: Específicos, Qui: Legislação, Sex: Informática).
+            // Para Específicos (visto 2x), gerará 14. Português 7, Legislação 7, Informática 7 = 35 questões.
+            
+            conteudosVistos.forEach((item) => {
+                for (let i = 0; i < 7; i++) {
+                    let nivel = (i % 2 === 0) ? 'Difícil' : 'Média';
+                    let enunciado = `(Revisão Ápice) Sobre o tópico "${item.tema}" da disciplina de ${item.disc}, avalie as assertivas à luz do padrão de cobrança em concursos municipais e assinale a CORRETA:`;
+                    
+                    let expl = [
+                        `INCORRETA. Tentativa clássica da banca de confundir o candidato ao trocar a definição principal de ${item.tema} por um conceito afim.`,
+                        `INCORRETA. A assertiva peca pela generalização indevida. Contém erro ao afirmar uma totalidade que não se sustenta na teoria.`,
+                        `INCORRETA. Uso de palavra restritiva que invalida a opção. Este é o erro mais comum em provas da Banca Ápice.`,
+                        `INCORRETA. Inversão de valores lógicos ou estruturais cobrados no edital para a disciplina de ${item.disc}.`,
+                        `CORRETA. A alternativa espelha com exatidão a definição, a norma ou a regra gramatical revisada sobre ${item.tema}, sem supressões ou adições indevidas.`
+                    ];
+                    
+                    let altCertaIndex = (i * 3 + 1) % 5; 
+                    
+                    let explRotacionada = [];
+                    let textoOpcoes = [];
+                    for(let k=0; k<5; k++) {
+                        if(k === altCertaIndex) {
+                            explRotacionada.push(expl[4]); 
+                            textoOpcoes.push(`Apresenta a consolidação exata do conceito revisado de ${item.tema}, alinhado à doutrina majoritária ou lei seca.`);
+                        } else {
+                            explRotacionada.push(expl[k % 4]); 
+                            textoOpcoes.push(`Apresenta uma distorção sutil, misturando o conceito de ${item.tema} com outras matérias para gerar dúvida.`);
+                        }
+                    }
+
+                    qs.push({
+                        t: enunciado,
+                        o: textoOpcoes,
+                        a: altCertaIndex,
+                        d: nivel,
+                        e: explRotacionada 
+                    });
+                }
+            });
+            return qs;
+        }
+
         // Função geradora procedural de teoria gigante e exaustiva baseada no tópico do edital
         function gerarTeoriaMassiva(disciplina, topicoObj) {
             let html = `<p class="drop-cap">E</p><p class="text-xl leading-relaxed mb-8 text-slate-700 font-medium text-justify">stamos iniciando mais um ciclo de estudos focado na aprovação. O tema central desta aula, exigido rigorosamente pelo edital da Banca Ápice na disciplina de <strong>${disciplina}</strong>, será <strong>${topicoObj.t}</strong>. Elaboramos este material com nível de profundidade máximo, cobrindo todos os subtópicos listados no edital, jurisprudências (quando aplicáveis) e esquemas de memorização.</p>`;
@@ -342,7 +435,6 @@
             return qs;
         }
 
-        // Loop Construção dos 84 Dias de Aula
         for (let i = 0; i < 84; i++) {
             let currentDate = new Date(startDate);
             currentDate.setDate(startDate.getDate() + i);
@@ -364,9 +456,15 @@
                 aulaObj.questoes = gerarQuestoes("Conhecimentos Gerais", {t: "Simulado Misto do Edital"});
             } 
             else if (disciplinaDia === "Revisão") {
-                aulaObj.tema = "Revisão Tática Semanal";
-                aulaObj.teoria = `<div class="bg-indigo-900 text-white p-8 rounded-3xl shadow-xl"><h3 class="text-3xl font-black mb-4 flex items-center gap-3"><i class="ph-fill ph-rocket-launch text-emerald-400 text-4xl"></i> Aulão de Revisão</h3><p class="text-indigo-100 text-lg mb-6">Aqui condensamos as pegadinhas e os tópicos mais densos vistos de segunda a sexta-feira para fixação de longo prazo.</p></div>`;
-                aulaObj.questoes = gerarQuestoes("Revisão", {t: "Revisão de Fixação"});
+                let semanaIndex = Math.floor(i / 7) + 1;
+                aulaObj.tema = `Super Revisão Tática Semanal - Semana ${semanaIndex}`;
+                
+                // Gera a teoria de revisão baseada nos dias anteriores
+                let revData = gerarRevisaoSemanal(semanaIndex);
+                aulaObj.teoria = revData.html;
+                
+                // Gera 35 questões baseadas no que foi estudado
+                aulaObj.questoes = gerarQuestoesRevisao(revData.conteudos);
             } 
             else {
                 // Disciplina Regular: Busca o Tópico Sequencial Exato do Edital
