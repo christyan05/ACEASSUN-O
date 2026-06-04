@@ -352,6 +352,71 @@
             return qs;
         }
 
+        function gerarQuestoesSimulado() {
+            let qs = [];
+            // Distribuição do Edital:
+            // Português: 20 questões
+            // Informática: 5 questões
+            // Legislação e Município: 10 questões
+            // Conhecimentos Específicos: 15 questões
+            // Total: 50 questões
+
+            const distribuicao = [
+                { disc: "Português", qtd: 20 },
+                { disc: "Informática", qtd: 5 },
+                { disc: "Legislação e Município", qtd: 10 },
+                { disc: "Conhecimentos Específicos", qtd: 15 }
+            ];
+
+            const niveis = ['Fácil', 'Média', 'Difícil'];
+            let questaoCount = 1;
+
+            distribuicao.forEach(d => {
+                // Pega os tópicos da disciplina para gerar questões variadas
+                let topicos = concursoData.conteudoProgramatico[d.disc];
+                
+                for (let i = 0; i < d.qtd; i++) {
+                    let nivel = niveis[i % 3];
+                    // Seleciona um tópico aleatório ou cicla pelos tópicos
+                    let topicoObj = topicos[i % topicos.length];
+                    
+                    let enunciado = `(Simulado Ápice - Questão ${questaoCount} - ${d.disc}) Referente ao tópico "${topicoObj.t}", assinale a alternativa CORRETA:`;
+                    
+                    let expl = [
+                        `INCORRETA. A assertiva contraria as disposições normativas ou gramaticais exigidas pela banca para o tema ${topicoObj.t}.`,
+                        `INCORRETA. Apresenta um conceito distorcido, muito comum em pegadinhas da Ápice.`,
+                        `INCORRETA. Erro clássico de generalização indevida sobre ${topicoObj.t}.`,
+                        `INCORRETA. Confusão de conceitos básicos da disciplina de ${d.disc}.`,
+                        `CORRETA. Esta alternativa apresenta a literalidade ou a regra exata sobre ${topicoObj.t}, alinhada ao perfil da Banca Ápice.`
+                    ];
+                    
+                    let altCertaIndex = (questaoCount * 7 + 2) % 5; 
+                    
+                    let explRotacionada = [];
+                    let textoOpcoes = [];
+                    for(let k=0; k<5; k++) {
+                        if(k === altCertaIndex) {
+                            explRotacionada.push(expl[4]); 
+                            textoOpcoes.push(`Apresenta a consolidação exata e correta do conceito de ${topicoObj.t}.`);
+                        } else {
+                            explRotacionada.push(expl[k % 4]); 
+                            textoOpcoes.push(`Apresenta uma distorção sutil para gerar dúvida sobre ${topicoObj.t}.`);
+                        }
+                    }
+
+                    qs.push({
+                        t: enunciado,
+                        o: textoOpcoes,
+                        a: altCertaIndex,
+                        d: nivel,
+                        e: explRotacionada 
+                    });
+                    questaoCount++;
+                }
+            });
+            return qs;
+        }
+
         // Função geradora procedural de teoria gigante e exaustiva baseada no tópico do edital
         function gerarTeoriaMassiva(disciplina, topicoObj) {
             let html = `<p class="drop-cap">E</p><p class="text-xl leading-relaxed mb-8 text-slate-700 font-medium text-justify">stamos iniciando mais um ciclo de estudos focado na aprovação. O tema central desta aula, exigido rigorosamente pelo edital da Banca Ápice na disciplina de <strong>${disciplina}</strong>, será <strong>${topicoObj.t}</strong>. Elaboramos este material com nível de profundidade máximo, cobrindo todos os subtópicos listados no edital, jurisprudências (quando aplicáveis) e esquemas de memorização.</p>`;
@@ -451,9 +516,9 @@
             };
 
             if (disciplinaDia === "Simulado") {
-                aulaObj.tema = "Simulação Global (15 Questões Mistas de todo o Edital)";
-                aulaObj.teoria = `<div class="bg-slate-900 rounded-3xl p-10 text-center text-white border border-slate-700 shadow-2xl relative overflow-hidden"><i class="ph-duotone ph-target text-7xl text-emerald-400 mb-6 animate-pulse"></i><h3 class="text-4xl font-black mb-4">Simulado Oficial Ápice</h3><p class="text-indigo-200 text-xl font-medium">Esta é uma simulação de prova. Foque, cronometre seu tempo e não consulte material.</p></div>`;
-                aulaObj.questoes = gerarQuestoes("Conhecimentos Gerais", {t: "Simulado Misto do Edital"});
+                aulaObj.tema = "Simulação Global Padrão Ápice (50 Questões)";
+                aulaObj.teoria = `<div class="bg-slate-900 rounded-3xl p-10 text-center text-white border border-slate-700 shadow-2xl relative overflow-hidden"><i class="ph-duotone ph-target text-7xl text-emerald-400 mb-6 animate-pulse"></i><h3 class="text-4xl font-black mb-4">Simulado Oficial Ápice</h3><p class="text-indigo-200 text-xl font-medium leading-relaxed max-w-3xl mx-auto">Esta é uma simulação real de prova com 50 questões, distribuídas exata e proporcionalmente conforme o Edital: 20 de Português, 5 de Informática, 10 de Legislação e Município e 15 de Conhecimentos Específicos. Foque, cronometre seu tempo e não consulte material.</p></div>`;
+                aulaObj.questoes = gerarQuestoesSimulado();
             } 
             else if (disciplinaDia === "Revisão") {
                 let semanaIndex = Math.floor(i / 7) + 1;
